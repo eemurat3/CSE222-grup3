@@ -13,7 +13,6 @@
     - [4.1. Functional Requirements](#41-functional-requirements)
     - [4.2. Non-Functional Requirements](#42-non-functional-requirements)
   - [5. Use-Case Diagrams](#5-use-case-diagrams)
-  - [6. CSE222 Project Use Case (1).jpg](#6-cse222-project-use-case-1jpg)
     - [5.1 Context Diagram](#51-context-diagram)
     - [5.2 Container Diagram](#52-container-diagram)
   - [Project Members](#project-members)
@@ -33,7 +32,7 @@ The Hospital Management system has users such as manager, doctor, nurse, patient
 - Update hospital staffs’ information.
 - Inquiry product stocks and order products if necessary.
 - Access the patient’s information.
-- 
+
 ### 2.2 Doctor 
 - Display patients’ information.
 - Discharge patient from hospital.
@@ -88,8 +87,6 @@ The Hospital Management system has users such as manager, doctor, nurse, patient
 
 ## 5. Use-Case Diagrams 
 ![Use-Casease Diagram](Hospital_Management_System/img/use_case.jpg)
-
-## 6. CSE222 Project Use Case (1).jpg
 ### 5.1 Context Diagram 
 ![Context Diagram](Hospital_Management_System/img/c4context.png)
 ### 5.2 Container Diagram
