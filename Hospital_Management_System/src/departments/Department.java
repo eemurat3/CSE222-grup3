@@ -1,4 +1,4 @@
-package Departments;
+package departments;
 
 public class Department {
 
