@@ -12,8 +12,9 @@ import tests.Test;
 import users.Technician;
 
 public class Lab extends Department {
-    ArrayList<Technician> clinicalTechnicians;
-    TreeMap<Integer,Test> tests;
+    private ArrayList<Technician> clinicalTechnicians;
+    private TreeMap<Integer,Test> tests;
+
 
 
     public Lab(){

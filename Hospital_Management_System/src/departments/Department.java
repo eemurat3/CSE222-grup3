@@ -18,7 +18,7 @@ public abstract class Department {
 	/**
 	 * Department worker list
 	 */
-	private private ArrayList<Worker> workers;
+	private ArrayList<Worker> workers;
 	
 	/**
 	 * Default constructor
