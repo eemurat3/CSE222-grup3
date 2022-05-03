@@ -8,7 +8,7 @@ public class Patient extends User
     private ArrayList<Appointment> appointments = new ArrayList<>();
     private ArrayList<Prescription> prescriptions = new ArrayList<>();
 
-	public Patients(String name, String surname, String id, int age) {
+	public Patient(String name, String surname, String id, int age) {
         super(name, surname, id, age);
     }
 
