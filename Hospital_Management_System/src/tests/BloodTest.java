@@ -14,9 +14,9 @@ public class BloodTest extends Test{
   
     /**
     *  Constructor For BloodTest Class
-    *  @param patientID String 
+    *  @param patientID number 
     */	
-	public BloodTest(String patientID)
+	public BloodTest(int patientID)
 	{
 		super(patientID);
 		vitaminD = (int)(Math.random() * 100);
