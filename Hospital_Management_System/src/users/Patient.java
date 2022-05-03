@@ -2,14 +2,27 @@ package users;
 
 import java.util.ArrayList;
 
+import system.Appointment;
+import system.Prescription;
+import tests.Test;
+
 public class Patient extends User
 {
     private ArrayList<Test> tests = new ArrayList<>();
     private ArrayList<Appointment> appointments = new ArrayList<>();
     private ArrayList<Prescription> prescriptions = new ArrayList<>();
+    private boolean discharged = false;
 
 	public Patient(String name, String surname, String id, int age) {
         super(name, surname, id, age);
+    }
+    /*DISCHARGED*/ 
+    public boolean isDischarged() {
+        return discharged;
+    }
+
+    public void setDischarged(boolean discharged) {
+        this.discharged = discharged;
     }
 
     /* TEST */
@@ -60,19 +73,19 @@ public class Patient extends User
 
     /* DISPLAYS */
 	public String displayRecords(){
-		StringBuilder strB = new;
+		StringBuilder strB = new StringBuilder();
     	for(int i = 0 ; i < appointments.size() ; i++){
             strB.append(appointments.get(i)).append("\n");
         }
-        return strB;
+        return strB.toString();
 	}
 
 	public String displayPrescriptions(){
-		StringBuilder strB = new;
+		StringBuilder strB = new StringBuilder();
     	for(int i = 0 ; i < prescriptions.size() ; i++){
             strB.append(prescriptions.get(i)).append("\n");
         }
-        return strB;
+        return strB.toString();
 	}
 
 	public ArrayList<Doctor> displayDoctors(){

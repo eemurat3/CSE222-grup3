@@ -3,6 +3,8 @@ package users;
 import java.util.Date;
 import java.util.UUID;
 
+import system.Appointment;
+
 /**
  *
  * @author Ahmet Usluoglu

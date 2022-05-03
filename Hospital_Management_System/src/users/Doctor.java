@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.UUID;
 
+import system.Appointment;
+import system.Prescription;
+
 /**
  *
  * @author Ahmet Usluoglu
