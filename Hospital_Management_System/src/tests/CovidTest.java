@@ -15,7 +15,14 @@ public class CovidTest extends Test{
 
     public CovidTest(int patientID){
         super(patientID);
-        testResult = true;
+        testResult = false;
+    }
+
+    /** Default Constructor*/
+
+    public CovidTest(){
+        super(0);
+        testResult = false;
     }
 
     /** Set Result
