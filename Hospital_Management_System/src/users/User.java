@@ -69,7 +69,7 @@ public abstract class User implements Comparable<User>
 
     @Override
     public int compareTo(User other){
-        return other.getId().compareTo(id);
+        return getId().compareTo(other.getId());
     }
    
     @Override
