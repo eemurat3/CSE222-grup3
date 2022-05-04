@@ -18,13 +18,6 @@ public class CovidTest extends Test{
         testResult = false;
     }
 
-    /** Default Constructor*/
-
-    public CovidTest(){
-        super(0);
-        testResult = false;
-    }
-
     /** Set Result
     *@param result test result
     */
@@ -47,8 +40,8 @@ public class CovidTest extends Test{
 
     public String toString(){
         
-        return   (testResult == true) ? "Covid Test Result: Positive" :
-        "Covid Test Result: Negative";
+        return   "Patient ID:" + getID() + "\n" + ((testResult == true) ? "Covid Test Result: Positive" :
+        "Covid Test Result: Negative");
     }
 
 

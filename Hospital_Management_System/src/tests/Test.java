@@ -1,25 +1,30 @@
 package tests;
+import java.util.*;
 /**
  * @author H. Tuğçe Yavuz
  */
-public class Test {
- 	private int patientID;
+public abstract class Test implements Comparable <Test> {
+ 	private String patientID;
   
   	/**
   	* getter method for patient ID number
   	* @return patient ID number
   	*/
-  	public int getID(){return patientID;}
+  	public String getID(){return patientID;}
   
   	/**
   	* setter method for patient ID number
   	* @param patient ID number
   	*/
-  	public void setID(int newID){patientID = newID;}
+  	public void setID(String newID){patientID = newID;}
   
   	/**
   	*  Constructor For Test Class
   	*  @param patientID number 
   	*/
-  	public Test(int ID){patientID = ID;}
+  	public Test(String ID){patientID = ID;}
+	
+	public int compareTo(Test other){
+		return getID().compareTo(other.getID());
+	}
 }

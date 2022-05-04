@@ -9,7 +9,7 @@ public class RadiologicalTest extends Test{
 
     private String testResult;
 
-    /*MR,PET,BT,X-RAY etc. and body parts Example test type: head MR*/
+    /*MR,PET,BT,X-RAY etc. and body parts Example test type: Head MR*/
     private String testType;
 
     /** Constructor
@@ -20,9 +20,6 @@ public class RadiologicalTest extends Test{
         super(patientID);
     }
 
-    /** Default Constructor*/
-
-    public RadiologicalTest(){super(0);}
 
     /** Set Result
     *@param result test result
@@ -67,7 +64,7 @@ public class RadiologicalTest extends Test{
 
     public String toString(){
         
-        return "Test Type: " + testType + "\nTest Result: " + testResult;
+        return "Patient ID:" + getID() + "\n" + "Test Type: " + testType + "\nTest Result: " + testResult;
     }
 
 
