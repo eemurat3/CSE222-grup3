@@ -4,8 +4,9 @@ import java.util.*;
  * @author H. Tuğçe Yavuz
  */
 public abstract class Test implements Comparable <Test> {
- 	private String patientID;
-  
+ 	
+	private String patientID;
+	
   	/**
   	* getter method for patient ID number
   	* @return patient ID number

@@ -2,7 +2,9 @@ package users;
 
 import java.util.ArrayList;
 
+import departments.Department;
 import system.Appointment;
+import system.HMSystem;
 import system.Prescription;
 import tests.Test;
 
@@ -88,11 +90,12 @@ public class Patient extends User
         return strB.toString();
 	}
 
+    
 	public ArrayList<Doctor> displayDoctors(){
 		ArrayList<Doctor> list = new ArrayList<>();
-    	for(int i = 0 ; i < Department.workers.size() ; i++){
-            if(Department.workers.get(i) instanceof Doctor)
-                list.add((Doctor)Department.workers.get(i));
+    	for(int i = 0 ; i < HMSystem.workers.size() ; i++){
+            if(HMSystem.workers.get(i) instanceof Doctor)
+                list.add((Doctor)HMSystem.workers.get(i));
         }
         return list;
 	}

@@ -1,4 +1,8 @@
 package users;
+
+import departments.Department;
+import system.HMSystem;
+
 /**
  *
  * @author Yusuf Talha Altun
@@ -12,7 +16,7 @@ public class Manager extends Worker{
     public void editStaff(Worker worker1, Worker worker2){
         worker1.setName(worker2.getName());
         worker1.setSurname(worker2.getSurname());
-        worker1.setID(worker2.getID());
+        worker1.setId(worker2.getId());
         worker1.setAge(worker2.getAge());
         worker1.setUsername(worker2.getUsername());
         worker1.setPassword(worker2.getPassword());
@@ -22,17 +26,9 @@ public class Manager extends Worker{
         HMSystem.departments.remove(department);
     }
 
-    public void inquiryStocks(Product product){
-        product.checkStocks();
-    }
-
     public void addDepartment(Department department){
         Department newDep = new Department(department);
         HMSystem.departments.add(newDep);
-    }
-
-    public void orderProduct(Product product){
-        product.order();
     }
 
     public void addStaff(Worker worker){

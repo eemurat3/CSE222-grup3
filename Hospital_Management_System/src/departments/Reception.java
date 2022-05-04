@@ -26,6 +26,7 @@ public class Reception {
 	 */
     private ArrayList<Appointment> appointments;
     
+    
     public Reception(){
         advisors = new ArrayList<Advisor>();
         appointments = new ArrayList<Appointment>();
@@ -92,7 +93,7 @@ public class Reception {
      * @param appointmentID which is unique code for appointment
      */
     public void removeAppointment(String appointmentID){
-        for(int i = 0; i < advisors.size(); i++){
+        for(int i = 0; i < appointments.size(); i++){
             if(appointments.get(i).getId().equals(appointmentID))
                 appointments.remove(i);
         }

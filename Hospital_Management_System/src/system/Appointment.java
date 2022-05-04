@@ -19,6 +19,7 @@ public class Appointment implements Comparable<Appointment>
     private String prescription = "None";
     private String note = "No note";
     private boolean isTreated = false;
+    // Id eklencek
     
 
     public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date) {
