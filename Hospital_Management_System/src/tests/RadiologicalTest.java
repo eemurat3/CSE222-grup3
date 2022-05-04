@@ -1,4 +1,5 @@
 package tests;
+import java.io.*;
 
 /**
  * @author S. Burak YASAR
@@ -65,6 +66,35 @@ public class RadiologicalTest extends Test{
     public String toString(){
         
         return "Patient ID:" + getID() + "\n" + "Test Type: " + testType + "\nTest Result: " + testResult;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("------------ Test of RadiologicalTest ---------------\n");
+        
+        String patientId1 = "123456";
+
+        /**Constructor test */
+
+        RadiologicalTest test1 = new RadiologicalTest(patientId1);
+
+       
+        /**Setter test */
+
+        test1.setTestResult("png");
+        test1.setTestType("Head MR");
+
+
+        /**Getter test */
+
+        System.out.println("Get Test Result: " + test1.getTestResult());      
+        System.out.println("Get Test Type: " + test1.getTestType());
+
+        System.out.println();
+
+        /** stringTo Test */
+        System.out.println(test1);
+        
     }
 
 

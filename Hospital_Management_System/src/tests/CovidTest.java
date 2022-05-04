@@ -1,4 +1,5 @@
 package tests;
+import java.io.*;
 
 
 /**
@@ -42,6 +43,37 @@ public class CovidTest extends Test{
         
         return   "Patient ID:" + getID() + "\n" + ((testResult == true) ? "Covid Test Result: Positive" :
         "Covid Test Result: Negative");
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("------------ Test of RadiologicalTest ---------------\n");
+        
+        String patientId1 = "123456";
+
+
+        /**Constructor test */
+
+        CovidTest test1 = new CovidTest(patientId1);
+
+
+        /**Setter test */
+
+        test1.setTestResult(true);
+
+
+        /**Getter test */
+
+        System.out.println("Get Result: " + test1.getTestResult());
+
+
+        System.out.println();
+
+
+        /** stringTo Test */
+
+        System.out.println(test1);
+        
     }
 
 
