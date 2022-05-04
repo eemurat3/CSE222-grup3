@@ -1,5 +1,9 @@
 package system;
 
+/**
+ *
+ * @author Ahmet Uslugolu
+ */
 public class Prescription 
 {
     private String medicine = "None";

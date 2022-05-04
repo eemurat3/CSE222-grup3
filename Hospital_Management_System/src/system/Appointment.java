@@ -54,6 +54,9 @@ public class Appointment implements Comparable<Appointment>
 
     public void setDischarged(boolean discharged) {isTreated = discharged;}
 
+    public boolean getDischarged() {return isTreated;}
+
+
     
 
     @Override
