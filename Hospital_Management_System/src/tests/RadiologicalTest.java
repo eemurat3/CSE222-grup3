@@ -16,7 +16,7 @@ public class RadiologicalTest extends Test{
     *@param patientID patient id
     */
 
-    public RadiologicalTest(int patientID){
+    public RadiologicalTest(String patientID){
         super(patientID);
     }
 
