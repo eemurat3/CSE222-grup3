@@ -33,22 +33,45 @@ public class Doctor extends Worker
         
     }
 
-    public boolean addAppointment(Appointment appo) throws IOException{
+    public boolean addAppointment(Appointment appo) {
         appointments.offer(appo);
         // Company.appointmets.add(appointment);
         // Company.addAppointmentToDataBase(app);
         return true;
     }
     
-    public void givePrescription(Patient patient, Prescription pres , String note) throws IOException{
+    public void givePrescription(Patient patient, Prescription pres , String note) {
         
+        pres.setNote(note);
         patient.addPrescription(pres);
         //Company.addAppointmentToDataBase(appo);
     }
-    public void dischargePatient(Appointment appo , String note) throws IOException{
+    public void dischargePatient(Appointment appo , String note) {
+        appo.setNote(note);
         appointments.peek().setDischarged(true);
         appointments.remove();
         //Company.addAppointmentToDataBase(appo);
+    }
+
+
+    @Override
+    public boolean equals(Object obj) 
+    {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        
+        final Doctor other = (Doctor) obj;
+        if (getId() == other.getId()) {
+            return true;
+        }
+        return true;
     }
     
 }
