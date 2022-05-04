@@ -13,7 +13,7 @@ public class CovidTest extends Test{
     *@param patientID patient id
     */
 
-    public CovidTest(int patientID){
+    public CovidTest(String patientID){
         super(patientID);
         testResult = false;
     }
