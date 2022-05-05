@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.UUID;
 
-import system.Appointment;
-import system.Prescription;
+import systems.Appointment;
+import systems.Prescription;
 
 /**
  *
