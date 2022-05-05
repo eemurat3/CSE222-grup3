@@ -26,8 +26,9 @@ public class Manager extends Worker{
         HMSystem.departments.remove(department);
     }
 
+    // Department copy constructor gerekebilir 
     public void addDepartment(Department department){
-        Department newDep = new Department();
+        Department newDep = new Department(); // Department newDep = new Department(department);
         HMSystem.departments.add(newDep);
     }
 
