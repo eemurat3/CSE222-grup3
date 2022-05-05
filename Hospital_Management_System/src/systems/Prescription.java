@@ -25,5 +25,9 @@ public class Prescription
     public void setMed(String newMed){medicine = newMed;}
     public void setInstructions(String newInst){instructions = newInst;}
     public void setNote(String newNote){note = newNote;}
-
+    
+    @Override
+    public String toString() {
+        return "Prescription{" + "\nmedicine name: " + getMed() + "\nInstructions: " + getInstructions() + "\nNote: " + getNote() + "\n}\n";
+    }
 }

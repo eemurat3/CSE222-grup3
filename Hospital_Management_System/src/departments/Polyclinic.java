@@ -39,6 +39,12 @@ public class Polyclinic extends Department {
 	    patients  = new Queue<Patient>();*/
 	}
 	/**
+	* one parameter constructor
+	*/
+	public Polyclinic(String name) {
+		setName(name);
+	}
+	/**
 	 * add new doctor to polyclinc
 	 * @param d : new doctor
 	 */
