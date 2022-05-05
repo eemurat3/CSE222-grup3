@@ -41,7 +41,7 @@ public class Lab extends Department {
      * @param  testID which is unique code for test
      */
     public Test getTest(String testID){
-        TreeIterator i = tests.getIterator();
+        TreeIterator<Test> i = tests.getIterator();
 
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
@@ -137,7 +137,7 @@ public class Lab extends Department {
 
         result.append("Tests : \n");
 
-        TreeIterator i = tests.getIterator();
+        TreeIterator<Test> i = tests.getIterator();
  
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
@@ -160,7 +160,7 @@ public class Lab extends Department {
         BinarySearchTree<Test>  testsT = new BinarySearchTree<> ();
 
 
-        
+
 
         /* Fill technicians and tests*/
 
