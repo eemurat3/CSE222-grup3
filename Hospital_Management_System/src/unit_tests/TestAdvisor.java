@@ -1,5 +1,6 @@
 
-import src.*;
+import users.*;
+import departments.*;
 
 public class TestAdvisor {
 
