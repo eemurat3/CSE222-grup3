@@ -157,8 +157,8 @@ public class BloodTest extends Test{
 
 		start = System.nanoTime(); 
 		for(int i = 0; i < 1000; i++){
-				bst1000.add(new BloodTest(ID1000[i]));
-			}
+			bst1000.add(new BloodTest(ID1000[i]));
+		}
 		end1 = System.nanoTime(); 
 		sum = (end1 - start); 
 
@@ -178,8 +178,8 @@ public class BloodTest extends Test{
 
 		start = System.nanoTime(); 
 		for(int i = 0; i < 10000; i++){
-				bst10000.add(new BloodTest(ID10000[i]));
-			}
+			bst10000.add(new BloodTest(ID10000[i]));
+		}
 		end1 = System.nanoTime(); 
 		sum = (end1 - start); 
 
