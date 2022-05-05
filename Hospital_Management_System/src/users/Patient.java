@@ -3,9 +3,9 @@ package users;
 import java.util.ArrayList;
 
 import departments.Department;
-import system.Appointment;
-import system.HMSystem;
-import system.Prescription;
+import systems.Appointment;
+import systems.HMSystem;
+import systems.Prescription;
 import tests.Test;
 
 public class Patient extends User
