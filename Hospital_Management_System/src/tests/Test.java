@@ -1,5 +1,5 @@
 package tests;
-import java.util.*;
+
 /**
  * @author H. Tuğçe Yavuz
  */
