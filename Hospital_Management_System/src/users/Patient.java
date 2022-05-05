@@ -2,11 +2,10 @@ package users;
 
 import java.util.ArrayList;
 
-import departments.Department;
-import systems.Appointment;
-import systems.HMSystem;
-import systems.Prescription;
-import tests.Test;
+import departments.*;
+import systems.*;
+import tests.*;
+import java.util.Date;
 
 public class Patient extends User
 {
@@ -113,7 +112,8 @@ public class Patient extends User
     // Driver code
     public static void main(String args[])
     {
-    /********************************* Constructor ******************************************/
+    
+        /********************************* Constructor ******************************************/
 
             System.out.println("\nTesting Constructor \n");
 
@@ -131,7 +131,7 @@ public class Patient extends User
 
             System.out.println("\n");
 
-    /********************************* Discharged ******************************************/
+        /********************************* Discharged ******************************************/
             
             System.out.println("\nTesting Discharged related methods \n");
 
@@ -145,7 +145,7 @@ public class Patient extends User
 
             System.out.println("\n");
 
-    /********************************** TEST ********************************************/
+        /********************************** TEST ********************************************/
 
             System.out.println("\nTesting Tests related methods \n");
 
@@ -192,7 +192,7 @@ public class Patient extends User
 
             System.out.println("\n");
 
-    /********************************* APPOINTMENT ***************************************/
+        /********************************* APPOINTMENT ***************************************/
 
             System.out.println("\nTesting Appointments related methods \n");
 
@@ -200,10 +200,10 @@ public class Patient extends User
             Doctor doc = new Doctor("doc_n", "doc_sn", "doc_id", 999, "doc_m", "doc_p");
 
             ArrayList<Appointment> appointments = new ArrayList<Appointment>();
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "1"));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "2"));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "3"));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "4"));
 
             System.out.println("appointments:");
             for (int i = 0 ; i < appointments.size() ; i++) {
@@ -222,8 +222,8 @@ public class Patient extends User
 
             System.out.println("\nfew appointments added to appointments of patient pat1\n");
 
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
-            appointments.add(new Appointment(poly, doc, pat1, new Date()));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "5"));
+            appointments.add(new Appointment(poly, doc, pat1, new Date(), "6"));
 
 
             System.out.println("appointments of patient pat1 is returned to returned_appointments\n");
@@ -238,8 +238,8 @@ public class Patient extends User
             System.out.println("\npat1.displayRecords(): \n" + pat1.displayRecords());
 
             System.out.println("\n");
-            
-    /********************************* PRESCRIPTION ********************************/
+                
+        /********************************* PRESCRIPTION ********************************/
 
             System.out.println("\nTesting Prescriptions related methods \n");
 
@@ -284,7 +284,7 @@ public class Patient extends User
 
             System.out.println("\n");
 
-    /*********************************** DISPLAYS *************************************/
+        /*********************************** DISPLAYS *************************************/
 
             System.out.println("\nTesting displayDoctors \n");
 
@@ -329,8 +329,8 @@ public class Patient extends User
             }
 
             System.out.println("\n");
-            
-    /************************************** Override ************************************/
+                
+        /************************************** Override ************************************/
 
             System.out.println("\nTesting Override related methods \n");
 
@@ -348,6 +348,6 @@ public class Patient extends User
             System.out.println("pat3.toString(): " + pat3.toString());
             System.out.println("pat4.toString(): " + pat4.toString());
 
-    /**********************************************************************************/
+        /**********************************************************************************/
     }
 }
