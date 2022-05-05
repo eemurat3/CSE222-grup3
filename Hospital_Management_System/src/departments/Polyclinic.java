@@ -8,6 +8,9 @@ import users.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Queue;
+
+import org.junit.jupiter.api.Test;
+
 import java.util.PriorityQueue;
 public class Polyclinic extends Department {
 	/**
@@ -29,7 +32,7 @@ public class Polyclinic extends Department {
 	/**
 	 * default constructor
 	 */
-	Polyclinic() {
+	public Polyclinic() {
 		/*doctors   = ;
 	    nurses    = new ArrayList<Nurse>();
 	    secreters = new ArrayList<Secreter>();
@@ -99,7 +102,7 @@ public class Polyclinic extends Department {
 	 */
 	public int findDoctor(String name,String surname) {
 		for(int i=0;i<doctors.size();i++) {
-			if(doctors.get(i).getName() == name && doctors.get(i).getSurname()==surname)
+			if(doctors.get(i).getName().equals(name) && doctors.get(i).getSurname().equals(surname))
 				return i;
 		}
 		return -1;
@@ -140,7 +143,8 @@ public class Polyclinic extends Department {
 		int index=0;
 		Iterator<Patient> itr = patients.iterator();
 	    while(itr.hasNext()){
-	    	if(itr.next().getName() == name && itr.next().getSurname() == surname) {
+	    	Patient p = itr.next();
+	    	if(p.getName() == name && p.getSurname() == surname) {
 	    		return index;
 	    	}
 	        index++;
@@ -155,7 +159,7 @@ public class Polyclinic extends Department {
 	 */
 	public Doctor deleteDoctor(String name,String surname) {
 		int index = findDoctor(name,surname);
-		if(index > 0) {
+		if(index >= 0) {
 			Doctor deleted = doctors.get(index);
 			doctors.remove(index);
 			return deleted;
@@ -170,7 +174,7 @@ public class Polyclinic extends Department {
 	 */
 	public Nurse deleteNurse(String name,String surname) {
 		int index = findNurse(name,surname);
-		if(index > 0) {
+		if(index >= 0) {
 			Nurse deleted = nurses.get(index);
 			nurses.remove(index);
 			return deleted;
@@ -185,7 +189,7 @@ public class Polyclinic extends Department {
 	 */
 	public Secreter deleteSecreter(String name,String surname) {
 		int index = findSecreter(name,surname);
-		if(index > 0) {
+		if(index >= 0) {
 			Secreter deleted = secreters.get(index);
 			secreters.remove(index);
 			return deleted;
@@ -200,13 +204,13 @@ public class Polyclinic extends Department {
 	 */
 	public Patient deletePatient(String name,String surname) {
 		int index = findPatient(name,surname);
-		if(index > 0) {
-			Patient[] arr = (Patient[]) patients.toArray();
-			Patient deleted = arr[index];
+		if(index >= 0) {
+			Object[] arr =  patients.toArray();
+			Patient deleted = (Patient)arr[index];
+			System.out.println("name : "+ deleted.getName()+" "+deleted.getSurname());
 			patients.remove(deleted);
 			return deleted;
 		}
 		return null;
 	}
-
 }
