@@ -1,2 +1,17 @@
 /.metadata/
 .idea
+Hospital_Management_System/src/bin/Group3Main.class
+Hospital_Management_System/src/bin/departments/Department.class
+Hospital_Management_System/src/bin/departments/Polyclinic.class
+Hospital_Management_System/src/bin/systems/Appointment.class
+Hospital_Management_System/src/bin/systems/HMSystem.class
+Hospital_Management_System/src/bin/systems/Prescription.class
+Hospital_Management_System/src/bin/tests/Test.class
+Hospital_Management_System/src/bin/users/BinarySearchTree.class
+Hospital_Management_System/src/bin/users/BinarySearchTree$Node.class
+Hospital_Management_System/src/bin/users/Doctor.class
+Hospital_Management_System/src/bin/users/Nurse.class
+Hospital_Management_System/src/bin/users/Patient.class
+Hospital_Management_System/src/bin/users/Secreter.class
+Hospital_Management_System/src/bin/users/User.class
+Hospital_Management_System/src/bin/users/Worker.class
