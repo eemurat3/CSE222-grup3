@@ -1,7 +1,7 @@
 package users;
 
 import departments.Department;
-import system.HMSystem;
+import systems.HMSystem;
 
 /**
  *

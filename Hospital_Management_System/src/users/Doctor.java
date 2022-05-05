@@ -22,7 +22,7 @@ public class Doctor extends Worker
     {
         super(name, surname, id, age, email ,  password);
         appointments = new PriorityQueue<>();
-        // Company.appointmets.add(appointment);
+        // HMSystem.appointmets.add(appointment);
     }
 
     public void displayPatientInfo(Patient patient) 
@@ -35,8 +35,8 @@ public class Doctor extends Worker
 
     public boolean addAppointment(Appointment appo) {
         appointments.offer(appo);
-        // Company.appointmets.add(appointment);
-        // Company.addAppointmentToDataBase(app);
+        // HMSystem.appointmets.add(appointment);
+        // HMSystem.addAppointmentToDataBase(app);
         return true;
     }
     
@@ -44,13 +44,13 @@ public class Doctor extends Worker
         
         pres.setNote(note);
         patient.addPrescription(pres);
-        //Company.addAppointmentToDataBase(appo);
+        //HMSystem.addAppointmentToDataBase(appo);
     }
     public void dischargePatient(Appointment appo , String note) {
         appo.setNote(note);
         appointments.peek().setDischarged(true);
         appointments.remove();
-        //Company.addAppointmentToDataBase(appo);
+        //HMSystem.addAppointmentToDataBase(appo);
     }
 
 
@@ -72,6 +72,12 @@ public class Doctor extends Worker
             return true;
         }
         return true;
+    }
+
+    public static void main(String[] args) 
+    {
+        Doctor dr1 = new Doctor("name", "surname", "id", 30, "email", "password");
+        System.out.print(dr1);
     }
     
 }
