@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import system.Appointment;
+import systems.Appointment;
 import users.Advisor;
 
 public class Reception {
