@@ -1,4 +1,6 @@
+import departments.Lab;
 import systems.HMSystem;
+import unit_tests.TestAdvisor;
 import users.Doctor;
 import users.Worker;
 
@@ -9,5 +11,7 @@ public class Group3Main {
         //HMSystem myHospital = new HMSystem();
 
         Doctor.main(args);
+        Lab.main(args);
+        TestAdvisor.main(args);
     }
 }

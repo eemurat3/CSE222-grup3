@@ -20,8 +20,6 @@ public class Reception {
 	 */
     private ArrayList<Advisor> advisors;
 
-    //TODO appointments type can be different
-
     /**
 	 * appointment list
 	 */
@@ -150,38 +148,36 @@ public class Reception {
         System.out.println(reception2);
 		
 		/** Modify methods */
-
-        /*
-        lab.addTest(new BloodTest("11"));
-        lab.addTest(new BloodTest("12"));
-        lab.addClinicalTechnician(new Technician("kemal", "leman", "11", 0, "ms", "sm"));
-        lab.addClinicalTechnician(new Technician("kemal", "leman", "12", 0, "ms", "sm"));
-        lab.removeTest("12");
-        lab.removeClinicalTechnician("12");*/
+        
+        reception.addAdvisorStaff(new Advisor("name", "surname", "11", 0, "username", "password"));
+        reception.addAppointment(new Appointment(new Polyclinic(), new Doctor("name", "surname", "11", 0, "email", "password"), new Patient("name", "surname", "11", 0), new Date(), "11"));
+        reception.addAdvisorStaff(new Advisor("name", "surname", "12", 0, "username", "password"));
+        reception.addAppointment(new Appointment(new Polyclinic(), new Doctor("name", "surname", "12", 0, "email", "password"), new Patient("name", "surname", "12", 0), new Date(), "12"));
+        reception.removeAdvisorStaff("11");
+        reception.removeAppointment("12");
 		
 		/** Data after modifying */
 
-        
-        //System.out.println("/** Data after modifying */\n");
+        System.out.println("/** Data after modifying */\n");
 
-		//System.out.println(lab);
+		System.out.println(reception);
         
 		/* Performance Testing */
 
-        //System.out.println("/* Performance Testing */\n");
+        System.out.println("/* Performance Testing */\n");
         
         //100 item
-        //tests
+        //advisors
 
-        /*
+        
         String[] ID100 = new String[100]; 
 		for(int i = 0; i < 100; i++){
 			Integer nextint = (int) (3200 * Math.random());
 			ID100[i] = nextint.toString();	
 		}
 
-        TreeMap<String,Test> tests100 = new TreeMap<>();
-        ArrayList<Technician> technicians100 = new ArrayList<>();
+        ArrayList<Advisor> advisors100 = new ArrayList<>();
+        ArrayList<Appointment> appointments100 = new ArrayList<>();
 
         double sum;
         double start = 0;
@@ -189,34 +185,32 @@ public class Reception {
 
         start = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            tests100.put(String.valueOf(i), new BloodTest(String.valueOf(i)));
+            advisors100.add(new Advisor("name", "surname", String.valueOf(i), 0, "username", "password"));
         }
         end1 = System.nanoTime(); 
         sum = (end1 - start); 
         
-        System.out.println("Run Time for 100 test: " + sum / 1000000000);
+        System.out.println("Run Time for 100 advisors: " + sum / 1000000000);
 
         //100 item
-        //technicians
+        //appointments
 
-        double sumTec;
-        double startTec = 0;
-        double end1Tec = 0; 
+        double sumApp;
+        double startApp = 0;
+        double end1App = 0; 
 
-        startTec = System.nanoTime(); 
+        startApp = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            technicians100.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+            appointments100.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
-        end1Tec = System.nanoTime(); 
-        sumTec = (end1Tec - startTec); 
+        end1App = System.nanoTime(); 
+        sumApp = (end1App - startApp); 
         
-        System.out.println("Run Time for 100 technician: " + sumTec / 1000000000);*/
+        System.out.println("Run Time for 100 appointments: " + sumApp / 1000000000);
         
         /*--------------------------------------------*/
-
-        /*
         //1000 item
-        //tests
+        //advisors
 
         String[] ID1000 = new String[1000]; 
 		for(int i = 0; i < 1000; i++){
@@ -224,7 +218,8 @@ public class Reception {
 			ID1000[i] = nextint.toString();	
 		}
 
-        TreeMap<String,Test> tests1000 = new TreeMap<>();
+        ArrayList<Advisor> advisors1000 = new ArrayList<>();
+        ArrayList<Appointment> appointments1000 = new ArrayList<>();
 
         double sum2;
         double start2 = 0;
@@ -232,38 +227,33 @@ public class Reception {
 
         start2 = System.nanoTime(); 
         for(int i = 0; i < 1000; i++){
-            tests1000.put(String.valueOf(i), new BloodTest(String.valueOf(i)));
+            advisors1000.add(new Advisor("name", "surname", String.valueOf(i), 0, "username", "password"));
         }
         end2 = System.nanoTime(); 
         sum2 = (end2 - start2); 
         
-        System.out.println("Run Time for 1000 test: " + sum2 / 1000000000);
-
+        System.out.println("Run Time for 1000 advisors: " + sum2 / 1000000000);
 
         //1000 item
-        //technician
+        //appointments
 
-        ArrayList<Technician> technicians1000 = new ArrayList<>();
+        double sumApp2;
+        double startApp2 = 0;
+        double end1App2 = 0; 
 
-        double sum2Tec;
-        double start2Tec = 0;
-        double end2Tec = 0; 
-
-        start2Tec = System.nanoTime(); 
+        startApp2 = System.nanoTime(); 
         for(int i = 0; i < 1000; i++){
-            technicians1000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+            appointments1000.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
-        end2Tec = System.nanoTime(); 
-        sum2Tec = (end2Tec - start2Tec); 
+        end1App2 = System.nanoTime(); 
+        sumApp2 = (end1App2 - startApp2); 
         
-        System.out.println("Run Time for 1000 technician: " + sum2Tec / 1000000000);
-        */
+        System.out.println("Run Time for 1000 appointments: " + sumApp2 / 1000000000);
 
+    
         /*--------------------------------------------*/
-
         //10000 item
-        //tests
-        /*
+        //advisors
 
         String[] ID10000 = new String[10000]; 
 		for(int i = 0; i < 10000; i++){
@@ -271,7 +261,8 @@ public class Reception {
 			ID10000[i] = nextint.toString();	
 		}
 
-        TreeMap<String,Test> tests10000 = new TreeMap<>();
+        ArrayList<Advisor> advisors10000 = new ArrayList<>();
+        ArrayList<Appointment> appointments10000 = new ArrayList<>();
 
         double sum3;
         double start3 = 0;
@@ -279,30 +270,28 @@ public class Reception {
 
         start3 = System.nanoTime(); 
         for(int i = 0; i < 10000; i++){
-            tests10000.put(String.valueOf(i), new BloodTest(String.valueOf(i)));
+            advisors10000.add(new Advisor("name", "surname", String.valueOf(i), 0, "username", "password"));
         }
         end3 = System.nanoTime(); 
         sum3 = (end3 - start3); 
         
-        System.out.println("Run Time for 10000 test: " + sum3 / 1000000000);
+        System.out.println("Run Time for 10000 advisors: " + sum3 / 1000000000);
 
         //10000 item
-        //technician
+        //appointments
 
-        ArrayList<Technician> technicians10000 = new ArrayList<>();
+        double sumApp3;
+        double startApp3 = 0;
+        double end1App3 = 0; 
 
-        double sum3Tec;
-        double start3Tec = 0;
-        double end3Tec = 0; 
-
-        start3Tec = System.nanoTime(); 
+        startApp3 = System.nanoTime(); 
         for(int i = 0; i < 10000; i++){
-            technicians10000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+            appointments10000.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
-        end3Tec = System.nanoTime(); 
-        sum3Tec = (end3Tec - start3Tec); 
+        end1App3 = System.nanoTime(); 
+        sumApp3 = (end1App3 - startApp3); 
         
-        System.out.println("Run Time for 10000 technician: " + sum3Tec / 1000000000);
-        */
+        System.out.println("Run Time for 10000 appointments: " + sumApp3 / 1000000000);
+
 	}
 }
