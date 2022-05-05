@@ -6,7 +6,7 @@ package departments;
  */
 import java.util.ArrayList;
 import users.Worker;
-public abstract class Department {
+public class Department {
 	/**
 	 * Department name
 	 */
@@ -23,7 +23,7 @@ public abstract class Department {
 	/**
 	 * Default constructor
 	 */
-	Department() {
+	public Department() {
 		id = -1;
 		name = "none";
 		workers = new ArrayList<>();

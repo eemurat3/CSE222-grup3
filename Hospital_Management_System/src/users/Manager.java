@@ -27,7 +27,7 @@ public class Manager extends Worker{
     }
 
     public void addDepartment(Department department){
-        Department newDep = new Department(department);
+        Department newDep = new Department();
         HMSystem.departments.add(newDep);
     }
 

@@ -47,6 +47,7 @@ public class Reception {
             if(i.getId().equals(advisorID))
                 return i;
         }
+        return null;
     }
 
     /**
@@ -78,6 +79,7 @@ public class Reception {
             if(i.getId().equals(appointmentID))
                 return i;
         }
+        return null;
     }
 
     /**
