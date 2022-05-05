@@ -83,33 +83,33 @@ public class BloodTest extends Test{
 	public static void main(String[] args){
 
 		System.out.println("------------ Test of Blood Test ---------------");
-        
-        String ID1 = "2222222";
 
-        /**Constructor test */
+		String ID1 = "2222222";
 
-        BloodTest test1 = new BloodTest(ID1);
+		/**Constructor test */
+
+		BloodTest test1 = new BloodTest(ID1);
 
 		/**initially created test result */
-		
-		System.out.println(test1);
-       
-        /**Setter test */
 
-        test1.setBloodType("AB");
+		System.out.println(test1);
+
+		/**Setter test */
+
+		test1.setBloodType("AB");
 		test1.setRH("+");
 		test1.setHemoglobin(10);
 		test1.setPotassium(5);
-        test1.setCalcium(2);
+		test1.setCalcium(2);
 		test1.setVitaminA(50);
 		test1.setVitaminD(70);
 		test1.setVitaminE(60);
 
 
-        /**Getter test after changes*/
+		/**Getter test after changes*/
 
-        System.out.println("Get Blood Type: " + test1.getBloodType());      
-        System.out.println("Get RH: " + test1.getRH());
+		System.out.println("Get Blood Type: " + test1.getBloodType());      
+		System.out.println("Get RH: " + test1.getRH());
 		System.out.println("Get VitaminA: " + test1.getVitaminA());
 		System.out.println("Get VitaminD: " + test1.getVitaminD());
 		System.out.println("Get VitaminE: " + test1.getVitaminE());
@@ -117,7 +117,7 @@ public class BloodTest extends Test{
 		System.out.println("Get Calcium: " + test1.getCalcium());
 		System.out.println("Get Potassium: " + test1.getPotassium());
 
-        System.out.println();	
+		System.out.println();	
 
 
 		/*performance testing*/
@@ -131,17 +131,17 @@ public class BloodTest extends Test{
 
 		BinarySearchTree<Test> bst100 = new BinarySearchTree<>();
 		double sum;
-        double start = 0;
-        double end1 = 0; 
+        	double start = 0;
+        	double end1 = 0; 
 
-        start = System.nanoTime(); 
-        for(int i = 0; i < 100; i++){
+        	start = System.nanoTime(); 
+        	for(int i = 0; i < 100; i++){
 			bst100.add(new BloodTest(ID100[i]));
 		}
-        end1 = System.nanoTime(); 
-        sum = (end1 - start); 
+        	end1 = System.nanoTime(); 
+        	sum = (end1 - start); 
          
-        System.out.println("Run Time for 100 test: " + sum / 1000000000);
+        	System.out.println("Run Time for 100 test: " + sum / 1000000000);
 		/*-------------------------------------------------------------*/
 
 		//randomly created patient ids for 1000 patient
@@ -152,17 +152,17 @@ public class BloodTest extends Test{
 		}
 
 		BinarySearchTree<Test> bst1000 = new BinarySearchTree<>();
-        start = 0;
-        end1 = 0; 
+       	 	start = 0;
+        	end1 = 0; 
 
-        start = System.nanoTime(); 
-        for(int i = 0; i < 1000; i++){
-			bst1000.add(new BloodTest(ID1000[i]));
-		}
-        end1 = System.nanoTime(); 
-        sum = (end1 - start); 
-         
-        System.out.println("Run Time for 1000 test: " + sum / 1000000000);
+		start = System.nanoTime(); 
+		for(int i = 0; i < 1000; i++){
+				bst1000.add(new BloodTest(ID1000[i]));
+			}
+		end1 = System.nanoTime(); 
+		sum = (end1 - start); 
+
+		System.out.println("Run Time for 1000 test: " + sum / 1000000000);
 		/*-------------------------------------------------------------*/
 
 		//randomly created patient ids for 10000 patient
@@ -173,17 +173,17 @@ public class BloodTest extends Test{
 		}
 
 		BinarySearchTree<Test> bst10000 = new BinarySearchTree<>();
-        start = 0;
-        end1 = 0; 
+		start = 0;
+		end1 = 0; 
 
-        start = System.nanoTime(); 
-        for(int i = 0; i < 10000; i++){
-			bst10000.add(new BloodTest(ID10000[i]));
-		}
-        end1 = System.nanoTime(); 
-        sum = (end1 - start); 
-         
-        System.out.println("Run Time for 10000 test: " + sum / 1000000000);
+		start = System.nanoTime(); 
+		for(int i = 0; i < 10000; i++){
+				bst10000.add(new BloodTest(ID10000[i]));
+			}
+		end1 = System.nanoTime(); 
+		sum = (end1 - start); 
+
+		System.out.println("Run Time for 10000 test: " + sum / 1000000000);
 	}
 
 }
