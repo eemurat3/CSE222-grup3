@@ -73,28 +73,43 @@ public class RadiologicalTest extends Test{
         System.out.println("------------ Test of RadiologicalTest ---------------\n");
         
         String patientId1 = "123456";
+        String patientId2 = "573497538464";
 
         /**Constructor test */
 
         RadiologicalTest test1 = new RadiologicalTest(patientId1);
-
+        RadiologicalTest test2 = new RadiologicalTest(patientId2);
        
         /**Setter test */
 
         test1.setTestResult("png");
         test1.setTestType("Head MR");
+        
+        
+        test2.setTestResult("png");
+        test2.setTestType("PET Scan");
 
 
         /**Getter test */
 
         System.out.println("Get Test Result: " + test1.getTestResult());      
         System.out.println("Get Test Type: " + test1.getTestType());
+        
+        System.out.println();
+        
+        System.out.println("Get Test Result: " + test2.getTestResult());
+        System.out.println("Get Test Type: " + test2.getTestType());
 
         System.out.println();
 
+        
         /** stringTo Test */
+        
         System.out.println(test1);
         
+        System.out.println();
+        
+        System.out.println(test2);
     }
 
 
