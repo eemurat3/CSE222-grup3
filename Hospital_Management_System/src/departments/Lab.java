@@ -17,7 +17,7 @@ public class Lab extends Department {
 	 * Clinical Technician List
 	 */
     private ArrayList<Technician> clinicalTechnicians;
-    
+
     /**
 	 * Test Map
 	 */
@@ -174,6 +174,9 @@ public class Lab extends Department {
 		/* Performance Testing */
         System.out.println("/* Performance Testing */\n");
         
+        //100 item
+        //tests
+
         String[] ID100 = new String[100]; 
 		for(int i = 0; i < 100; i++){
 			Integer nextint = (int) (3200 * Math.random());
@@ -181,6 +184,7 @@ public class Lab extends Department {
 		}
 
         TreeMap<String,Test> tests100 = new TreeMap<>();
+        ArrayList<Technician> technicians100 = new ArrayList<>();
 
         double sum;
         double start = 0;
@@ -194,9 +198,27 @@ public class Lab extends Department {
         sum = (end1 - start); 
         
         System.out.println("Run Time for 100 test: " + sum / 1000000000);
+
+        //100 item
+        //technicians
+
+        double sumTec;
+        double startTec = 0;
+        double end1Tec = 0; 
+
+        startTec = System.nanoTime(); 
+        for(int i = 0; i < 100; i++){
+            technicians100.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+        }
+        end1Tec = System.nanoTime(); 
+        sumTec = (end1Tec - startTec); 
+        
+        System.out.println("Run Time for 100 technician: " + sumTec / 1000000000);
         
         /*--------------------------------------------*/
 
+        //1000 item
+        //tests
 
         String[] ID1000 = new String[1000]; 
 		for(int i = 0; i < 1000; i++){
@@ -219,7 +241,29 @@ public class Lab extends Department {
         
         System.out.println("Run Time for 1000 test: " + sum2 / 1000000000);
 
+
+        //1000 item
+        //technician
+
+        ArrayList<Technician> technicians1000 = new ArrayList<>();
+
+        double sum2Tec;
+        double start2Tec = 0;
+        double end2Tec = 0; 
+
+        start2Tec = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+            technicians1000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+        }
+        end2Tec = System.nanoTime(); 
+        sum2Tec = (end2Tec - start2Tec); 
+        
+        System.out.println("Run Time for 1000 technician: " + sum2Tec / 1000000000);
+
         /*--------------------------------------------*/
+
+        //10000 item
+        //tests
 
         String[] ID10000 = new String[10000]; 
 		for(int i = 0; i < 10000; i++){
@@ -241,6 +285,24 @@ public class Lab extends Department {
         sum3 = (end3 - start3); 
         
         System.out.println("Run Time for 10000 test: " + sum3 / 1000000000);
+
+        //10000 item
+        //technician
+
+        ArrayList<Technician> technicians10000 = new ArrayList<>();
+
+        double sum3Tec;
+        double start3Tec = 0;
+        double end3Tec = 0; 
+
+        start3Tec = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++){
+            technicians10000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+        }
+        end3Tec = System.nanoTime(); 
+        sum3Tec = (end3Tec - start3Tec); 
+        
+        System.out.println("Run Time for 10000 technician: " + sum3Tec / 1000000000);
     
 	}
 }
