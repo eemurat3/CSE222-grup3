@@ -303,8 +303,8 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 		}
 	}
 
-	public TreeIterator getIterator(){
-		return TreeIterator.iterator(root);
+	public TreeIterator<E> getIterator(){
+		return new TreeIterator<E>(root);
 	}
 
 	/**
