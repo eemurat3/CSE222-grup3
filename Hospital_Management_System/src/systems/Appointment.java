@@ -23,11 +23,12 @@ public class Appointment implements Comparable<Appointment>
     // Id eklencek
     
 
-    public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date) {
+    public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date, String id) {
         this.polyclinic = polyclinic;
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
+        this.id = id;
     }
 
     public Polyclinic getPolyclinic() {return polyclinic;}

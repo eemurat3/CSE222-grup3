@@ -48,7 +48,6 @@ public class Reception {
             if(i.getId().equals(advisorID))
                 return i;
         }
-
         return null;
     }
 
@@ -81,7 +80,6 @@ public class Reception {
             if(i.getId().equals(appointmentID))
                 return i;
         }
-
         return null;
     }
 
@@ -134,7 +132,7 @@ public class Reception {
             advisorsT.add(new Advisor("a", "b",String.valueOf(i), 0, "username", "password"));
         }
         for(int i=0;i<10;i++){
-            appointmentsT.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date()));
+            appointmentsT.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(),String.valueOf(i)));
         }
 
 		System.out.println("------------ Test of Reception Department ---------------");
