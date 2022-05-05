@@ -19,6 +19,7 @@ public class Appointment implements Comparable<Appointment>
     private String prescription = "None";
     private String note = "No note";
     private boolean isTreated = false;
+    private String id = "";
     // Id eklencek
     
 
@@ -56,6 +57,12 @@ public class Appointment implements Comparable<Appointment>
     public void setDischarged(boolean discharged) {isTreated = discharged;}
 
     public boolean getDischarged() {return isTreated;}
+
+    public String getId() {return id;}
+
+    public void setId(String newId) {id = newId;}
+
+
 
 
     
