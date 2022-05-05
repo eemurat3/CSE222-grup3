@@ -1,4 +1,7 @@
 package tests;
+
+import users.BinarySearchTree;
+
 /**
  * @author H. Tuğçe Yavuz
  */
@@ -67,10 +70,121 @@ public class BloodTest extends Test{
   	@Override
 	public String toString()
 	{
-		return  "\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
+		return  "\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "\n\nBLOOD TEST RESULTS :"
 			+ "\nVitamin-A : " + String.valueOf(vitaminA) + "ug/L" + "\nVitamin-D : " + String.valueOf(vitaminD) + "ug/L"
 			+ "\nVitamin-E : " + String.valueOf(vitaminE) + "ug/L" + "\nHemoglobin : " + String.valueOf(hemoglobin) + "gr/dL"
-			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL";
+			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL" + "\n\n";
+	}
+
+	/**
+	 * performance analysis of bloodtest class
+	 * @param args
+	 */
+	public static void main(String[] args){
+
+		System.out.println("------------ Test of Blood Test ---------------");
+        
+        String ID1 = "2222222";
+
+        /**Constructor test */
+
+        BloodTest test1 = new BloodTest(ID1);
+
+		/**initially created test result */
+		
+		System.out.println(test1);
+       
+        /**Setter test */
+
+        test1.setBloodType("AB");
+		test1.setRH("+");
+		test1.setHemoglobin(10);
+		test1.setPotassium(5);
+        test1.setCalcium(2);
+		test1.setVitaminA(50);
+		test1.setVitaminD(70);
+		test1.setVitaminE(60);
+
+
+        /**Getter test after changes*/
+
+        System.out.println("Get Blood Type: " + test1.getBloodType());      
+        System.out.println("Get RH: " + test1.getRH());
+		System.out.println("Get VitaminA: " + test1.getVitaminA());
+		System.out.println("Get VitaminD: " + test1.getVitaminD());
+		System.out.println("Get VitaminE: " + test1.getVitaminE());
+		System.out.println("Get Hemoglobin: " + test1.getHemoglobin());
+		System.out.println("Get Calcium: " + test1.getCalcium());
+		System.out.println("Get Potassium: " + test1.getPotassium());
+
+        System.out.println();	
+
+
+		/*performance testing*/
+
+		//randomly created patient ids for 100 patient
+		String[] ID100 = new String[100]; 
+		for(int i = 0; i < 100; i++){
+			Integer nextint = (int) (3200 * Math.random());
+			ID100[i] = nextint.toString();	
+		}
+
+		BinarySearchTree<Test> bst100 = new BinarySearchTree<>();
+		double sum;
+        double start = 0;
+        double end1 = 0; 
+
+        start = System.nanoTime(); 
+        for(int i = 0; i < 100; i++){
+			bst100.add(new BloodTest(ID100[i]));
+		}
+        end1 = System.nanoTime(); 
+        sum = (end1 - start); 
+         
+        System.out.println("Run Time for 100 test: " + sum / 1000000000);
+		/*-------------------------------------------------------------*/
+
+		//randomly created patient ids for 1000 patient
+		String[] ID1000 = new String[1000];
+		for(int i = 0; i < 1000; i++){
+			Integer nextint = (int) (3200 * Math.random());
+			ID1000[i] = nextint.toString();	
+		}
+
+		BinarySearchTree<Test> bst1000 = new BinarySearchTree<>();
+        start = 0;
+        end1 = 0; 
+
+        start = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+			bst1000.add(new BloodTest(ID1000[i]));
+		}
+        end1 = System.nanoTime(); 
+        sum = (end1 - start); 
+         
+        System.out.println("Run Time for 1000 test: " + sum / 1000000000);
+		/*-------------------------------------------------------------*/
+
+		//randomly created patient ids for 10000 patient
+		String[] ID10000 = new String[10000];
+		for(int i = 0; i < 10000; i++){
+			Integer nextint = (int) (3200 * Math.random());
+			ID10000[i] = nextint.toString();	
+		}
+
+		BinarySearchTree<Test> bst10000 = new BinarySearchTree<>();
+        start = 0;
+        end1 = 0; 
+
+        start = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++){
+			bst10000.add(new BloodTest(ID10000[i]));
+		}
+        end1 = System.nanoTime(); 
+        sum = (end1 - start); 
+         
+        System.out.println("Run Time for 10000 test: " + sum / 1000000000);
 	}
 
 }
+
