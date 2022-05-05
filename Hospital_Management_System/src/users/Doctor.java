@@ -9,6 +9,8 @@ import java.util.UUID;
 import systems.Appointment;
 import systems.Prescription;
 
+
+
 /**
  *
  * @author Ahmet Usluoglu
@@ -46,6 +48,7 @@ public class Doctor extends Worker
         patient.addPrescription(pres);
         //HMSystem.addAppointmentToDataBase(appo);
     }
+   
     public void dischargePatient(Appointment appo , String note) {
         appo.setNote(note);
         appointments.peek().setDischarged(true);
@@ -77,7 +80,11 @@ public class Doctor extends Worker
     public static void main(String[] args) 
     {
         Doctor dr1 = new Doctor("name", "surname", "id", 30, "email", "password");
+        System.out.print("\n");
         System.out.print(dr1);
+    }
+
+    public void waitingPatients() {
     }
     
 }

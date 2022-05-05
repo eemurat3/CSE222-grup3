@@ -1,4 +1,7 @@
 package users;
+
+import systems.Prescription;
+
 /**
  *
  * @author Yusuf Talha Altun
@@ -8,7 +11,7 @@ public class Secreter extends Worker{
         super(name, surname, id, age, email ,  password);
     }
 
-    public void prescribePatient(Patient patient, Prescription pres , String note) throws IOException{
+    public void prescribePatient(Patient patient, Prescription pres , String note) {
         patient.addPrescription(pres);
     }
 
