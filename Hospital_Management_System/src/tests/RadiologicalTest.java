@@ -20,6 +20,12 @@ public class RadiologicalTest extends Test{
     public RadiologicalTest(String patientID){
         super(patientID);
     }
+    
+    public RadiologicalTest(String patientID, String testResult, String testType){
+        super(patientID);
+        this.testResult = testResult;
+        this.testType = testType;
+    }      
 
 
     /** Set Result
@@ -65,7 +71,7 @@ public class RadiologicalTest extends Test{
 
     public String toString(){
         
-        return "Patient ID:" + getID() + "\n" + "Test Type: " + testType + "\nTest Result: " + testResult;
+        return "\nPatient ID:" + getID() + " Test Type: " + testType + "\tTest Result: " + testResult;
     }
 
     public static void main(String[] args) {
