@@ -149,7 +149,7 @@ public class ut_polyclinic {
 		deleteMethodRunningTime(100,98);
 		deleteMethodRunningTime(1000,998);
 		deleteMethodRunningTime(10000,9998);
-        System.out.print("\n\n\t\t\t POLYCLINIC TESTING STARTS \n\n");
+        System.out.print("\n\n\t\t\t POLYCLINIC TESTING ENDS \n\n");
 
 	}
 
