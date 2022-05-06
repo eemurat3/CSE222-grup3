@@ -18,6 +18,11 @@ public class CovidTest extends Test{
         super(patientID);
         testResult = false;
     }
+    
+    public CovidTest(String patientID, boolean testResult){
+        super(patientID);
+        this.testResult = testResult;
+    }     
 
     /** Set Result
     *@param result test result
@@ -41,8 +46,8 @@ public class CovidTest extends Test{
 
     public String toString(){
         
-        return   "Patient ID:" + getID() + "\n" + ((testResult == true) ? "Covid Test Result: Positive" :
-        "Covid Test Result: Negative");
+        return   "\nPatient ID:" + getID() + ((testResult == true) ? " Covid Test Result: Positive" :
+        " Covid Test Result: Negative");
     }
 
     public static void main(String[] args) {
