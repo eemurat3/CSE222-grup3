@@ -2,7 +2,7 @@
 /**
  * TestTechnician
  */
-
+package unit_tests;
 import src.*;
 
 public class TestTechnician {
