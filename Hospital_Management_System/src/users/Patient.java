@@ -7,6 +7,10 @@ import systems.*;
 import tests.*;
 import java.util.Date;
 
+/**
+ *
+ * @author Muhammed Akif Sevilgen
+ */
 public class Patient extends User
 {
     private ArrayList<Test> tests = new ArrayList<>();
@@ -14,27 +18,57 @@ public class Patient extends User
     private ArrayList<Prescription> prescriptions = new ArrayList<>();
     private boolean discharged = false;
 
+    // Creating a constructor for the Patient class.
     public Patient(String name, String surname, String id, int age) {
         super(name, surname, id, age);
     }
-    /*DISCHARGED*/ 
+
+    //DISCHARGED
+
+    /**
+     * This function returns a boolean value that indicates whether the patient has been discharged or
+     * not
+     * 
+     * @return The boolean value of discharged.
+     */
     public boolean isDischarged() {
         return discharged;
     }
 
+    /**
+     * This function sets the value of the discharged variable to the value of the discharged parameter
+     * 
+     * @param discharged boolean
+     */
     public void setDischarged(boolean discharged) {
         this.discharged = discharged;
     }
 
-    /* TEST */
+    // TEST 
+
+    /**
+     * This function returns an ArrayList of Test objects
+     * 
+     * @return The tests arraylist.
+     */
     public ArrayList<Test> getTests() {
         return tests;
     }
 
+    /**
+     * This function sets the tests variable to the tests parameter
+     * 
+     * @param tests An ArrayList of Test objects.
+     */
     public void setTests(ArrayList<Test> tests) {
         this.tests = tests;
     }
 
+    /**
+     * This function adds a test to the list of tests
+     * 
+     * @param test The test to add to the list of tests.
+     */
     public void addTest(Test test){
         if(test == null)
             throw new NullPointerException();
@@ -42,30 +76,63 @@ public class Patient extends User
         tests.add(test);
     }
 
-    /* APPOINTMENT */
+    // APPOINTMENT
+
+    /**
+     * This function returns an ArrayList of Appointment objects
+     * 
+     * @return The appointments arraylist is being returned.
+     */
     public ArrayList<Appointment> getAppointments() {
         return appointments;
     }
 
+    /**
+     * This function sets the appointments of the current object to the appointments passed in as a
+     * parameter
+     * 
+     * @param appointments ArrayList of Appointment objects
+     */
     public void setAppointments(ArrayList<Appointment> appointments) {
         this.appointments = appointments;
     }
 
+    /**
+     * This function adds an appointment to the list of appointments
+     * 
+     * @param app The appointment to be added to the list.
+     */
     public void addAppointment(Appointment app){
         if(app == null)
             throw new NullPointerException();
         appointments.add(app);
     }
 
-    /* PRESCRIPTION */
+    //Prescriptions
+
+    /**
+     * This function returns an ArrayList of Prescription objects
+     * 
+     * @return The ArrayList of Prescriptions.
+     */
     public ArrayList<Prescription> getPrescriptions() {
         return prescriptions;
     }
 
+    /**
+     * This function sets the prescriptions of a patient
+     * 
+     * @param prescriptions ArrayList of Prescription objects
+     */
     public void setPrescriptions(ArrayList<Prescription> prescriptions) {
         this.prescriptions = prescriptions;
     }
 
+    /**
+     * This function adds a prescription to the list of prescriptions
+     * 
+     * @param pres Prescription
+     */
     public void addPrescription(Prescription pres){
         if(pres == null)
             throw new NullPointerException();
@@ -81,6 +148,11 @@ public class Patient extends User
         return strB.toString();
     }
 
+    /**
+     * This function takes the prescriptions arraylist and displays it in a numbered list
+     * 
+     * @return The string builder is being returned.
+     */
     public String displayPrescriptions(){
         StringBuilder strB = new StringBuilder();
         for(int i = 0 ; i < prescriptions.size() ; i++){
@@ -90,6 +162,12 @@ public class Patient extends User
     }
 
     
+    /**
+     * It loops through the workers arraylist and checks if the current worker is a doctor, if so it
+     * adds it to the list
+     * 
+     * @return An ArrayList of Doctor objects.
+     */
     public ArrayList<Doctor> displayDoctors(){
         ArrayList<Doctor> list = new ArrayList<>();
         for(int i = 0 ; i < HMSystem.workers.size() ; i++){

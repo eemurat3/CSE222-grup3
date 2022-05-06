@@ -1,7 +1,6 @@
 package tests;
 import java.io.*;
 
-
 /**
  * @author S. Burak YASAR
  */
@@ -13,16 +12,22 @@ public class CovidTest extends Test{
     /** Constructor
     *@param patientID patient id
     */
-
     public CovidTest(String patientID){
         super(patientID);
         testResult = false;
     }
+    
+    // A constructor.
+    public CovidTest(String patientID, boolean testResult){
+        super(patientID);
+        this.testResult = testResult;
+    }     
 
-    /** Set Result
-    *@param result test result
-    */
-
+    /**
+     * This function sets the testResult variable to the value of the parameter result
+     * 
+     * @param result The result of the test.
+     */
     public void setTestResult(boolean result){
         testResult = result;
     }
@@ -30,7 +35,6 @@ public class CovidTest extends Test{
     /** Get Result
     *@return returns test result
     */
-
     public boolean getTestResult(){
         return testResult;
     }
@@ -38,13 +42,15 @@ public class CovidTest extends Test{
     /** Returns String representation of test result
     *@return returns test result
     */
-
     public String toString(){
         
-        return   "Patient ID:" + getID() + "\n" + ((testResult == true) ? "Covid Test Result: Positive" :
-        "Covid Test Result: Negative");
+        return   "\nPatient ID:" + getID() + ((testResult == true) ? " Covid Test Result: Positive" :
+        " Covid Test Result: Negative");
     }
 
+    /**
+     * This function is used to test the CovidTest class
+     */
     public static void main(String[] args) {
 
         System.out.println("------------ Test of RadiologicalTest ---------------\n");
