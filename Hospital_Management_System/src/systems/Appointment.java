@@ -109,6 +109,7 @@ public class Appointment implements Comparable<Appointment>
     	Date d = new Date();
         Date d2 = new Date();
     	
+        System.out.println("------------ Test of Appointment Class ---------------");
     	/* ---- Constructor Test ---- */
     	Appointment ap1 = new Appointment(pol1,dr1,p1,d,"123");
     	
