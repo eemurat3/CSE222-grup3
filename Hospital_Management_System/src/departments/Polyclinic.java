@@ -212,7 +212,6 @@ public class Polyclinic extends Department {
 		if(index >= 0) {
 			Object[] arr =  patients.toArray();
 			Patient deleted = (Patient)arr[index];
-			System.out.println("name : "+ deleted.getName()+" "+deleted.getSurname());
 			patients.remove(deleted);
 			return deleted;
 		}
