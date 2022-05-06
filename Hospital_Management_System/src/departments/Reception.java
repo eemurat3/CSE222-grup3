@@ -14,7 +14,7 @@ import users.Advisor;
 import users.Doctor;
 import users.Patient;
 
-public class Reception {
+public class Reception extends Department{
     /**
 	 * advisor list
 	 */
