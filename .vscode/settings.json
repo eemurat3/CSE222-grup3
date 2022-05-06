@@ -1,3 +1,7 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Hospital_Management_System/lib/junit-platform-console-standalone-1.8.1.jar"
+    ]
 }
