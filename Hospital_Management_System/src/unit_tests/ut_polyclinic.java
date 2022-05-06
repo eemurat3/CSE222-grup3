@@ -87,46 +87,55 @@ public class ut_polyclinic {
     }
 	/**
 	 * Add method running time for Doctor,Nurse and scretary
+	 * @param elementsize : number of element for adding operation
 	 */
-	static public void addMethodRunningTime() {
+	static public void addMethodRunningTime(int elementsize) {
 		Polyclinic pl = new Polyclinic();
-		Nurse n1 = new Nurse("try"+1,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n2 = new Nurse("try"+2,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n3 = new Nurse("try"+3,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
 		long startTime = System.nanoTime();
-		pl.addNurse(n1);
-		pl.addNurse(n2);
-		pl.addNurse(n3);
-		System.out.println("running time for adding(doctor,nurse,secretary)  : " + (System.nanoTime() - startTime)/3 + " ns");
+		for(int i=0;i<elementsize;i++) {
+			Nurse n1 = new Nurse("try"+i,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
+			pl.addNurse(n1);
+		}
+		System.out.println("running time for adding {"+ elementsize+"} Elements(doctor,nurse,secretary)  : " + (System.nanoTime() - startTime) + " ns");
 	}
 	/**
 	 * delete method running time for Doctor,Nurse and scretary
+	 * @param elementsize : number of element n the arraylist
+	 * @param deleting_index : deleting index in the array
 	 */
-	static public void deleteMethodRunningTime() {
+	static public void deleteMethodRunningTime(int elementsize,int deleting_index) {
 		Polyclinic pl = new Polyclinic();
-		Nurse n1 = new Nurse("try"+1,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n2 = new Nurse("try"+2,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n3 = new Nurse("try"+3,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n4 = new Nurse("try"+4,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n5 = new Nurse("try"+5,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		Nurse n6 = new Nurse("try"+6,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
-		pl.addNurse(n1);
-		pl.addNurse(n2);
-		pl.addNurse(n3);
-		pl.addNurse(n4);
-		pl.addNurse(n5);
-		pl.addNurse(n6);
+		for(int i=0;i<elementsize;i++) {
+			Secreter s = new Secreter("secreter"+i,"xyz"+i,"1",25,"xyz@gtu.uedu.tr","xyz");
+			pl.addSecreter(s);
+		}
+		
 		long startTime = System.nanoTime();
-		Nurse temp = pl.deleteNurse("try1", "xyz");
-		System.out.println("running time for deleting(doctor,nurse,secretary) : " + (System.nanoTime() - startTime)/3 + " ns");
+		//ArrayList<Secreter> temp = pl.getSecreters();
+		Secreter temp = pl.deleteSecreter(deleting_index);
+		//System.out.println(pl.getSecreters().get(deleting_index).getName()+" "+pl.getSecreters().get(deleting_index).getSurname());
+		if(temp != null)
+			System.out.println("running time for deleting "+deleting_index+".th element in the {"+ elementsize+"} Elements(doctor,nurse,secretary) : " + (System.nanoTime() - startTime )+ " ns");
 	}
 	public static void main(String [] args) {
 		testDoctorOperating();
 		testNurseOperating();
 		testSecreterOperating();
 		testPatientOperating();
-		addMethodRunningTime();
-		deleteMethodRunningTime();
+		System.out.println("*************Adding operation running time************");
+		addMethodRunningTime(10);
+		addMethodRunningTime(100);
+		addMethodRunningTime(1000);
+		addMethodRunningTime(10000);
+		System.out.println("************Deleting operation running time**********");
+		deleteMethodRunningTime(10,1);
+		deleteMethodRunningTime(100,1);
+		deleteMethodRunningTime(1000,1);
+		deleteMethodRunningTime(10000,1);
+		deleteMethodRunningTime(10,8);
+		deleteMethodRunningTime(100,98);
+		deleteMethodRunningTime(1000,998);
+		deleteMethodRunningTime(10000,9998);
 	}
 }
 
