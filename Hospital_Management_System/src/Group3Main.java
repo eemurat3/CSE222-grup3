@@ -4,7 +4,6 @@ import unit_tests.TestAdvisor;
 import users.Doctor;
 import users.Patient;
 import users.Worker;
-import users.Patient;
 
 public class Group3Main {
 
