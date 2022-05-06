@@ -15,3 +15,10 @@ Hospital_Management_System/src/bin/users/Patient.class
 Hospital_Management_System/src/bin/users/Secreter.class
 Hospital_Management_System/src/bin/users/User.class
 Hospital_Management_System/src/bin/users/Worker.class
+Hospital_Management_System/src/bin/tests/BloodTest.class
+Hospital_Management_System/src/bin/tests/CovidTest.class
+Hospital_Management_System/src/bin/tests/RadiologicalTest.class
+Hospital_Management_System/src/bin/unit_tests/TestAdvisor.class
+Hospital_Management_System/src/bin/users/Advisor.class
+Hospital_Management_System/src/bin/users/Technician.class
+Hospital_Management_System/src/bin/departments/Lab.class

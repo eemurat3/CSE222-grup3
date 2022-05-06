@@ -133,7 +133,8 @@ public class Polyclinic extends Department {
 	 */
 	public int findSecreter(String name,String surname) {
 		for(int i=0;i<secreters.size();i++) {
-			if(secreters.get(i).getName() == name && secreters.get(i).getSurname()==surname)
+			//System.out.print(" "+i+" ");
+			if(secreters.get(i).getName().equals(name) &&  secreters.get(i).getSurname().equals(surname))
 				return i;
 		}
 		return -1;
@@ -172,6 +173,19 @@ public class Polyclinic extends Department {
 		return null;
 	}
 	/**
+	 * delete existing doctor in the polyclinic doctor list with by index
+	 * @param index : deleted index no
+	 * @return null doctor is not deleted else deleting doctor object
+	 */
+	public Doctor deleteDoctor(int index) {
+		if(index >= 0 && index < doctors.size()) {
+			Doctor deleted = doctors.get(index);
+			doctors.remove(index);
+			return deleted;
+		}
+		return null;
+	}
+	/**
 	 * delete existing nurse in the polyclinic nurse list
 	 * @param name : nurse name
 	 * @param surname : nurse surname
@@ -187,6 +201,19 @@ public class Polyclinic extends Department {
 		return null;
 	}
 	/**
+	 * delete existing nurse in the polyclinic nurse list with by index
+	 * @param index : deleted index no
+	 * @return null nurse is not deleted else deleting nurse object
+	 */
+	public Nurse deleteNurse(int index) {
+		if(index >= 0 && index < nurses.size()) {
+			Nurse deleted = nurses.get(index);
+			nurses.remove(index);
+			return deleted;
+		}
+		return null;
+	}
+	/**
 	 * delete existing secreter in the polyclinic secreter list
 	 * @param name : secreter name
 	 * @param surname : secreter surname
@@ -195,6 +222,19 @@ public class Polyclinic extends Department {
 	public Secreter deleteSecreter(String name,String surname) {
 		int index = findSecreter(name,surname);
 		if(index >= 0) {
+			Secreter deleted = secreters.get(index);
+			secreters.remove(index);
+			return deleted;
+		}
+		return null;
+	}
+	/**
+	 * delete existing secreter in the polyclinic secreter list with by index
+	 * @param index : deleted index no
+	 * @return null secreter is not deleted else deleting secreterS object
+	 */
+	public Secreter deleteSecreter(int index) {
+		if(index >= 0 && index < secreters.size()) {
 			Secreter deleted = secreters.get(index);
 			secreters.remove(index);
 			return deleted;

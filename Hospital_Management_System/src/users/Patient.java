@@ -7,6 +7,10 @@ import systems.*;
 import tests.*;
 import java.util.Date;
 
+/**
+ *
+ * @author Muhammed Akif Sevilgen
+ */
 public class Patient extends User
 {
     private ArrayList<Test> tests = new ArrayList<>();

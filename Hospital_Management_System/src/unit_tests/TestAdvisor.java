@@ -1,4 +1,4 @@
-
+package unit_tests;
 import users.*;
 import departments.*;
 
