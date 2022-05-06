@@ -6,6 +6,8 @@ package departments;
  */
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import tests.BloodTest;
 import tests.Test;
@@ -14,26 +16,33 @@ import users.Technician;
 import users.TreeIterator;
 
 public class Lab extends Department {
+
     /**
 	 * Clinical Technician List
 	 */
     private ArrayList<Technician> clinicalTechnicians;
 
     /**
-	 * Test BST
+	 * Waitining Test Queue
 	 */
-    private BinarySearchTree<Test> tests;
+    private Queue<Test> tests;
 
+    /**
+	 * Waitining Test BST
+	 */
+    private BinarySearchTree<Test> allTests;
 
 
     public Lab(){
         clinicalTechnicians = new ArrayList<Technician>();
-        tests = new BinarySearchTree<Test>();
+        tests = new LinkedList<>();
+        allTests = new BinarySearchTree<>();
     }
 
-    public Lab(ArrayList<Technician> clinicalTechnicians,BinarySearchTree<Test> tests){
+    public Lab(ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> allTests){
         this.clinicalTechnicians = clinicalTechnicians;
         this.tests = tests;
+        this.allTests = allTests;
     }
 
     /**
@@ -41,7 +50,7 @@ public class Lab extends Department {
      * @param  testID which is unique code for test
      */
     public Test getTest(String testID){
-        TreeIterator<Test> i = tests.getIterator();
+        TreeIterator<Test> i = allTests.getIterator();
 
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
@@ -58,7 +67,7 @@ public class Lab extends Department {
      * @param test which is Test object
      */
     public void addTest(Test test){
-        tests.add(test);
+        allTests.add(test);
     }
 
     /**
@@ -66,7 +75,7 @@ public class Lab extends Department {
      * @param test which is Test object
      */
     public void removeTest(Test test){
-        tests.delete(test);
+        allTests.delete(test);
     }
 
     /**
@@ -137,7 +146,7 @@ public class Lab extends Department {
 
         result.append("Tests : \n");
 
-        TreeIterator<Test> i = tests.getIterator();
+        TreeIterator<Test> i = allTests.getIterator();
  
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
@@ -158,6 +167,7 @@ public class Lab extends Department {
 
         ArrayList<Technician> techniciansT = new ArrayList<>();
         BinarySearchTree<Test>  testsT = new BinarySearchTree<> ();
+        Queue<Test> testsQ = new LinkedList<>();
 
 
 
@@ -167,8 +177,11 @@ public class Lab extends Department {
         for(int i=0;i<10;i++){
             techniciansT.add(new Technician("trying1","trying2",String.valueOf(i), 0,"ty", "yt"));
         }
-        for(int i=10;i<20;i++){
+        for(int i=0;i<10;i++){
             testsT.add(new BloodTest(String.valueOf(i)));
+        }
+        for(int i=0;i<10;i++){
+            testsQ.add(new BloodTest(String.valueOf(i)));
         }
 
 		System.out.println("------------ Test of Lab Department ---------------");
@@ -180,7 +193,8 @@ public class Lab extends Department {
         System.out.println("/** Constructor test */ \n");
 
         Lab lab = new Lab();
-        Lab lab2 = new Lab(techniciansT,testsT);
+        Lab lab2 = new Lab(techniciansT,testsQ,testsT);
+        
 
 
 
@@ -220,9 +234,7 @@ public class Lab extends Department {
         
 		/* Performance Testing */
         System.out.println("/* Performance Testing */\n");
-        
-        //100 item
-        //tests
+
 
         String[] ID100 = new String[100]; 
 		for(int i = 0; i < 100; i++){
@@ -230,24 +242,46 @@ public class Lab extends Department {
 			ID100[i] = nextint.toString();	
 		}
 
-        BinarySearchTree<Test>  tests100 = new BinarySearchTree<>();
-        ArrayList<Technician> technicians100 = new ArrayList<>();
+        //100 item
+        //tests
+        Queue<Test> waitingTests100 = new LinkedList<>();
 
+        double sumw;
+        double startw = 0;
+        double end1w = 0; 
+
+        startw = System.nanoTime(); 
+        for(int i = 0; i < 100; i++){
+            waitingTests100.add(new BloodTest(String.valueOf(i)));
+        }
+        end1w = System.nanoTime(); 
+        sumw = (end1w - startw); 
+        
+        System.out.println("Run Time for 100 waiting tests: " + sumw / 1000000000);
+
+        
+        //100 item
+        //allTests
+        BinarySearchTree<Test>  allTests100 = new BinarySearchTree<>();
+        
         double sum;
         double start = 0;
         double end1 = 0; 
 
         start = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            tests100.add(new BloodTest(String.valueOf(i)));
+            allTests100.add(new BloodTest(String.valueOf(i)));
         }
         end1 = System.nanoTime(); 
         sum = (end1 - start); 
         
-        System.out.println("Run Time for 100 test: " + sum / 1000000000);
+        System.out.println("Run Time for 100 allTest: " + sum / 1000000000);
+
+
 
         //100 item
         //technicians
+        ArrayList<Technician> technicians100 = new ArrayList<>();
 
         double sumTec;
         double startTec = 0;
@@ -264,8 +298,29 @@ public class Lab extends Department {
         
         /*--------------------------------------------*/
 
+
         //1000 item
         //tests
+        Queue<Test> waitingTests1000 = new LinkedList<>();
+
+        double sumw2;
+        double startw2 = 0;
+        double end1w2 = 0; 
+
+        startw2 = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+            waitingTests1000.add(new BloodTest(String.valueOf(i)));
+        }
+        end1w2 = System.nanoTime(); 
+        sumw2 = (end1w2 - startw2); 
+        
+        System.out.println("Run Time for 1000 waiting tests: " + sumw2 / 1000000000);
+
+
+
+
+        //1000 item
+        //allTests
 
         String[] ID1000 = new String[1000]; 
 		for(int i = 0; i < 1000; i++){
@@ -273,7 +328,7 @@ public class Lab extends Department {
 			ID1000[i] = nextint.toString();	
 		}
 
-        BinarySearchTree<Test> tests1000 = new BinarySearchTree<>();
+        BinarySearchTree<Test> allTests1000 = new BinarySearchTree<>();
 
         double sum2;
         double start2 = 0;
@@ -281,12 +336,14 @@ public class Lab extends Department {
 
         start2 = System.nanoTime(); 
         for(int i = 0; i < 1000; i++){
-            tests1000.add(new BloodTest(String.valueOf(i)));
+            allTests1000.add(new BloodTest(String.valueOf(i)));
         }
         end2 = System.nanoTime(); 
         sum2 = (end2 - start2); 
         
-        System.out.println("Run Time for 1000 test: " + sum2 / 1000000000);
+        System.out.println("Run Time for 1000 allTest: " + sum2 / 1000000000);
+
+
 
 
         //1000 item
@@ -307,10 +364,31 @@ public class Lab extends Department {
         
         System.out.println("Run Time for 1000 technician: " + sum2Tec / 1000000000);
 
+
+
         /*--------------------------------------------*/
 
         //10000 item
         //tests
+        Queue<Test> waitingTests10000 = new LinkedList<>();
+
+        double sumw3;
+        double startw3 = 0;
+        double end1w3 = 0; 
+
+        startw3 = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++){
+            waitingTests10000.add(new BloodTest(String.valueOf(i)));
+        }
+        end1w3 = System.nanoTime(); 
+        sumw3 = (end1w3 - startw3); 
+        
+        System.out.println("Run Time for 10000 waiting tests: " + sumw3 / 1000000000);
+
+
+
+        //10000 item
+        //allTests
 
         String[] ID10000 = new String[10000]; 
 		for(int i = 0; i < 10000; i++){
@@ -318,7 +396,7 @@ public class Lab extends Department {
 			ID10000[i] = nextint.toString();	
 		}
 
-        BinarySearchTree<Test> tests10000 = new BinarySearchTree<>();
+        BinarySearchTree<Test> allTests10000 = new BinarySearchTree<>();
 
         double sum3;
         double start3 = 0;
@@ -326,12 +404,15 @@ public class Lab extends Department {
 
         start3 = System.nanoTime(); 
         for(int i = 0; i < 10000; i++){
-            tests10000.add(new BloodTest(String.valueOf(i)));
+            allTests10000.add(new BloodTest(String.valueOf(i)));
         }
         end3 = System.nanoTime(); 
         sum3 = (end3 - start3); 
         
-        System.out.println("Run Time for 10000 test: " + sum3 / 1000000000);
+        System.out.println("Run Time for 10000 allTest: " + sum3 / 1000000000);
+
+
+        
 
         //10000 item
         //technician
