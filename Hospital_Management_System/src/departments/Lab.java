@@ -130,6 +130,9 @@ public class Lab extends Department {
         }
     }
 
+    /**
+     * This function is used to print out the information of the clinical technicians and the tests
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -160,9 +163,11 @@ public class Lab extends Department {
     }
 
 
-
-
-
+    /**
+     * The function creates a Lab object and prints it. Then, it adds a test and a technician to the
+     * Lab object and removes a test and a technician from the Lab object. Then, it prints the Lab
+     * object again. Finally, it performs performance testing on the Lab object
+     */
     public static void main(String[] args){
 
         ArrayList<Technician> techniciansT = new ArrayList<>();

@@ -32,14 +32,26 @@ public class Manager extends Worker{
         HMSystem.departments.add(newDep);
     }
 
+    /**
+     * This function adds a worker to the list of workers
+     * @param worker The worker to be added to the system.
+     */
     public void addStaff(Worker worker){
         HMSystem.workers.add(worker);
     }
 
+    /**
+     * This function removes a worker from the list of workers
+     * @param worker The worker to be removed from the system.
+     */
     public void removeStaff(Worker worker){
         HMSystem.workers.remove(worker);
     }
 
+    /**
+     * This function displays the patient's prescriptions, doctors, and records
+     * @param patient the patient object
+     */
     public void displayPatientInfo(Patient patient){
         patient.displayPrescriptions();
         patient.displayDoctors();

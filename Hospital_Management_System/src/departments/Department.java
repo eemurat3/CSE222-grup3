@@ -79,6 +79,11 @@ public class Department {
 		return workers;
 	}
 	
+	/**
+	 * The toString() method returns the string representation of the object
+	 * 
+	 * @return The name and id of the department.
+	 */
 	@Override
     public String toString() {
         return "Departments{ name : "+name + "  id : " + id + '}';

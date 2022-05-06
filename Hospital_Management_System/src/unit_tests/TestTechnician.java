@@ -13,6 +13,11 @@ import users.Technician;
 
 public class TestTechnician {
 
+    /**
+     * It creates a technician, creates 3 binary search trees for 3 different types of tests, adds some
+     * tests to the trees, displays the tests, updates some tests, displays the updated tests, and
+     * finally measures the time for adding 1000 and 10000 tests to the trees
+     */
     public static void testTechnician() {
         
         Technician technician = new Technician("hasan", "onder", "234678", 22, "hasan", "onder");
@@ -147,6 +152,10 @@ public class TestTechnician {
 
     }
 
+    /**
+     * This function tests the Technician class by creating a new Technician object and calling the
+     * getPay() method
+     */
     public static void main(String[] args) {
         
         testTechnician();

@@ -50,11 +50,22 @@ public class Doctor extends Worker
         return true;
     }
 
+    /**
+     * This function returns the first appointment in the queue 
+     * @return The appointment at the top of the stack.
+     */
     public Appointment getAppointment()
     {
         return appointments.peek();
     }
     
+    /**
+     * This function takes a patient, a prescription and a note as parameters and adds the prescription
+     * to the patient's list of prescriptions
+     * @param patient Patient object
+     * @param pres Prescription object
+     * @param note String
+     */
     public void givePrescription(Patient patient, Prescription pres , String note) {
         
         pres.setNote(note);
@@ -62,6 +73,13 @@ public class Doctor extends Worker
         //HMSystem.addAppointmentToDataBase(appo);
     }
    
+    /**
+     * It sets the note of the appointment, sets the discharged status to true, removes the appointment
+     * from the queue and adds it to the database
+     * 
+     * @param appo Appointment
+     * @param note String
+     */
     public void dischargePatient(Appointment appo , String note) {
         appo.setNote(note);
         appointments.peek().setDischarged(true);
@@ -69,6 +87,12 @@ public class Doctor extends Worker
         //HMSystem.addAppointmentToDataBase(appo);
     }
 
+    /**
+     * > This function adds a test to a patient
+     * 
+     * @param patient The patient object that is requesting the test.
+     * @param test The test to be requested
+     */
     public void requestTest(Patient patient, Test test)
     {
         patient.addTest(test);
@@ -83,6 +107,12 @@ public class Doctor extends Worker
         }
     }
     
+    /**
+     * If the object is the same object, or if the object is the same type and has the same id, then
+     * the objects are equal
+     * 
+     * @param obj The object to compare with.
+     */
     @Override
     public boolean equals(Object obj) 
     {
@@ -103,6 +133,11 @@ public class Doctor extends Worker
         return true;
     }
 
+    /**
+     * It creates a doctor, adds an appointment to it, displays the patient's info, gives a
+     * prescription to the patient, requests a test from the patient, discharges the patient, adds 100,
+     * 1000 and 10000 appointments to the doctor and displays the time it takes to add them
+     */
     public static void main(String[] args) 
     {
         System.out.print("\n\n\t\t\t DOCTOR UNIT TESTING STARTS \n\n");

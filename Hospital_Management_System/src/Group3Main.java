@@ -14,6 +14,9 @@ import users.Worker;
 
 public class Group3Main {
 
+    /**
+     * The main function is the entry point of the program
+     */
     public static void main(String[] args) {
         
         //HMSystem myHospital = new HMSystem();

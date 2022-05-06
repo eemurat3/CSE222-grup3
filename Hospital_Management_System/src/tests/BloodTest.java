@@ -38,34 +38,124 @@ public class BloodTest extends Test{
 	
 	/**No Parameter Constructor For BloodTest Class*/
 	public BloodTest(){super("0");}
-  
- 	//getters and setters for blood test elements
 
+	/**
+	 * This function returns the blood type of the patient.
+	 * 
+	 * @return The bloodType variable is being returned.
+	 */
 	public String getBloodType(){return bloodType;}
-  	public void setBloodType(String bloodType){this.bloodType = bloodType;}
 
+  	/**
+	* Sets the blood type of the patient
+	* 
+	* @param bloodType The blood type of the donor.
+	*/
+	public void setBloodType(String bloodType){this.bloodType = bloodType;}
+
+	/**
+	 * This function returns the rH type
+	 * @return The rH type
+	 */
 	public String getRH(){return rH;}
-  	public void setRH(String rH){this.rH = rH;}
+
+  	/**
+	* This function sets the value of the rH variable to the value of the rH parameter
+	* 
+	* @param rH The rH type
+	*/
+	public void setRH(String rH){this.rH = rH;}
   
-  	public int getVitaminA(){return vitaminA;}
-  	public void setVitaminA(int vitaminA){this.vitaminA = vitaminA;}
+  	/**
+	* This function returns the value of the vitaminA variable.
+	* 
+	* @return The value of the variable vitaminA.
+	*/
+	public int getVitaminA(){return vitaminA;}
+
+  	/**
+	* This function sets the value of the vitaminA variable to the value of the vitaminA parameter.
+	* 
+	* @param vitaminA The amount of vitamin A
+	*/
+	public void setVitaminA(int vitaminA){this.vitaminA = vitaminA;}
   
+	/**
+	 * This function returns the value of the vitaminD variable.
+	 * 
+	 * @return The value of the variable vitaminD.
+	 */
 	public int getVitaminD(){return vitaminD;}
+
+	/**
+	 * This function sets the vitaminD variable to the value of the vitaminD parameter
+	 * 
+	 * @param vitaminD The amount of vitaminD.
+	 */
 	public void setVitaminD(int vitaminD){this.vitaminD = vitaminD;}
 
+	/**
+	 * This function returns the value of the vitaminE variable.
+	 * 
+	 * @return The value of the variable vitaminE.
+	 */
 	public int getVitaminE(){return vitaminE;}
-  	public void setVitaminE(int vitaminE){this.vitaminE = vitaminE;}
 
+  	/**
+	* This function sets the value of the vitaminE variable to the value of the vitaminE parameter.
+	* 
+	* @param vitaminE The amount of vitaminE.
+	*/
+	public void setVitaminE(int vitaminE){this.vitaminE = vitaminE;}
+
+	/**
+	 * This function returns the hemoglobin value of the blood sample.
+	 * 
+	 * @return The value of the hemoglobin variable.
+	 */
 	public int getHemoglobin(){return hemoglobin;}
+
+	/**
+	 * This function sets the hemoglobin value of the patient
+	 * 
+	 * @param hemoglobin The hemoglobin level of the patient.
+	 */
   	public void setHemoglobin(int hemoglobin){this.hemoglobin = hemoglobin;}
 
-  	public int getPotassium(){return potassium;}
-  	public void setPotassium(int potassium){this.potassium = potassium;}
+  	/**
+	* This function returns the potassium value.
+	* 
+	* @return The value of the potassium variable.
+	*/
+	public int getPotassium(){return potassium;}
 
-  	public int getCalcium(){return calcium;}	
-  	public void setCalcium(int calcium){this.calcium = calcium;}
+  	/**
+	* This function sets the potassium value of the object to the value of the parameter
+	* 
+	* @param potassium The amount of potassium.
+	*/
+	public void setPotassium(int potassium){this.potassium = potassium;}
+
+  	/**
+	* This function returns the calcium value.
+	* 
+	* @return The value of the variable calcium.
+	*/
+	public int getCalcium(){return calcium;}
+
+  	/**
+	* This function sets the calcium variable to the value of the calcium parameter.
+	* 
+	* @param calcium The amount of calcium.
+	*/
+	public void setCalcium(int calcium){this.calcium = calcium;}
   
-  	@Override
+  	/**
+	* Returns a string that contains the patient's ID, blood type, rH, and the results of
+	* the blood test 
+	* @return The toString method is being returned.
+	*/
+	@Override
 	public String toString()
 	{
 		return  "\n\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"

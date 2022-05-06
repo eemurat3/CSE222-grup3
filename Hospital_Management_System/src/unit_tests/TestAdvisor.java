@@ -4,6 +4,9 @@ import departments.*;
 
 public class TestAdvisor {
 
+    /**
+     * It creates an Advisor object, adds 3 patients to it, and then prints the queue
+     */
     public static void testAdvisor() {
         
         Advisor test = new Advisor("hasan", "onder", "3248", 22, "hasan", "onder");
@@ -48,6 +51,10 @@ public class TestAdvisor {
 
     }    
 
+    /**
+     * The function `testAdvisor()` creates a new `Advisor` object, and then calls the `getAdvice()`
+     * method on that object
+     */
     public static void main(String[] args) {
         
         testAdvisor();

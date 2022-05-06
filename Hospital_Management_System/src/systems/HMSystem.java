@@ -17,8 +17,6 @@ public class HMSystem
     static public BinarySearchTree<User> users = new BinarySearchTree<>();
 
     static public Queue<Test> tests = new LinkedList<>();
-
-
     
 
 }

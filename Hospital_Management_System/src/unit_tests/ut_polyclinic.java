@@ -117,6 +117,11 @@ public class ut_polyclinic {
 		if(temp != null)
 			System.out.println("running time for deleting "+deleting_index+".th element in the {"+ elementsize+"} Elements(doctor,nurse,secretary) : " + (System.nanoTime() - startTime )+ " ns");
 	}
+
+	/**
+	 * This function is used to test the running time of the add and delete methods
+	 * @param args The arguments passed to the program.
+	 */
 	public static void main(String [] args) {
 		
 		testDoctorOperating();

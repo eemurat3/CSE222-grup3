@@ -16,11 +16,11 @@ public class RadiologicalTest extends Test{
     /** Constructor
     *@param patientID patient id
     */
-
     public RadiologicalTest(String patientID){
         super(patientID);
     }
     
+    // A constructor.
     public RadiologicalTest(String patientID, String testResult, String testType){
         super(patientID);
         this.testResult = testResult;
@@ -31,7 +31,6 @@ public class RadiologicalTest extends Test{
     /** Set Result
     *@param result test result
     */
-
     public void setTestResult(String result){
         testResult = result;
     }
@@ -40,7 +39,6 @@ public class RadiologicalTest extends Test{
     /** Set Result
     *@param result test type
     */
-
     public void setTestType(String type){
         testType = type;
     }
@@ -50,7 +48,6 @@ public class RadiologicalTest extends Test{
     /** Get Result
     *@return returns test result
     */
-
     public String getTestResult(){
         return testResult;
     }
@@ -68,12 +65,14 @@ public class RadiologicalTest extends Test{
     /** Returns String representation of test result
     *@return returns test result
     */
-
     public String toString(){
         
         return "\nPatient ID:" + getID() + " Test Type: " + testType + "\tTest Result: " + testResult;
     }
 
+    /**
+     * The main function is used to test the RadiologicalTest class
+     */
     public static void main(String[] args) {
 
         System.out.println("------------ Test of RadiologicalTest ---------------\n");

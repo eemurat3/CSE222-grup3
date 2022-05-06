@@ -26,11 +26,13 @@ public class Reception extends Department{
     private ArrayList<Appointment> appointments;
     
     
+    // A constructor.
     public Reception(){
         advisors = new ArrayList<Advisor>();
         appointments = new ArrayList<Appointment>();
     }
 
+    // A constructor.
     public Reception(ArrayList<Advisor> advisors,ArrayList<Appointment> appointments){
         this.advisors = advisors;
         this.appointments = appointments;
@@ -100,6 +102,9 @@ public class Reception extends Department{
         }
     }
 
+    /**
+     * This function is used to print the list of Clicical Technicians and Appointments
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -119,6 +124,12 @@ public class Reception extends Department{
         return result.toString();
     }
 
+    /**
+     * The function creates 10 advisors and 10 appointments and adds them to the reception department.
+     * Then, it adds 2 advisors and 2 appointments to the reception department. Then, it removes the
+     * last 2 advisors and 2 appointments from the reception department. Finally, it prints the data of
+     * the reception department
+     */
     public static void main(String[] args){
 
         ArrayList<Advisor> advisorsT = new ArrayList<>();

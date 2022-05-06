@@ -58,6 +58,10 @@ public class Advisor extends Worker {
         return new String(sb);
     }
 
+    /**
+     * The toString() method returns a string representation of the object
+     * @return The role of the advisor and the super class toString method.
+     */
     @Override
     public String toString() {
         return  "Role: Advisor, " + super.toString();
