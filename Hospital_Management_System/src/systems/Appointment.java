@@ -64,10 +64,6 @@ public class Appointment implements Comparable<Appointment>
     public void setId(String newId) {id = newId;}
 
 
-
-
-    
-
     @Override
     public int compareTo(Appointment o) {
         if(date.getTime() > o.getDate().getTime())
@@ -80,7 +76,7 @@ public class Appointment implements Comparable<Appointment>
     @Override
     public String toString() {
         return "Appointment{" + "Polyclinic =" + polyclinic + ", Doctor =" + doctor + ", \n" +
-        "patient=" + patient + ", note=" + note + ", date=" + date + ", \nprescription=" + prescription +'}';
+        "patient=" + patient + ", note =" + note + ", date=" + date + ", \n prescription=" + prescription +'}';
     }
     
     @Override

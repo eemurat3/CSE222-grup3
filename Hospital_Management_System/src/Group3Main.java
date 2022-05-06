@@ -2,6 +2,7 @@ import departments.Lab;
 import systems.HMSystem;
 import unit_tests.TestAdvisor;
 import users.Doctor;
+import users.Patient;
 import users.Worker;
 import users.Patient;
 
