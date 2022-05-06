@@ -10,6 +10,7 @@ import java.util.Date;
 /**
  *
  * @author Muhammed Akif Sevilgen
+ * Patient Class Extends User class.
  */
 public class Patient extends User
 {

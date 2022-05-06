@@ -8,6 +8,9 @@ public class TestAdvisor {
      * It creates an Advisor object, adds 3 patients to it, and then prints the queue
      */
     public static void testAdvisor() {
+
+        System.out.print("\n\n\t\t\t ADVISOR UNIT TESTING STARTS \n\n");
+
         
         Advisor test = new Advisor("hasan", "onder", "3248", 22, "hasan", "onder");
 
@@ -47,6 +50,7 @@ public class TestAdvisor {
             System.out.println("\nTotal time(ms) for adding 10000 patient = "  + ((endTime-startTime) / 1000)); 
         }
         
+        System.out.print("\n\n\t\t\t ADVISOR UNIT TESTING ENDS \n\n");
 
 
     }    

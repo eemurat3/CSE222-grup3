@@ -4,6 +4,9 @@ package systems;
  *
  * @author Ahmet Uslugolu
  */
+/**
+ * This class is a prescription class which shows the medicine of the patient.
+ */
 public class Prescription 
 {
     private String medicine = "None";

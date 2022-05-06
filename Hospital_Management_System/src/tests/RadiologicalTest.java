@@ -5,6 +5,9 @@ import java.io.*;
  * @author S. Burak YASAR
  */
 
+/**
+ * The RadiologicalTest class is a subclass of the Test class. 
+ */
 public class RadiologicalTest extends Test{
     
 
@@ -74,6 +77,7 @@ public class RadiologicalTest extends Test{
      * The main function is used to test the RadiologicalTest class
      */
     public static void main(String[] args) {
+        System.out.print("\n\n\t\t\t RADIOLOGICAL  TEST UNIT TESTING STARTS \n\n");
 
         System.out.println("------------ Test of RadiologicalTest ---------------\n");
         
@@ -115,6 +119,8 @@ public class RadiologicalTest extends Test{
         System.out.println();
         
         System.out.println(test2);
+        System.out.print("\n\n\t\t\t RADIOLOGICAL  TEST UNIT TESTING ENDS \n\n");
+
     }
 
 

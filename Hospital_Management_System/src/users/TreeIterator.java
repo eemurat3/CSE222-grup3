@@ -2,7 +2,9 @@ package users;
 
 import java.util.Stack;
 import users.BinarySearchTree.Node;
-
+/**
+ * Tree Iterator for traversing binary search tree.
+ */
 public class TreeIterator<E extends Comparable<E>>{
 
     private Stack<Node<E>> stack = new Stack<Node<E>>();

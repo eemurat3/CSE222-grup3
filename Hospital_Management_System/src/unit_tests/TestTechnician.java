@@ -10,7 +10,9 @@ import tests.*;
 
 
 import users.Technician;
-
+/**
+ * TestTechnician class unit tests the technician class.
+ */
 public class TestTechnician {
 
     /**

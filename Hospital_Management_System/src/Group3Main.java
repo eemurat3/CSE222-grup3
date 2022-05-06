@@ -15,6 +15,9 @@ import users.Patient;
 import users.Secreter;
 import users.Worker;
 
+/**
+ * Main Class for running the Group 3's CSE222-Project implementation of Hospital Management System. 
+ */
 public class Group3Main {
 
     /**
@@ -29,16 +32,20 @@ public class Group3Main {
         Nurse.main(args);
         Patient.main(args);
         TestTechnician.main(args);
+        Secreter.main(args);
+        Manager.main(args);
+
+
         BloodTest.main(args);
         CovidTest.main(args);
         RadiologicalTest.main(args);
+       
         Appointment.main(args);
+        
         Lab.main(args);
         Reception.main(args);
         ut_polyclinic.main(args);
-        Secreter.main(args);
-        Manager.main(args);
-        TestAdvisor.main(args);
+        
 
     }
 }

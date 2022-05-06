@@ -6,6 +6,9 @@ import java.util.*;
 import departments.*;
 import users.*;
 
+/**
+ * HMSystem is a class that contains all the data structures that are used in the program
+ */
 public class HMSystem 
 {
     static public List<PriorityQueue<Appointment>> appointments = new ArrayList<>();

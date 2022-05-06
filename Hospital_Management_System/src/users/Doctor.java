@@ -17,6 +17,7 @@ import tests.Test;
 /**
  *
  * @author Ahmet Usluoglu
+ * Doctor class extends worker class.
  */
 public class Doctor extends Worker
 {

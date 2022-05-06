@@ -15,6 +15,9 @@ import users.BinarySearchTree;
 import users.Technician;
 import users.TreeIterator;
 
+/**
+ * The Lab class is a subclass of the Department class. 
+ */
 public class Lab extends Department {
 
     /**
@@ -32,13 +35,21 @@ public class Lab extends Department {
 	 */
     private BinarySearchTree<Test> allTests;
 
-
+    /**
+     * No parameter Contructor
+     */
     public Lab(){
         clinicalTechnicians = new ArrayList<Technician>();
         tests = new LinkedList<>();
         allTests = new BinarySearchTree<>();
     }
 
+    /**
+     * Constructor
+     * @param clinicalTechnicians takes a clinical technician list
+     * @param tests takes a test queue
+     * @param allTests takes a test list as Binary Search Tree
+     */
     public Lab(ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> allTests){
         this.clinicalTechnicians = clinicalTechnicians;
         this.tests = tests;
@@ -169,6 +180,8 @@ public class Lab extends Department {
      * object again. Finally, it performs performance testing on the Lab object
      */
     public static void main(String[] args){
+
+        System.out.print("\n\n\t\t\t LAB UNIT TESTING STARTS \n\n");
 
         ArrayList<Technician> techniciansT = new ArrayList<>();
         BinarySearchTree<Test>  testsT = new BinarySearchTree<> ();
@@ -436,6 +449,8 @@ public class Lab extends Department {
         sum3Tec = (end3Tec - start3Tec); 
         
         System.out.println("Run Time for 10000 technician: " + sum3Tec / 1000000000);
+        System.out.print("\n\n\t\t\t LAB UNIT TESTING ENDS \n\n");
+
     
 	}
 }

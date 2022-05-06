@@ -5,6 +5,9 @@ import tests.CovidTest;
 import tests.RadiologicalTest;
 import tests.Test;
 
+/**
+ * Technician Class extends Worker Class.
+ */
 public class Technician extends Worker {
 
 

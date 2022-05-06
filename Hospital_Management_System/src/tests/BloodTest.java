@@ -3,6 +3,9 @@ package tests;
 /**
  * @author H. Tuğçe Yavuz
  */
+/**
+ * This class is a subclass of the Test class. Represents the blood test results of the patients.
+ */
 public class BloodTest extends Test{
 	private String bloodType;
 	private String rH;
@@ -169,6 +172,8 @@ public class BloodTest extends Test{
 	 * @param args
 	 */
 	public static void main(String[] args){
+        System.out.print("\n\n\t\t\t BLOOD TEST UNIT TESTING STARTS \n\n");
+
 
 		System.out.println("------------ Test of Blood Test ---------------");
 
@@ -206,6 +211,8 @@ public class BloodTest extends Test{
 		System.out.println("Get Potassium: " + test1.getPotassium());
 
 		System.out.println();	
+
+        System.out.print("\n\n\t\t\t BLOOD TEST UNIT TESTING ENDS \n\n");
 
 	}
 

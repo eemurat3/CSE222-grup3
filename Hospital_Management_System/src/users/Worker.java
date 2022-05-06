@@ -3,6 +3,7 @@ package users;
 /**
  *
  * @author Muhammed Akif Sevilgen
+ * Worker class extends user class and is a parent class to all staff that works in the hospital.
  */
 public class Worker extends User
 {

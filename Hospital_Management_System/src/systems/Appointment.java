@@ -10,6 +10,9 @@ import users.Patient;
  *
  * @author Buse Erbilgic
  */
+/**
+ * Appointment is a class that represents an appointment between a doctor and a patient.
+ */
 public class Appointment implements Comparable<Appointment>
 {
     private Polyclinic polyclinic;
@@ -21,8 +24,10 @@ public class Appointment implements Comparable<Appointment>
     private boolean isTreated = false;
     private String id = "";
 
-    // A constructor.
-    public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date, String id) {
+    /** 
+    * A constructor.
+    */
+        public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date, String id) {
         this.polyclinic = polyclinic;
         this.doctor = doctor;
         this.patient = patient;
@@ -193,6 +198,8 @@ public class Appointment implements Comparable<Appointment>
      * The function creates a new appointment and then modifies the appointment's attributes
      */
     public static void main(String[] args) {
+        System.out.print("\n\n\t\t\t APPOINTMENT UNIT TESTING STARTS \n\n");
+
     	Doctor dr1 = new Doctor("a","A","1",35,"aaa","aa");
     	Doctor dr2 = new Doctor("d","D","4",40,"ddd","dd");
     	Patient p1 = new Patient("b","B","2",20);
@@ -220,6 +227,7 @@ public class Appointment implements Comparable<Appointment>
     	
     	System.out.println("Modifying Tests");
     	System.out.println(ap1.toString());
+        System.out.print("\n\n\t\t\t APPOINTMENT UNIT TESTING ENDS \n\n");
     	
     }
 }

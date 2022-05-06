@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  *
  * @author Muhammed Akif Sevilgen
+ * User Class is the parent class for all workers and patients.
  */
 public abstract class User implements Comparable<User>
 {

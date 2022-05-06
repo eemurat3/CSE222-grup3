@@ -14,6 +14,9 @@ import users.Advisor;
 import users.Doctor;
 import users.Patient;
 
+/**
+ * The Reception class is a subclass of the Department class. 
+ */
 public class Reception extends Department{
     /**
 	 * advisor list
@@ -131,6 +134,8 @@ public class Reception extends Department{
      * the reception department
      */
     public static void main(String[] args){
+
+        System.out.print("\n\n\t\t\t RECEPTION UNIT TESTING STARTS \n\n");
 
         ArrayList<Advisor> advisorsT = new ArrayList<>();
         ArrayList<Appointment> appointmentsT = new ArrayList<>();
@@ -303,6 +308,7 @@ public class Reception extends Department{
         sumApp3 = (end1App3 - startApp3); 
         
         System.out.println("Run Time for 10000 appointments: " + sumApp3 / 1000000000);
+        System.out.print("\n\n\t\t\t RECEPTION UNIT TESTING ENDS \n\n");
 
 	}
 }

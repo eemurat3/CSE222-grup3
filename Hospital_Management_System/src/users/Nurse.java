@@ -10,6 +10,7 @@ import departments.Polyclinic;
 /**
  *
  * @author Ahmet Usluoglu
+ * Nurse Class Extends Worker Class
  */
 public class Nurse extends Worker{
     

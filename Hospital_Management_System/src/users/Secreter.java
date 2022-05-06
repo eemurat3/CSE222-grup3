@@ -2,17 +2,18 @@ package users;
 
 import javax.print.Doc;
 
-import org.junit.platform.console.shadow.picocli.CommandLine.Spec;
 
 import systems.Prescription;
 
 /**
  *
  * @author Yusuf Talha Altun
+ * Secreter Class extends Worker Class.
  */
 public class Secreter extends Worker{
     // A constructor.
-    public Secreter(String name, String surname, String id, int age,String email , String password) {
+    public Secreter(String name, String surname, String id, int age,String email , String password) 
+    {
         super(name, surname, id, age, email ,  password);
     }
 
@@ -23,7 +24,8 @@ public class Secreter extends Worker{
      * @param pres Prescription object
      * @param note String
      */
-    public void prescribePatient(Patient patient, Prescription pres , String note) {
+    public void prescribePatient(Patient patient, Prescription pres , String note) 
+    {
         patient.addPrescription(pres);
     }
 

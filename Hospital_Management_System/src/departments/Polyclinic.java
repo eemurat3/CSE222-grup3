@@ -12,6 +12,9 @@ import java.util.Queue;
 //import org.junit.jupiter.api.Test;
 
 import java.util.PriorityQueue;
+/**
+ * Polyclinic class is a child class of Department class
+ */
 public class Polyclinic extends Department {
 	/**
 	 * polyclinic doctor list
@@ -257,4 +260,5 @@ public class Polyclinic extends Department {
 		}
 		return null;
 	}
+	
 }

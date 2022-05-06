@@ -6,6 +6,7 @@ import systems.HMSystem;
 /**
  *
  * @author Yusuf Talha Altun
+ * Manager Class extends Worker Class
  */
 public class Manager extends Worker{
     public Manager(String name, String surname, String id, int age,String email , String password) {

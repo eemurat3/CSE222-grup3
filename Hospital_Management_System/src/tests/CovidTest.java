@@ -5,6 +5,9 @@ import java.io.*;
  * @author S. Burak YASAR
  */
 
+/**
+ * CovidTest is a subclass of Test that shows covid test result.
+ */
 public class CovidTest extends Test{
     
     private boolean testResult;
@@ -53,6 +56,8 @@ public class CovidTest extends Test{
      */
     public static void main(String[] args) {
 
+        System.out.print("\n\n\t\t\t COVID TEST UNIT TESTING STARTS \n\n");
+
         System.out.println("------------ Test of RadiologicalTest ---------------\n");
         
         String patientId1 = "123456";
@@ -84,6 +89,7 @@ public class CovidTest extends Test{
         System.out.println();
         System.out.println(test2);
         
+        System.out.print("\n\n\t\t\t COVID TEST UNIT TESTING ENDS \n\n");
         
     }
 
