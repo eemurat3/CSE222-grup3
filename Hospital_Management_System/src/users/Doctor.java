@@ -30,6 +30,11 @@ public class Doctor extends Worker
         // HMSystem.appointmets.add(appointment);
     }
 
+    /**
+     * This function displays the patient's prescriptions, doctors, and records
+     * 
+     * @param patient The patient object that is being displayed.
+     */
     public void displayPatientInfo(Patient patient) 
     {
         patient.displayPrescriptions();
@@ -69,6 +74,9 @@ public class Doctor extends Worker
         patient.addTest(test);
     }
 
+    /**
+     * This function prints the names of all the patients who have an appointment with the doctor
+     */
     public void waitingPatients() {
         for (Appointment item : appointments) {
             System.out.println(item.getPatient().getName());
