@@ -25,6 +25,13 @@ public abstract class Test implements Comparable <Test> {
   	*/
   	public Test(String ID){patientID = ID;}
 	
+	/**
+	 * The compareTo() function compares the ID of the current object to the ID of the object passed in as
+	 * a parameter
+	 * 
+	 * @param other The other object to compare to.
+	 * @return The ID of the test.
+	 */
 	public int compareTo(Test other){
 		return getID().compareTo(other.getID());
 	}

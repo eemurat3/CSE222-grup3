@@ -11,14 +11,27 @@ import systems.Prescription;
  * @author Yusuf Talha Altun
  */
 public class Secreter extends Worker{
-    public Secreter(String name, String surname, String id, int age, String email, String password) {
+    // A constructor.
+    public Secreter(String name, String surname, String id, int age,String email , String password) {
         super(name, surname, id, age, email ,  password);
     }
 
+    /**
+     * This function prescribes a patient a prescription with a note
+     * 
+     * @param patient The patient object
+     * @param pres Prescription object
+     * @param note String
+     */
     public void prescribePatient(Patient patient, Prescription pres , String note) {
         patient.addPrescription(pres);
     }
 
+    /**
+     * This function displays the queue of patients waiting to see a doctor
+     * 
+     * @param doctor The doctor that the patient is going to see.
+     */
     public void displayQueue(Doctor doctor){
         doctor.waitingPatients();
     }
@@ -33,7 +46,6 @@ public class Secreter extends Worker{
         int age = 30;
         String email = "email";
         String password = "password";
-        Secreter sec = new Secreter(name, surname, id, age, email, password);
         Doctor doc = new Doctor(name, surname, id, age, email, password);
         Patient patient = new Patient(name, surname, id, age);
         Prescription pres = new Prescription("medicine", "instruction", "note");

@@ -1,73 +1,127 @@
 package users;
 
-import tests.*;
+import tests.BloodTest;
+import tests.CovidTest;
+import tests.RadiologicalTest;
+import tests.Test;
 
 public class Technician extends Worker {
 
-    BinarySearchTree<Test> covidTests = new BinarySearchTree<Test>();
-    BinarySearchTree<Test> radiologicalTests = new BinarySearchTree<Test>();
-    BinarySearchTree<Test> bloodTests = new BinarySearchTree<Test>();
 
+    // A constructor for the Technician class.
     public Technician(String name, String surname, String id, int age, String username, String password) {
         super(name, surname, id, age, username, password);
     }
 
-    public void takeCovidTest(CovidTest newTest) {
+    /**
+     * This function takes a new CovidTest object and a BinarySearchTree of CovidTest objects and adds
+     * the new CovidTest object to the BinarySearchTree of CovidTest objects
+     * 
+     * @param newTest a CovidTest object
+     * @param covidTests BinarySearchTree of type Test
+     */
+    public void takeCovidTest(CovidTest newTest, BinarySearchTree<Test> covidTests) {
 
         covidTests.add(newTest);
     }
 
-    public void takeRadiologicalTest(RadiologicalTest newTest) {
+    /**
+     * This function takes a RadiologicalTest object and a BinarySearchTree object as parameters and
+     * adds the RadiologicalTest object to the BinarySearchTree object
+     * 
+     * @param newTest The new test that is being added to the tree.
+     * @param radiologicalTests a BinarySearchTree of type Test
+     */
+    public void takeRadiologicalTest(RadiologicalTest newTest, BinarySearchTree<Test> radiologicalTests) {
 
         radiologicalTests.add(newTest);
     }
 
-    public void takeBloodTest(BloodTest newTest) {
+    /**
+     * This function takes a blood test and a binary search tree of blood tests as parameters and adds
+     * the blood test to the binary search tree
+     * 
+     * @param newTest The new blood test that is being added to the tree.
+     * @param bloodTests BinarySearchTree<Test>
+     */
+    public void takeBloodTest(BloodTest newTest, BinarySearchTree<Test> bloodTests) {
 
         bloodTests.add(newTest);
     }
 
-    public void displayCovidTests() {
+    /**
+     * This function displays the inorder traversal of the binary search tree
+     * 
+     * @param covidTests BinarySearchTree<Test>
+     */
+    public void displayCovidTests(BinarySearchTree<Test> covidTests) {
 
-        System.out.println(covidTests);
+        System.out.println(covidTests.inorder());
     }
 
-    public void displayRadiologicalTests() {
+    /**
+     * This function displays the radiological tests in the order of the test name
+     * 
+     * @param radiologicalTests BinarySearchTree<Test>
+     */
+    public void displayRadiologicalTests(BinarySearchTree<Test> radiologicalTests) {
         
-        System.out.println(radiologicalTests);
+        System.out.println(radiologicalTests.inorder());
     }
 
-    public void displayBloodTests() {
+    /**
+     * This function displays the blood tests in order
+     * 
+     * @param bloodTests BinarySearchTree<Test>
+     */
+    public void displayBloodTests(BinarySearchTree<Test> bloodTests) {
 
-        System.out.println(bloodTests);
+        System.out.println(bloodTests.inorder());
     }
 
-    public void updateCovidTest(CovidTest updateTest) {
+    /**
+     * This function takes in a CovidTest object and a BinarySearchTree of CovidTest objects. It then
+     * deletes the CovidTest object from the BinarySearchTree and adds a new CovidTest object with the
+     * same ID and test result
+     * 
+     * @param updateTest The test that is being updated
+     * @param covidTests BinarySearchTree of type Test
+     */
+    public void updateCovidTest(CovidTest updateTest, BinarySearchTree<Test> covidTests) {
         
-        CovidTest removeObject = new CovidTest(updateTest.getID());
 
-        if (covidTests.remove(removeObject)) {
-            covidTests.add(updateTest);
+        if (covidTests.deleteS(updateTest) != null) {
+            covidTests.add(new CovidTest(updateTest.getID(), updateTest.getTestResult()));
         }
 
     }
 
-    public void updateRadiologicalTest(RadiologicalTest updateTest) {
+    /**
+     * This function takes in a RadiologicalTest object and a BinarySearchTree object as parameters. It
+     * then deletes the RadiologicalTest object from the BinarySearchTree object and adds the
+     * RadiologicalTest object back into the BinarySearchTree object
+     * 
+     * @param updateTest The test that is being updated
+     * @param radiologicalTests BinarySearchTree of type Test
+     */
+    public void updateRadiologicalTest(RadiologicalTest updateTest, BinarySearchTree<Test> radiologicalTests) {
 
-        RadiologicalTest removeObject = new RadiologicalTest(updateTest.getID());
-
-        if (radiologicalTests.remove(removeObject)) {
-            radiologicalTests.add(updateTest);
+        if (radiologicalTests.deleteS(updateTest) != null) {
+            radiologicalTests.add(new RadiologicalTest(updateTest.getID(), updateTest.getTestResult(), updateTest.getTestType()));
         }
                      
     }
 
-    public void updateBloodTest(BloodTest updateTest) {
-        
-        BloodTest removeObject = new BloodTest(updateTest.getID());
+    /**
+     * If the blood test is found, delete it and add a new one with the same ID
+     * 
+     * @param updateTest The test that is being updated
+     * @param bloodTests BinarySearchTree of type Test
+     */
+    public void updateBloodTest(BloodTest updateTest, BinarySearchTree<Test> bloodTests) {
 
-        if (bloodTests.remove(removeObject)) {
-            bloodTests.add(updateTest);
+        if (bloodTests.deleteS(updateTest) != null) {
+            bloodTests.add(new BloodTest(updateTest.getID()));
         }
     }
     

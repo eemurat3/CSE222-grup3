@@ -22,3 +22,9 @@ Hospital_Management_System/src/bin/unit_tests/TestAdvisor.class
 Hospital_Management_System/src/bin/users/Advisor.class
 Hospital_Management_System/src/bin/users/Technician.class
 Hospital_Management_System/src/bin/departments/Lab.class
+Hospital_Management_System/src/bin/departments/Reception.class
+Hospital_Management_System/src/bin/unit_tests/TestTechnician.class
+Hospital_Management_System/src/bin/unit_tests/ut_polyclinic.class
+Hospital_Management_System/src/bin/users/TreeIterator.class
+Hospital_Management_System/src/users/Nurse.java
+Hospital_Management_System/src/bin/users/TreeIterator.class
