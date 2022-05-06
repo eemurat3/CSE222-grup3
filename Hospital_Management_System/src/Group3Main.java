@@ -19,5 +19,7 @@ public class Group3Main {
         TestAdvisor.main(args);
         Patient.main(args);
         ut_polyclinic.main(args);
+        BloodTest.main(args);
+        Appointment.main(args);
     }
 }
