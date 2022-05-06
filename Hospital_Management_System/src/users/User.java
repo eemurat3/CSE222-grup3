@@ -2,6 +2,10 @@ package users;
 
 import java.util.Objects;
 
+/**
+ *
+ * @author Muhammed Akif Sevilgen
+ */
 public abstract class User implements Comparable<User>
 {
 	private String name;

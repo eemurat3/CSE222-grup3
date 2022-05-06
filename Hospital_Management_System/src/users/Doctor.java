@@ -85,6 +85,9 @@ public class Doctor extends Worker
     }
 
     public void waitingPatients() {
+        for (var item : appointments) {
+            System.out.println(item.getPatient().getName());
+        }
     }
     
 }
