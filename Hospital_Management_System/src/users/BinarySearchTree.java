@@ -23,11 +23,13 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 	 * Return value from the public delete method 
 	 */
 	protected E deleteReturn;
+
 	
 	//Methods
 
 	public BinarySearchTree(){
 		root = null;
+		
 	}
 	
 	protected BinarySearchTree(Node<E> root){
@@ -115,7 +117,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 	public E find(E target) {
 		return find(root, target);
 	}
-	
+
 	/**
 	 * Recursive find method
 	 * @param localRoot The local subtree's root
@@ -301,13 +303,17 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 		}
 	}
 
+	public TreeIterator<E> getIterator(){
+		return new TreeIterator<E>(root);
+	}
+
 	/**
 	 * Class to encapsulate a tree node
 	 * @author Jacob / Koffman & Wolfgang
 	 *
 	 * @param <E> The type of data stored
 	 */
-	protected static class Node<E> implements Serializable {
+	public static class Node<E> implements Serializable {
 		
 		//Data Fields
 		/**
@@ -332,6 +338,10 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 			this.data = data;
 			left = null;
 			right = null;
+		}
+
+		public E getData(){
+			return data;
 		}
 		
 		//Methods

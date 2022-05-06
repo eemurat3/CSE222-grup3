@@ -3,6 +3,7 @@ import systems.HMSystem;
 import unit_tests.TestAdvisor;
 import users.Doctor;
 import users.Worker;
+import users.Patient;
 
 public class Group3Main {
 
@@ -13,5 +14,6 @@ public class Group3Main {
         Doctor.main(args);
         Lab.main(args);
         TestAdvisor.main(args);
+        Patient.main(args);
     }
 }
