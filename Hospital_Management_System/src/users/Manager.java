@@ -46,4 +46,162 @@ public class Manager extends Worker{
         patient.displayRecords();
     }
 
+    public static void main(String[] args) {
+
+        System.out.println("\n\n\n------------ Testing Manager------------\n");
+        
+        String name = "name";
+        String surname = "surname";
+        String id = "id";
+        int age = 30;
+        String username = "username";
+        String password = "password";
+        Worker worker = new Worker(name, surname, id, age, username, password);
+        Department dep = new Department();
+        Patient patient = new Patient(name, surname, id, age);
+
+        
+        long startTime = System.nanoTime();
+        testEditStaff(100, worker, worker);
+        long endTime = System.nanoTime();
+        System.out.println("Running time for editing staff in the 100 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testEditStaff(1000, worker, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for editing staff in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testEditStaff(10000, worker, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for editing staff in the 10000 elements : " + (endTime - startTime) + " ns");
+
+
+
+        startTime = System.nanoTime();
+        testRemoveDepartment(100, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing department in the 100 elements : " + (endTime - startTime) + " ns");
+        
+        startTime = System.nanoTime();
+        testRemoveDepartment(1000, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing department in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testRemoveDepartment(10000, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing department in the 10000 elements : " + (endTime - startTime) + " ns");
+
+
+
+        startTime = System.nanoTime();
+        testAddDepartment(100, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding department in the 100 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testAddDepartment(1000, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding department in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testAddDepartment(10000, dep);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding department in the 10000 elements : " + (endTime - startTime) + " ns");
+
+
+
+        startTime = System.nanoTime();
+        testAddStaff(100, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding staff in the 100 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testAddStaff(1000, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding staff in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testAddStaff(10000, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for adding staff in the 10000 elements : " + (endTime - startTime) + " ns");
+
+
+
+        startTime = System.nanoTime();
+        testRemoveStaff(100, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing staff in the 100 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testRemoveStaff(1000, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing staff in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testRemoveStaff(10000, worker);
+        endTime = System.nanoTime();
+        System.out.println("Running time for removing staff in the 10000 elements : " + (endTime - startTime) + " ns");
+
+
+
+        startTime = System.nanoTime();
+        testDisplayPatientInfo(100, patient);
+        endTime = System.nanoTime();
+        System.out.println("Running time for displaying patient info in the 100 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testDisplayPatientInfo(1000, patient);
+        endTime = System.nanoTime();
+        System.out.println("Running time for displaying patient info in the 1000 elements : " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        testDisplayPatientInfo(10000, patient);
+        endTime = System.nanoTime();
+        System.out.println("Running time for displaying patient info in the 10000 elements : " + (endTime - startTime) + " ns");
+    }
+
+
+    public static void testEditStaff(int counter, Worker w1, Worker w2){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.editStaff(w1, w2);
+        }
+    }
+
+    public static void testRemoveDepartment(int counter, Department dep){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.removeDepartment(dep);
+        }
+    }
+
+    public static void testAddDepartment(int counter, Department dep){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.addDepartment(dep);
+        }     
+    }
+
+    public static void testAddStaff(int counter, Worker worker){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.addStaff(worker);
+        }
+    }
+
+    public static void testRemoveStaff(int counter, Worker worker){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.removeStaff(worker);
+        }   
+    }
+
+    public static void testDisplayPatientInfo(int counter, Patient patient){
+        Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
+        for(int i = 0 ; i < counter ; i++){
+            manager.displayPatientInfo(patient);
+        }
+    }
 }
