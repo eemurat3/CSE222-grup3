@@ -68,10 +68,10 @@ public class BloodTest extends Test{
   	@Override
 	public String toString()
 	{
-		return  "\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "\n\nBLOOD TEST RESULTS :"
+		return  "\n\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
 			+ "\nVitamin-A : " + String.valueOf(vitaminA) + "ug/L" + "\nVitamin-D : " + String.valueOf(vitaminD) + "ug/L"
 			+ "\nVitamin-E : " + String.valueOf(vitaminE) + "ug/L" + "\nHemoglobin : " + String.valueOf(hemoglobin) + "gr/dL"
-			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL" + "\n\n";
+			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL";
 	}
 
 	/**
