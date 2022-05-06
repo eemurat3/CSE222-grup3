@@ -105,7 +105,7 @@ public class TestTechnician {
             BinarySearchTree<Test> bloodTest10000 = new BinarySearchTree<>();
             
             long startTime = System.nanoTime();
-            for (Integer i = 0; i < 1000; i++) {
+            for (Integer i = 0; i < 10000; i++) {
                 test.takeBloodTest(new BloodTest(i.toString()), bloodTest10000);
             }
             long endTime = System.nanoTime();
