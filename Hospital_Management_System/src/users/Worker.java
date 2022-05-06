@@ -1,5 +1,9 @@
 package users;
 
+/**
+ *
+ * @author Muhammed Akif Sevilgen
+ */
 public class Worker extends User
 {
     private String username;
