@@ -1,5 +1,10 @@
 package users;
 
+import tests.BloodTest;
+import tests.CovidTest;
+import tests.RadiologicalTest;
+import tests.Test;
+
 public class Technician extends Worker {
 
 

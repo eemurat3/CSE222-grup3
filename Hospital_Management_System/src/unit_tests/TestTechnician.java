@@ -1,9 +1,15 @@
-
+package unit_tests;
 /**
  * TestTechnician
  */
 
-import src.*;
+import users.*;
+import departments.*;
+import systems.*;
+import tests.*;
+
+
+import users.Technician;
 
 public class TestTechnician {
 
