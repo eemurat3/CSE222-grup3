@@ -1,7 +1,5 @@
 package tests;
 
-import users.BinarySearchTree;
-
 /**
  * @author H. Tuğçe Yavuz
  */
