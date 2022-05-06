@@ -122,7 +122,7 @@ public class Appointment implements Comparable<Appointment>
         ap1.setPrescription("asdfgg");
         ap1.setNote("efgcsf");
         ap1.setDate(d2);
-        ap1.setId(9);
+        ap1.setId("9");
     	
     	System.out.println("Modifying Tests");
     	System.out.println(ap1.toString());
