@@ -70,7 +70,7 @@ public class Doctor extends Worker
     }
 
     public void waitingPatients() {
-        for (var item : appointments) {
+        for (Appointment item : appointments) {
             System.out.println(item.getPatient().getName());
         }
     }

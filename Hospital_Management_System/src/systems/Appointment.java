@@ -103,9 +103,11 @@ public class Appointment implements Comparable<Appointment>
     	Doctor dr1 = new Doctor("a","A","1",35,"aaa","aa");
     	Doctor dr2 = new Doctor("d","D","4",40,"ddd","dd");
     	Patient p1 = new Patient("b","B","2",20);
+        Patient p2 = new Patient("f","F","6",20);
     	Polyclinic pol1 = new Polyclinic("c",3);
     	Polyclinic pol2 = new Polyclinic("e",5);
     	Date d = new Date();
+        Date d2 = new Date();
     	
     	/* ---- Constructor Test ---- */
     	Appointment ap1 = new Appointment(pol1,dr1,p1,d,"123");
@@ -116,6 +118,11 @@ public class Appointment implements Comparable<Appointment>
     	/* ---- Modifying Test ---- */
     	ap1.setDoctor(dr2);
     	ap1.setPolyclinic(pol2);
+        ap1.setPatient(p2);
+        ap1.setPrescription("asdfgg");
+        ap1.setNote("efgcsf");
+        ap1.setDate(d2);
+        ap1.setId("9");
     	
     	System.out.println("Modifying Tests");
     	System.out.println(ap1.toString());

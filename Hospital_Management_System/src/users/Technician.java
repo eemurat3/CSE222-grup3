@@ -1,73 +1,68 @@
 package users;
 
-import tests.*;
+import tests.BloodTest;
+import tests.CovidTest;
+import tests.RadiologicalTest;
+import tests.Test;
 
 public class Technician extends Worker {
 
-    BinarySearchTree<Test> covidTests = new BinarySearchTree<Test>();
-    BinarySearchTree<Test> radiologicalTests = new BinarySearchTree<Test>();
-    BinarySearchTree<Test> bloodTests = new BinarySearchTree<Test>();
 
     public Technician(String name, String surname, String id, int age, String username, String password) {
         super(name, surname, id, age, username, password);
     }
 
-    public void takeCovidTest(CovidTest newTest) {
+    public void takeCovidTest(CovidTest newTest, BinarySearchTree<Test> covidTests) {
 
         covidTests.add(newTest);
     }
 
-    public void takeRadiologicalTest(RadiologicalTest newTest) {
+    public void takeRadiologicalTest(RadiologicalTest newTest, BinarySearchTree<Test> radiologicalTests) {
 
         radiologicalTests.add(newTest);
     }
 
-    public void takeBloodTest(BloodTest newTest) {
+    public void takeBloodTest(BloodTest newTest, BinarySearchTree<Test> bloodTests) {
 
         bloodTests.add(newTest);
     }
 
-    public void displayCovidTests() {
+    public void displayCovidTests(BinarySearchTree<Test> covidTests) {
 
-        System.out.println(covidTests);
+        System.out.println(covidTests.inorder());
     }
 
-    public void displayRadiologicalTests() {
+    public void displayRadiologicalTests(BinarySearchTree<Test> radiologicalTests) {
         
-        System.out.println(radiologicalTests);
+        System.out.println(radiologicalTests.inorder());
     }
 
-    public void displayBloodTests() {
+    public void displayBloodTests(BinarySearchTree<Test> bloodTests) {
 
-        System.out.println(bloodTests);
+        System.out.println(bloodTests.inorder());
     }
 
-    public void updateCovidTest(CovidTest updateTest) {
+    public void updateCovidTest(CovidTest updateTest, BinarySearchTree<Test> covidTests) {
         
-        CovidTest removeObject = new CovidTest(updateTest.getID());
 
-        if (covidTests.remove(removeObject)) {
-            covidTests.add(updateTest);
+        if (covidTests.deleteS(updateTest) != null) {
+            covidTests.add(new CovidTest(updateTest.getID(), updateTest.getTestResult()));
         }
 
     }
 
-    public void updateRadiologicalTest(RadiologicalTest updateTest) {
+    public void updateRadiologicalTest(RadiologicalTest updateTest, BinarySearchTree<Test> radiologicalTests) {
 
-        RadiologicalTest removeObject = new RadiologicalTest(updateTest.getID());
-
-        if (radiologicalTests.remove(removeObject)) {
-            radiologicalTests.add(updateTest);
+        if (radiologicalTests.deleteS(updateTest) != null) {
+            radiologicalTests.add(new RadiologicalTest(updateTest.getID(), updateTest.getTestResult(), updateTest.getTestType()));
         }
                      
     }
 
-    public void updateBloodTest(BloodTest updateTest) {
-        
-        BloodTest removeObject = new BloodTest(updateTest.getID());
+    public void updateBloodTest(BloodTest updateTest, BinarySearchTree<Test> bloodTests) {
 
-        if (bloodTests.remove(removeObject)) {
-            bloodTests.add(updateTest);
+        if (bloodTests.deleteS(updateTest) != null) {
+            bloodTests.add(new BloodTest(updateTest.getID()));
         }
     }
     
