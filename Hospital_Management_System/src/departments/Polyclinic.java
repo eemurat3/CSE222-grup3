@@ -1,6 +1,6 @@
 package departments;
 /**
- * 
+ * implementing of polyclinic class, this class extended from Department class
  * @author murat Kaymaz
  *
  */
@@ -33,16 +33,15 @@ public class Polyclinic extends Department {
 	 * default constructor
 	 */
 	public Polyclinic() {
-		/*doctors   = ;
-	    nurses    = new ArrayList<Nurse>();
-	    secreters = new ArrayList<Secreter>();
-	    patients  = new Queue<Patient>();*/
+		
 	}
 	/**
-	* one parameter constructor
-	*/
-	public Polyclinic(String name) {
-		setName(name);
+	 * two parameter constructor
+	 * @param name : polyclinic name
+	 * @param id  : polyclinic id
+	 */
+	public Polyclinic(String name,int id) {
+		super(name,id);
 	}
 	/**
 	 * add new doctor to polyclinc

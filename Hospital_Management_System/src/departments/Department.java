@@ -1,6 +1,6 @@
 package departments;
 /**
- * 
+ * implementing hospital department class
  * @author Murat Kaymaz
  *
  */
@@ -81,7 +81,7 @@ public class Department {
 	
 	@Override
     public String toString() {
-        return "Departments{ name : "+name + "id : " + id + '}';
+        return "Departments{ name : "+name + "  id : " + id + '}';
     }
 	
 }
