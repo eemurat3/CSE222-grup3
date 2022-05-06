@@ -1,9 +1,10 @@
 import departments.Lab;
 import systems.HMSystem;
 import unit_tests.TestAdvisor;
+import unit_tests.ut_polyclinic;
 import users.Doctor;
-import users.Worker;
 import users.Patient;
+import users.Worker;
 
 public class Group3Main {
 
@@ -15,5 +16,6 @@ public class Group3Main {
         Lab.main(args);
         TestAdvisor.main(args);
         Patient.main(args);
+        ut_polyclinic.main(args);
     }
 }
