@@ -21,5 +21,6 @@ public class Group3Main {
         ut_polyclinic.main(args);
         BloodTest.main(args);
         Appointment.main(args);
+        TestTechnician.main(args);
     }
 }
