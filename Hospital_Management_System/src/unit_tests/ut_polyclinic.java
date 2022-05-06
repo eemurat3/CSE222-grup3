@@ -12,6 +12,7 @@ public class ut_polyclinic {
 	 */
 	//@Test
     static void testDoctorOperating() {
+
 		System.out.println("******Doctor operation Unit test**********");
 		Polyclinic pl = new Polyclinic();
 		Doctor d = new Doctor("murat","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
@@ -128,6 +129,8 @@ public class ut_polyclinic {
 	 * @param args The arguments passed to the program.
 	 */
 	public static void main(String [] args) {
+        System.out.print("\n\n\t\t\t POLYCLINIC TESTING STARTS \n\n");
+
 		testDoctorOperating();
 		testNurseOperating();
 		testSecreterOperating();
@@ -146,6 +149,9 @@ public class ut_polyclinic {
 		deleteMethodRunningTime(100,98);
 		deleteMethodRunningTime(1000,998);
 		deleteMethodRunningTime(10000,9998);
+        System.out.print("\n\n\t\t\t POLYCLINIC TESTING STARTS \n\n");
+
 	}
+
 }
 

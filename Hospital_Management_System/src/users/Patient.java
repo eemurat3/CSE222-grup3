@@ -191,6 +191,7 @@ public class Patient extends User
     // Driver code
     public static void main(String args[])
     {
+        System.out.print("\n\n\t\t\t PATIENT TESTING STARTS \n\n");
     
         /********************************* Constructor ******************************************/
 
@@ -428,5 +429,7 @@ public class Patient extends User
             System.out.println("pat4.toString(): " + pat4.toString());
 
         /**********************************************************************************/
+        System.out.print("\n\n\t\t\t PATIENT TESTING ENDS \n\n");
+
     }
 }

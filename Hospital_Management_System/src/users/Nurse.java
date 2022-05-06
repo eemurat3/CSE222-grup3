@@ -73,6 +73,8 @@ public class Nurse extends Worker{
     }
 
     public static void main(String [] args) {
+        System.out.print("\n\n\t\t\t NURSE TESTING STARTS \n\n");
+
         System.out.println("\n********Nurse Unit test************ \n");
         Nurse test = new Nurse("nurse","nurses","11",25,"nurse@nurse.com","nurses");
         Patient patient = new Patient("patient", "patient1", "10", 25);
@@ -89,6 +91,8 @@ public class Nurse extends Worker{
         test.displayPatientRecords(patient);
         System.out.println("Get Patient prescription");
         test.displayPatientMed(patient);
+        System.out.print("\n\n\t\t\t NURSE TESTING ENDS \n\n");
+
     }
 
 }

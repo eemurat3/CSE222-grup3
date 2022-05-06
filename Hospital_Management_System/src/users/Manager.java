@@ -61,6 +61,8 @@ public class Manager extends Worker{
 
     public static void main(String[] args) {
 
+        System.out.print("\n\n\t\t\t MANAGER TESTING STARTS \n\n");
+
         System.out.println("\n\n\n------------ Testing Manager------------\n");
         
         String name = "name";
@@ -173,6 +175,9 @@ public class Manager extends Worker{
         testDisplayPatientInfo(10000, patient);
         endTime = System.nanoTime();
         System.out.println("Running time for displaying patient info in the 10000 elements : " + (endTime - startTime) + " ns");
+    
+        System.out.print("\n\n\t\t\t MANAGER TESTING ENDS \n\n");
+    
     }
 
 
@@ -217,4 +222,5 @@ public class Manager extends Worker{
             manager.displayPatientInfo(patient);
         }
     }
+    
 }

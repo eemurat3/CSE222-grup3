@@ -21,6 +21,7 @@ public class TestTechnician {
      * finally measures the time for adding 1000 and 10000 tests to the trees
      */
     public static void testTechnician() {
+        System.out.print("\n\n\t\t\t TECHNICIAN TESTING STARTS \n\n");
         
         Technician technician = new Technician("hasan", "onder", "234678", 22, "hasan", "onder");
 
@@ -151,6 +152,7 @@ public class TestTechnician {
 
             System.out.println("\nTotal time(ms) for adding 10000 radiologicalTest = "  + ((endTime-startTime) / 1000));
         }         
+        System.out.print("\n\n\t\t\t TECHNICIAN TESTING ENDS \n\n");
 
     }
 

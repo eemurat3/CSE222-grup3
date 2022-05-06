@@ -39,6 +39,8 @@ public class Secreter extends Worker{
     }
 
     public static void main(String[] args) {
+        System.out.print("\n\n\t\t\t SECRETER TESTING STARTS \n\n");
+
 
         System.out.println("\n\n\n------------ Testing Secreter------------\n");
         
@@ -83,6 +85,7 @@ public class Secreter extends Worker{
         testDisplayQueue(10000, doc);
         endTime = System.nanoTime();
         System.out.println("Running time for displaying queue in the 10000 elements : " + (endTime - startTime) + " ns");
+        System.out.print("\n\n\t\t\t SECRETER TESTING ENDS \n\n");
 
     }
     public static void testPrescribePatient(int counter, Patient patient, Prescription pres, String note){
