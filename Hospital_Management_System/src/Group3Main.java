@@ -9,6 +9,7 @@ import unit_tests.TestAdvisor;
 import unit_tests.TestTechnician;
 import unit_tests.ut_polyclinic;
 import users.Doctor;
+import users.Nurse;
 import users.Patient;
 import users.Worker;
 
@@ -24,7 +25,7 @@ public class Group3Main {
         Doctor.main(args);
         TestAdvisor.main(args);
         // Manager.main(args);
-        // Nurse.main(args);
+        Nurse.main(args);
         Patient.main(args);
         // Secreter.main(args);
         TestTechnician.main(args);
