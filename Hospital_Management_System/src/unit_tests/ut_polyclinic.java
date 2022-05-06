@@ -118,6 +118,7 @@ public class ut_polyclinic {
 			System.out.println("running time for deleting "+deleting_index+".th element in the {"+ elementsize+"} Elements(doctor,nurse,secretary) : " + (System.nanoTime() - startTime )+ " ns");
 	}
 	public static void main(String [] args) {
+		
 		testDoctorOperating();
 		testNurseOperating();
 		testSecreterOperating();
