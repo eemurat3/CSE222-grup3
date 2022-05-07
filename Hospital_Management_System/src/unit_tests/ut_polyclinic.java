@@ -88,7 +88,7 @@ public class ut_polyclinic {
 		System.out.println("pl.findPatient(patient21, xyz) == -1          : "+(pl.findPatient("patient21", "xyz")==-1));
 		System.out.println("pl.findPatient(patient1, xyzw) == 0           : "+(pl.findPatient("patient1", "xyzw") == 0 ));
 		System.out.println("pl.deletePatient(tryx, xyz) == null           : "+(pl.deletePatient("tryx", "xyz") == null));
-		System.out.println("pl.deletePatient(patient2, xyz) == null       : "+(pl.deletePatient("patient2", "xyz") != null));
+		System.out.println("pl.deletePatient(patient2, xyz) != null       : "+(pl.deletePatient("patient2", "xyz") != null));
 		System.out.println("pl.getPatients().size()==1                    : " + (pl.getPatients().size()==1));
     }
 	/**
@@ -123,7 +123,26 @@ public class ut_polyclinic {
 		if(temp != null)
 			System.out.println("running time for deleting "+deleting_index+".th element in the {"+ elementsize+"} Elements(doctor,nurse,secretary) : " + (System.nanoTime() - startTime )+ " ns");
 	}
-
+	/**
+	 * search element in the  patient queue
+	 * @param elementsize :  queue size
+	 * @param searching_index : searched element index
+	 */
+	static public void findMethodRunningTime(int elementsize,int searching_index) {
+		Polyclinic pl = new Polyclinic();
+		for(int i=0;i<elementsize;i++) {
+			Patient p = new Patient("patient"+i,"xyz"+i,"1",25);
+			pl.addPatients(p);
+		}
+		
+		long startTime = System.nanoTime();
+		//ArrayList<Secreter> temp = pl.getSecreters();
+		int temp = pl.findPatient("patient"+searching_index, "xyz"+searching_index);
+		//System.out.println(pl.getSecreters().get(deleting_index).getName()+" "+pl.getSecreters().get(deleting_index).getSurname());
+		if(temp > -1)
+			System.out.println("running time for searching "+searching_index+".th element in the {"+ elementsize+"} Elements(Patient) : " + (System.nanoTime() - startTime )+ " ns");
+	
+	}
 	/**
 	 * This function is used to test the running time of the add and delete methods
 	 * @param args The arguments passed to the program.
@@ -149,6 +168,11 @@ public class ut_polyclinic {
 		deleteMethodRunningTime(100,98);
 		deleteMethodRunningTime(1000,998);
 		deleteMethodRunningTime(10000,9998);
+		System.out.println("\n************Finding operation running time**********");
+		findMethodRunningTime(10,1);
+		findMethodRunningTime(100,95);
+		findMethodRunningTime(1000,600);
+		findMethodRunningTime(10000,9998);
         System.out.print("\n\n\t\t\t POLYCLINIC TESTING ENDS \n\n");
 
 	}

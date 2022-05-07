@@ -123,7 +123,7 @@ public class Polyclinic extends Department {
 	 */
 	public int findNurse(String name,String surname) {
 		for(int i=0;i<nurses.size();i++) {
-			if(nurses.get(i).getName() == name && nurses.get(i).getSurname()==surname)
+			if(nurses.get(i).getName().equals(name)  && nurses.get(i).getSurname().equals(surname))
 				return i;
 		}
 		return -1;
@@ -153,7 +153,7 @@ public class Polyclinic extends Department {
 		Iterator<Patient> itr = patients.iterator();
 	    while(itr.hasNext()){
 	    	Patient p = itr.next();
-	    	if(p.getName() == name && p.getSurname() == surname) {
+	    	if(p.getName().equals(name) && p.getSurname().equals(surname)) {
 	    		return index;
 	    	}
 	        index++;
