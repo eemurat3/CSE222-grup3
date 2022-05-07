@@ -164,10 +164,12 @@ public class Doctor extends Worker
         dr1.dischargePatient(appo1, "note");
         System.out.println("\nPatient Discharged = "+dr1.appointments);
 
+        System.out.println("\n\t\tAdding Operation\n");
+
+
         long start = System.nanoTime(); 
         for(int i = 0; i < 100; i++)
         {
-            appo1 = new Appointment(new Polyclinic("Radiology",7), dr1, new Patient("name"+ i, "surname" + i, "id" + i, 30), new Date(), "11111" + i);
             dr1.addAppointment(appo1);
         }
         long end1 = System.nanoTime(); 
@@ -175,12 +177,24 @@ public class Doctor extends Worker
         
         System.out.println("\nAdded 100 appointments to doctor 1 = " + sum/1000 + "ns");
 
+        
+        
+        start = System.nanoTime(); 
+        for(int i = 0; i < 100; i++)
+        {
+            dr1.appointments.remove();
+        }
+        end1 = System.nanoTime(); 
+        long sum1 = (end1 - start);
+        
+        
+        
+        
         dr1.appointments.clear();
 
         start = System.nanoTime(); 
         for(int i = 0; i < 1000; i++)
         {
-            appo1 = new Appointment(new Polyclinic("Radiology",7), dr1, new Patient("name"+ i, "surname" + i, "id" + i, 30), new Date(), "11111" + i);
             dr1.addAppointment(appo1);
         }
         end1 = System.nanoTime(); 
@@ -188,19 +202,44 @@ public class Doctor extends Worker
         
         System.out.println("\nAdded 1000 appointments to doctor 1 = " + sum/1000 + "ns");
 
+
+        start = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++)
+        {
+            dr1.appointments.remove();
+        }
+        end1 = System.nanoTime(); 
+        long sum2 = (end1 - start);
+        
         dr1.appointments.clear();
 
         start = System.nanoTime(); 
         for(int i = 0; i < 10000; i++)
         {
-            appo1 = new Appointment(new Polyclinic("Radiology",7), dr1, new Patient("name"+ i, "surname" + i, "id" + i, 30), new Date(), "11111" + i);
             dr1.addAppointment(appo1);
         }
         end1 = System.nanoTime(); 
         sum = (end1 - start);
+
+        start = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++)
+        {
+            dr1.appointments.remove();
+        }
+        end1 = System.nanoTime(); 
+        long sum3 = (end1 - start);
+        
+        dr1.appointments.clear();
         
         System.out.println("\nAdded 10000 appointments to doctor 1 = " + sum/1000 + "ns");
         
+
+        System.out.println("\n\t\tRemoving Operation\n");
+
+        System.out.println("\nRemoved 100 appointments to doctor 1 = " + sum1/1000 + "ns");
+        System.out.println("\nRemoved 1000 appointments from doctor 1 = " + sum2/1000 + "ns");
+        System.out.println("\nRemoved 10000 appointments from doctor 1 = " + sum3/1000 + "ns");
+
         
         System.out.print("\n\n\t\t\t DOCTOR UNIT TESTING ENDS \n\n");
 

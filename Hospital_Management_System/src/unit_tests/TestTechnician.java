@@ -152,6 +152,81 @@ public class TestTechnician {
 
             System.out.println("\nTotal time(ms) for adding 10000 radiologicalTest = "  + ((endTime-startTime) / 1000));
         }         
+
+        System.out.println("\n\n\t\tAdding Operation\n\n");
+            
+        
+            Technician test = new Technician("name", "surname", "id", 11, "username", "password");
+            BinarySearchTree<Test> radiological100 = new BinarySearchTree<>();
+            RadiologicalTest dnm = new RadiologicalTest("patientID");
+
+            long startTime = System.nanoTime();
+            for (Integer i = 0; i < 100; i++) {
+                radiological100.add(dnm);
+            }
+            long endTime = System.nanoTime();
+
+            System.out.println("\nTotal time(ms) for adding 100 elements to MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+        
+
+        
+            BinarySearchTree<Test> radiological1000 = new BinarySearchTree<>();
+
+            startTime = System.nanoTime();
+            for (Integer i = 0; i < 1000; i++) {
+                radiological1000.add(dnm);
+
+            }
+            endTime = System.nanoTime();
+
+            System.out.println("\nTotal time(ms) for adding 1000 elements to MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+        
+
+        
+            BinarySearchTree<Test> radiological10000 = new BinarySearchTree<>();
+
+            startTime = System.nanoTime();
+            for (Integer i = 0; i < 10000; i++) {
+                radiological10000.add(dnm);
+
+            }
+            endTime = System.nanoTime();
+
+            System.out.println("\nTotal time(ms) for adding 10000 elements to MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+        
+
+
+        System.out.println("\n\n\t\tRemoving Operation\n\n");
+
+
+        startTime = System.nanoTime();
+        for (Integer i = 0; i < 100; i++) {
+            radiological100.delete(dnm);
+        }
+        endTime = System.nanoTime();
+
+        System.out.println("\nTotal time(ms) for removing 100 elements from MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+    
+        startTime = System.nanoTime();
+        for (Integer i = 0; i < 1000; i++) {
+            radiological1000.delete(dnm);
+        }
+        endTime = System.nanoTime();
+
+        System.out.println("\nTotal time(ms) for removing 1000 elements from MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+    
+
+        startTime = System.nanoTime();
+        for (Integer i = 0; i < 10000; i++) {
+            radiological10000.delete(dnm);
+        }
+        endTime = System.nanoTime();
+
+        System.out.println("\nTotal time(ms) for removing 10000 elements from MR Binary Search Tree = "  + ((endTime-startTime) / 1000));
+    
+
+
+
         System.out.print("\n\n\t\t\t TECHNICIAN TESTING ENDS \n\n");
 
     }

@@ -259,6 +259,14 @@ public class Lab extends Department {
 			Integer nextint = (int) (3200 * Math.random());
 			ID100[i] = nextint.toString();	
 		}
+        
+        BloodTest dnm = new BloodTest();
+
+        System.out.println("\n\nTesting the Waiting Tests Queue\n\n");
+
+
+        System.out.println("\n\n\t\tAdding Operation\n\n");
+
 
         //100 item
         //tests
@@ -270,13 +278,82 @@ public class Lab extends Department {
 
         startw = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            waitingTests100.add(new BloodTest(String.valueOf(i)));
+            waitingTests100.add(dnm);
         }
         end1w = System.nanoTime(); 
         sumw = (end1w - startw); 
         
-        System.out.println("Run Time for 100 waiting tests: " + sumw / 1000000000);
+        System.out.println("Adding 100 tests to queue: " + sumw / 1000);
 
+        
+        //1000 item
+        //tests
+        Queue<Test> waitingTests1000 = new LinkedList<>();
+
+        double sumw2;
+        double startw2 = 0;
+        double end1w2 = 0; 
+
+        startw2 = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+            waitingTests1000.add(dnm);
+        }
+        end1w2 = System.nanoTime(); 
+        sumw2 = (end1w2 - startw2); 
+        
+        System.out.println("Adding 1000 tests to queue: " + sumw2 / 1000);
+
+        //10000 item
+        //tests
+        Queue<Test> waitingTests10000 = new LinkedList<>();
+
+        double sumw3;
+        double startw3 = 0;
+        double end1w3 = 0; 
+
+        startw3 = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++){
+            waitingTests10000.add(dnm);
+        }
+        end1w3 = System.nanoTime(); 
+        sumw3 = (end1w3 - startw3); 
+        
+        System.out.println("Adding 10000 tests to queue: " + sumw3 / 1000);
+
+
+
+        startw = System.nanoTime(); 
+        for(int i = 0; i < 100; i++){
+            waitingTests100.remove();
+        }
+        end1w = System.nanoTime(); 
+        sumw = (end1w - startw); 
+        
+        System.out.println("\n\n\t\tRemoving Operation\n\n");
+
+        System.out.println("Removing 100 tests from queue: " + sumw / 1000);
+
+        startw = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+            waitingTests1000.remove();
+        }
+        end1w = System.nanoTime(); 
+        sumw = (end1w - startw); 
+        
+        System.out.println("Removing 1000 tests from queue: " + sumw / 1000);
+
+        startw = System.nanoTime(); 
+        for(int i = 0; i < 10000; i++){
+            waitingTests10000.remove();
+        }
+        end1w = System.nanoTime(); 
+        sumw = (end1w - startw); 
+        
+        System.out.println("Removing 10000 tests from queue: " + sumw / 1000);
+
+        
+        
+        System.out.println("\n\nTesting the All Tests list \n\n");
         
         //100 item
         //allTests
@@ -288,53 +365,12 @@ public class Lab extends Department {
 
         start = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            allTests100.add(new BloodTest(String.valueOf(i)));
+            allTests100.add(dnm);
         }
         end1 = System.nanoTime(); 
         sum = (end1 - start); 
         
-        System.out.println("Run Time for 100 allTest: " + sum / 1000000000);
-
-
-
-        //100 item
-        //technicians
-        ArrayList<Technician> technicians100 = new ArrayList<>();
-
-        double sumTec;
-        double startTec = 0;
-        double end1Tec = 0; 
-
-        startTec = System.nanoTime(); 
-        for(int i = 0; i < 100; i++){
-            technicians100.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
-        }
-        end1Tec = System.nanoTime(); 
-        sumTec = (end1Tec - startTec); 
-        
-        System.out.println("Run Time for 100 technician: " + sumTec / 1000000000);
-        
-        /*--------------------------------------------*/
-
-
-        //1000 item
-        //tests
-        Queue<Test> waitingTests1000 = new LinkedList<>();
-
-        double sumw2;
-        double startw2 = 0;
-        double end1w2 = 0; 
-
-        startw2 = System.nanoTime(); 
-        for(int i = 0; i < 1000; i++){
-            waitingTests1000.add(new BloodTest(String.valueOf(i)));
-        }
-        end1w2 = System.nanoTime(); 
-        sumw2 = (end1w2 - startw2); 
-        
-        System.out.println("Run Time for 1000 waiting tests: " + sumw2 / 1000000000);
-
-
+        System.out.println("Run Time for 100 allTest: " + sum / 1000);
 
 
         //1000 item
@@ -354,55 +390,12 @@ public class Lab extends Department {
 
         start2 = System.nanoTime(); 
         for(int i = 0; i < 1000; i++){
-            allTests1000.add(new BloodTest(String.valueOf(i)));
+            allTests1000.add(dnm);
         }
         end2 = System.nanoTime(); 
         sum2 = (end2 - start2); 
         
-        System.out.println("Run Time for 1000 allTest: " + sum2 / 1000000000);
-
-
-
-
-        //1000 item
-        //technician
-
-        ArrayList<Technician> technicians1000 = new ArrayList<>();
-
-        double sum2Tec;
-        double start2Tec = 0;
-        double end2Tec = 0; 
-
-        start2Tec = System.nanoTime(); 
-        for(int i = 0; i < 1000; i++){
-            technicians1000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
-        }
-        end2Tec = System.nanoTime(); 
-        sum2Tec = (end2Tec - start2Tec); 
-        
-        System.out.println("Run Time for 1000 technician: " + sum2Tec / 1000000000);
-
-
-
-        /*--------------------------------------------*/
-
-        //10000 item
-        //tests
-        Queue<Test> waitingTests10000 = new LinkedList<>();
-
-        double sumw3;
-        double startw3 = 0;
-        double end1w3 = 0; 
-
-        startw3 = System.nanoTime(); 
-        for(int i = 0; i < 10000; i++){
-            waitingTests10000.add(new BloodTest(String.valueOf(i)));
-        }
-        end1w3 = System.nanoTime(); 
-        sumw3 = (end1w3 - startw3); 
-        
-        System.out.println("Run Time for 10000 waiting tests: " + sumw3 / 1000000000);
-
+        System.out.println("Run Time for 1000 allTest: " + sum2 / 1000);
 
 
         //10000 item
@@ -422,16 +415,56 @@ public class Lab extends Department {
 
         start3 = System.nanoTime(); 
         for(int i = 0; i < 10000; i++){
-            allTests10000.add(new BloodTest(String.valueOf(i)));
+            allTests10000.add(dnm);
         }
         end3 = System.nanoTime(); 
         sum3 = (end3 - start3); 
         
-        System.out.println("Run Time for 10000 allTest: " + sum3 / 1000000000);
+        System.out.println("Run Time for 10000 allTest: " + sum3 / 1000);
 
 
+        System.out.println("\n\nTesting Technicians Array list \n\n");
+
+        //100 item
+        //technicians
+        ArrayList<Technician> technicians100 = new ArrayList<>();
+
+        double sumTec;
+        double startTec = 0;
+        double end1Tec = 0; 
+
+        startTec = System.nanoTime(); 
+        for(int i = 0; i < 100; i++){
+            technicians100.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+        }
+        end1Tec = System.nanoTime(); 
+        sumTec = (end1Tec - startTec); 
         
+        System.out.println("Run Time for 100 technician: " + sumTec / 1000);
+        
+        /*--------------------------------------------*/
 
+        //1000 item
+        //technician
+
+        ArrayList<Technician> technicians1000 = new ArrayList<>();
+
+        double sum2Tec;
+        double start2Tec = 0;
+        double end2Tec = 0; 
+
+        start2Tec = System.nanoTime(); 
+        for(int i = 0; i < 1000; i++){
+            technicians1000.add(new Technician("a","b",String.valueOf(i), 0, "c", "d"));
+        }
+        end2Tec = System.nanoTime(); 
+        sum2Tec = (end2Tec - start2Tec); 
+        
+        System.out.println("Run Time for 1000 technician: " + sum2Tec / 1000);
+
+
+
+        /*--------------------------------------------*/
         //10000 item
         //technician
 
@@ -448,7 +481,7 @@ public class Lab extends Department {
         end3Tec = System.nanoTime(); 
         sum3Tec = (end3Tec - start3Tec); 
         
-        System.out.println("Run Time for 10000 technician: " + sum3Tec / 1000000000);
+        System.out.println("Run Time for 10000 technician: " + sum3Tec / 1000);
         System.out.print("\n\n\t\t\t LAB UNIT TESTING ENDS \n\n");
 
     
