@@ -1,7 +1,7 @@
-package users;
+package util;
 
 import java.util.Stack;
-import users.BinarySearchTree.Node;
+import util.BinarySearchTree.Node;
 /**
  * Tree Iterator for traversing binary search tree.
  */

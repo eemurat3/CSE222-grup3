@@ -11,9 +11,9 @@ import java.util.Queue;
 
 import tests.BloodTest;
 import tests.Test;
-import users.BinarySearchTree;
+import util.BinarySearchTree;
 import users.Technician;
-import users.TreeIterator;
+import util.TreeIterator;
 
 /**
  * The Lab class is a subclass of the Department class. 
@@ -29,7 +29,8 @@ public class Lab extends Department {
 	 * Waitining Test Queue
 	 */
     private Queue<Test> tests;
-
+    
+    //TODO make this all tests
     /**
 	 * Waitining Test BST
 	 */
@@ -77,6 +78,7 @@ public class Lab extends Department {
      * Add new test
      * @param test which is Test object
      */
+    //TODO add to waiting not to all
     public void addTest(Test test){
         allTests.add(test);
     }
@@ -85,10 +87,13 @@ public class Lab extends Department {
      * Remove a test by object
      * @param test which is Test object
      */
+    //TODO pop from waiting list and returned the deleted test
     public void removeTest(Test test){
         allTests.delete(test);
+        //Pop lanan test i ait olduğu patient' ın testlerine ve allTest'e ekle 
     }
 
+    //TODO pop from waiting list and returned the deleted test
     /**
      * Remove a test by testID
      * @param  testID which is unique code for test

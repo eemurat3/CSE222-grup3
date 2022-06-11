@@ -3,6 +3,7 @@ package unit_tests;
  * TestTechnician
  */
 
+import util.*;
 import users.*;
 import departments.*;
 import systems.*;

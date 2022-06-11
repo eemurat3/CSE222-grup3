@@ -32,6 +32,10 @@ public class Polyclinic extends Department {
 	 * polyclinic patient queue
 	 */
 	private Queue<Patient> patients = new PriorityQueue<>();
+
+	//TODO polyclinicin kendi tek advisorı olacak
+	//TODO string name eklenecek
+
 	/**
 	 * default constructor
 	 */

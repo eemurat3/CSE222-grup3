@@ -25,8 +25,9 @@ public class Group3Main {
      */
     public static void main(String[] args) {
         
-        //HMSystem myHospital = new HMSystem();
+        HMSystem myHospital = new HMSystem();
 
+        /*
         Doctor.main(args);
         TestAdvisor.main(args);
         Nurse.main(args);
@@ -44,7 +45,7 @@ public class Group3Main {
         
         Lab.main(args);
         Reception.main(args);
-        ut_polyclinic.main(args);
+        ut_polyclinic.main(args);*/
         
 
     }

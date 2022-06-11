@@ -7,7 +7,7 @@ package tests;
  * The Test class is an abstract class that implements the Comparable interface and will be used for Lab test patients need.
  */
 public abstract class Test implements Comparable <Test> {
- 	
+ 	//TODO add test type id
 	private String patientID;
 	
   	/**

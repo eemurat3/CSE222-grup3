@@ -9,6 +9,7 @@ public class Worker extends User
 {
     private String username;
     private String password;
+    //TODO add department object
 
     // A constructor.
     public Worker(String name, String surname, String id, int age,String username , String password) {

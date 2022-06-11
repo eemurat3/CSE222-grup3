@@ -7,29 +7,35 @@ import java.util.*;
  */
 public class Advisor extends Worker {
     
-    PriorityQueue<Patient> patients = new PriorityQueue<>();
+    //TODO 
+    //Kendi patient list tutmayacak doktorların appointment liste ekleyecek , silinecek . 
+    // PriorityQueue<Patient> patients = new PriorityQueue<>();
 
 	// A constructor for the Advisor class.
     public Advisor(String name, String surname, String id, int age, String username, String password) {
         super(name, surname, id, age, username, password);
     }
-
+    
+ 
     /**
      * If the patient is not already in the list, add the patient to the list
      * 
      * @param nextPatient The patient to be added to the list.
      * @return A boolean value.
      */
-    public boolean addPatient(Patient nextPatient) {
-        
-        for (Patient iPatient : patients)
-            if (iPatient.getId() == nextPatient.getId())
-                return false;
-
-        patients.add(nextPatient);
-        return true;
+    //TODO genel patient arraye ekleyecek
+    public boolean addPatient() {
+        return false;
+    }
+    
+    //TODO doctorun appointmenına ekleyecek
+    public boolean addAppointment(Patient nextPatient){
+        return false;
     }
 
+
+
+    //TODO advisor patient silemesin
     /**
      * It removes the patient from the list.
      * 
@@ -37,25 +43,18 @@ public class Advisor extends Worker {
      * @return A boolean value.
      */
     public boolean removePatient(Patient nextPatient) {
-        return patients.remove(nextPatient);
+      return false;
     }
 
+
+    //TODO display doctor list
     /**
      * This function takes the patients in the queue and displays them in a string
      * 
      * @return A string of the patients in the queue.
      */
     public String displayQueue() {
-        
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("Patients in queue: \n\n");
-
-        for (Patient iPatient : patients) {
-            sb.append("\t" + iPatient + "\n");
-        }
-
-        return new String(sb);
+        return null;
     }
 
     /**

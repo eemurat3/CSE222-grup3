@@ -25,10 +25,11 @@ public class Nurse extends Worker{
      * @param appo Appointment object
      * @param note String
      */
+    //TODO delete addappointment statement
     public void updatePatientInfo(Patient patient, Appointment appo, String note) 
     {   
         appo.setNote("Note");
-    	patient.addAppointment(appo);
+    	//patient.addAppointment(appo);
     }
     
     /**

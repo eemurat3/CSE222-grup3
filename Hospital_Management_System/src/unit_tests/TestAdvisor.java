@@ -1,6 +1,7 @@
 package unit_tests;
 import users.*;
 import departments.*;
+import util.*;
 
 public class TestAdvisor {
 

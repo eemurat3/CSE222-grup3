@@ -4,6 +4,7 @@ import tests.BloodTest;
 import tests.CovidTest;
 import tests.RadiologicalTest;
 import tests.Test;
+import util.*;
 
 /**
  * Technician Class extends Worker Class.
@@ -16,6 +17,15 @@ public class Technician extends Worker {
         super(name, surname, id, age, username, password);
     }
 
+     //TODO 
+    // bütün testlere ulaşabiliyor olması lazım.
+    // takeTest() ekle , takeRadiologicalTest() , takeBloodTest() vs. sil
+    // takeTest() update test and pop from waiting test
+    // after takeTest() update test
+    // displayAllTests() tüm testleri göstersin
+    // displayWaitingTests() tüm testleri göstersin
+    // updateTest()
+
     /**
      * This function takes a new CovidTest object and a BinarySearchTree of CovidTest objects and adds
      * the new CovidTest object to the BinarySearchTree of CovidTest objects
@@ -23,9 +33,11 @@ public class Technician extends Worker {
      * @param newTest a CovidTest object
      * @param covidTests BinarySearchTree of type Test
      */
+   
     public void takeCovidTest(CovidTest newTest, BinarySearchTree<Test> covidTests) {
 
         covidTests.add(newTest);
+
     }
 
     /**

@@ -11,6 +11,11 @@ import systems.Prescription;
  * Secreter Class extends Worker Class.
  */
 public class Secreter extends Worker{
+
+    //TODO prescription list ekle , doktor bu listeye prescription ekleyecek ve secreter bu prescriptionları patientlara ekleyebilir.
+
+
+
     // A constructor.
     public Secreter(String name, String surname, String id, int age,String email , String password) 
     {

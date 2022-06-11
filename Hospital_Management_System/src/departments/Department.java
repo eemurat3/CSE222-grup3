@@ -4,8 +4,11 @@ package departments;
  * @author Murat Kaymaz
  *
  */
+
 import java.util.ArrayList;
 import users.Worker;
+
+//TODO make abscract
 public class Department {
 	/**
 	 * Department name

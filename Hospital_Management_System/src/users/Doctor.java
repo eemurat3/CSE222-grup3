@@ -21,7 +21,10 @@ import tests.Test;
  */
 public class Doctor extends Worker
 {
- 
+    
+    //TODO secreter data field eklenecek
+    //secreter get set
+
     private PriorityQueue<Appointment> appointments;
 
     public Doctor(String name, String surname, String id, int age,String email , String password) 
@@ -67,6 +70,8 @@ public class Doctor extends Worker
      * @param pres Prescription object
      * @param note String
      */
+    // TODO doctor can create prescription
+    // Prescription u sekreterin listesine ekle
     public void givePrescription(Patient patient, Prescription pres , String note) {
         
         pres.setNote(note);
@@ -94,6 +99,7 @@ public class Doctor extends Worker
      * @param patient The patient object that is requesting the test.
      * @param test The test to be requested
      */
+    //TODO labdaki testlere eklemeli
     public void requestTest(Patient patient, Test test)
     {
         patient.addTest(test);
