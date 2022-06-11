@@ -21,9 +21,12 @@ import tests.Test;
  */
 public class Doctor extends Worker
 {
+<<<<<<< HEAD
     
     //TODO secreter data field eklenecek
     //secreter get set
+=======
+>>>>>>> 69b98ad2f2db0fc070cfcb0a6178e27a4f50accf
 
     private PriorityQueue<Appointment> appointments;
 
@@ -49,6 +52,7 @@ public class Doctor extends Worker
 
     public boolean addAppointment(Appointment appo) {
         appointments.offer(appo);
+        this.getAppointment().getPatient().addAppointment(appo);    //YeTeA
         // HMSystem.appointmets.add(appointment);
         // HMSystem.addAppointmentToDataBase(app);
         return true;

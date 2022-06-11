@@ -21,6 +21,11 @@ public class Prescription
         note = newNote;
     }
 
+    //Default Prescription
+    public Prescription(){
+        
+    }
+
     /**
      * The function getPrescription() returns a string that is the concatenation of the medicine,
      * instructions, and note fields
