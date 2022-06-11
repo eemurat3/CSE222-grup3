@@ -21,7 +21,7 @@ import tests.Test;
  */
 public class Doctor extends Worker
 {
- 
+
     private PriorityQueue<Appointment> appointments;
 
     public Doctor(String name, String surname, String id, int age,String email , String password) 
@@ -46,6 +46,7 @@ public class Doctor extends Worker
 
     public boolean addAppointment(Appointment appo) {
         appointments.offer(appo);
+        this.getAppointment().getPatient().addAppointment(appo);    //YeTeA
         // HMSystem.appointmets.add(appointment);
         // HMSystem.addAppointmentToDataBase(app);
         return true;
