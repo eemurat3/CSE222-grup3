@@ -14,7 +14,7 @@ public class ut_polyclinic {
     static void testDoctorOperating() {
 
 		System.out.println("******Doctor operation Unit test**********");
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("sdfsdf",123);
 		Doctor d = new Doctor("murat","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
 		Doctor d1 = new Doctor("murat2","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
 		pl.addDoctor(d);
@@ -35,7 +35,7 @@ public class ut_polyclinic {
 	//@Test
     static void testNurseOperating() {
 		System.out.println("\n******Nurse operation Unit test**********");
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("dsfsf",345);
 		Nurse n1 = new Nurse("try","xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
 		Nurse n2 = new Nurse("try2","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
 		pl.addNurse(n1);
@@ -55,7 +55,7 @@ public class ut_polyclinic {
 	//@Test
     static void testSecreterOperating() {
 		System.out.println("\n******Secretary operation Unit test**********");
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("feef",123);
 		Secreter s1 = new Secreter("secreter1","xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
 		Secreter s2 = new Secreter("secreter2","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
 		pl.addSecreter(s1);
@@ -76,7 +76,7 @@ public class ut_polyclinic {
 	//@Test
     static void testPatientOperating() {
 		System.out.println("\n******Patient operation Unit test**********");
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("wed",2342);
 		Patient p1 = new Patient("patient1","xyzw","1",25);
 		Patient p2 = new Patient("patient2","xyz","2",25);
 		pl.addPatients(p1);
@@ -96,7 +96,7 @@ public class ut_polyclinic {
 	 * @param elementsize : number of element for adding operation
 	 */
 	static public void addMethodRunningTime(int elementsize) {
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("sdfdsf",2133);
 		long startTime = System.nanoTime();
 		for(int i=0;i<elementsize;i++) {
 			Nurse n1 = new Nurse("try"+i,"xyz","1",25,"xy1z@gtu.uedu.tr","xyz");
@@ -110,7 +110,7 @@ public class ut_polyclinic {
 	 * @param deleting_index : deleting index in the array
 	 */
 	static public void deleteMethodRunningTime(int elementsize,int deleting_index) {
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("sdfds",213);
 		for(int i=0;i<elementsize;i++) {
 			Secreter s = new Secreter("secreter"+i,"xyz"+i,"1",25,"xyz@gtu.uedu.tr","xyz");
 			pl.addSecreter(s);
@@ -129,7 +129,7 @@ public class ut_polyclinic {
 	 * @param searching_index : searched element index
 	 */
 	static public void findMethodRunningTime(int elementsize,int searching_index) {
-		Polyclinic pl = new Polyclinic();
+		Polyclinic pl = new Polyclinic("3wf45",232344);
 		for(int i=0;i<elementsize;i++) {
 			Patient p = new Patient("patient"+i,"xyz"+i,"1",25);
 			pl.addPatients(p);

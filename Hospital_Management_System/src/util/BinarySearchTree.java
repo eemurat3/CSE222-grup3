@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @param <E> The type of data in the tree. Must be a Comparable object.
  */
-@SuppressWarnings("serial")
+
 public class BinarySearchTree<E extends Comparable<E>> implements Serializable  
 {
 	//Data Fields

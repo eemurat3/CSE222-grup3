@@ -30,16 +30,20 @@ public class Lab extends Department {
 	 */
     private Queue<Test> tests;
     
-    //TODO make this all tests
+
     /**
-	 * Waitining Test BST
+	 * All Test BST
 	 */
     private BinarySearchTree<Test> allTests;
+
+    
 
     /**
      * No parameter Contructor
      */
-    public Lab(){
+    public Lab(String departmentName,int departmentID){
+        super(departmentName,departmentID,0);
+
         clinicalTechnicians = new ArrayList<Technician>();
         tests = new LinkedList<>();
         allTests = new BinarySearchTree<>();
@@ -51,9 +55,47 @@ public class Lab extends Department {
      * @param tests takes a test queue
      * @param allTests takes a test list as Binary Search Tree
      */
-    public Lab(ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> allTests){
+    public Lab(String departmentName,int departmentID,ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> allTests){
+        super(departmentName,departmentID,0);
+        
         this.clinicalTechnicians = clinicalTechnicians;
         this.tests = tests;
+        this.allTests = allTests;
+    }
+
+    /**
+     * This function returns a queue of tests.
+     * 
+     * @return The queue of tests.
+     */
+    public Queue<Test> getWaitingTests() {
+        return tests;
+    }
+
+    /**
+     * This function sets the tests variable to the tests parameter.
+     * 
+     * @param tests The tests that are waiting to be run.
+     */
+    public void setWaitingTests(Queue<Test> tests) {
+        this.tests = tests;
+    }
+
+    /**
+     * This function returns the BinarySearchTree of all tests.
+     * 
+     * @return The BinarySearchTree of all tests.
+     */
+    public BinarySearchTree<Test> getAllTests() {
+        return allTests;
+    }
+
+    /**
+     * This function sets the value of the allTests variable to the value of the parameter allTests
+     * 
+     * @param allTests This is the Binary Search Tree that contains all the tests.
+     */
+    public void setAllTests(BinarySearchTree<Test> allTests) {
         this.allTests = allTests;
     }
 
@@ -67,7 +109,7 @@ public class Lab extends Department {
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
 
-            if(currentItem.getID().equals(testID))
+            if(currentItem.getTestID().equals(testID))
                 return currentItem;
         }
 
@@ -78,28 +120,28 @@ public class Lab extends Department {
      * Add new test
      * @param test which is Test object
      */
-    //TODO add to waiting not to all
-    public void addTest(Test test){
-        allTests.add(test);
+    public void addWaitingTest(Test test){
+        tests.add(test);
+    }
+
+    public void addOldTest(Test oldTest){
+        allTests.add(oldTest);
     }
 
     /**
      * Remove a test by object
      * @param test which is Test object
      */
-    //TODO pop from waiting list and returned the deleted test
-    public void removeTest(Test test){
-        allTests.delete(test);
-        //Pop lanan test i ait olduğu patient' ın testlerine ve allTest'e ekle 
+    public Test removeWaitingTest(){
+        return tests.poll();
     }
 
-    //TODO pop from waiting list and returned the deleted test
-    /**
-     * Remove a test by testID
-     * @param  testID which is unique code for test
-     */
-    public void removeTest(String testID){
-        removeTest(getTest(testID));
+    public void removeOldTest(Test oldTest){
+        allTests.remove(oldTest);
+    }
+
+    public void removeOldTest(String testID){
+        removeOldTest(getTest(testID));
     }
 
     /**
@@ -170,7 +212,7 @@ public class Lab extends Department {
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
          
-            result.append(count + ")" + currentItem.getID() + "\n");
+            result.append(count + ")" + currentItem.getTestID() + "\n");
 
             count += 1;
         }
@@ -201,10 +243,10 @@ public class Lab extends Department {
             techniciansT.add(new Technician("trying1","trying2",String.valueOf(i), 0,"ty", "yt"));
         }
         for(int i=0;i<10;i++){
-            testsT.add(new BloodTest(String.valueOf(i)));
+            testsT.add(new BloodTest(String.valueOf(i),String.valueOf(i*11)));
         }
         for(int i=0;i<10;i++){
-            testsQ.add(new BloodTest(String.valueOf(i)));
+            testsQ.add(new BloodTest(String.valueOf(i),String.valueOf(i*13)));
         }
 
 		System.out.println("------------ Test of Lab Department ---------------");
@@ -215,8 +257,8 @@ public class Lab extends Department {
 		/** Constructor test */
         System.out.println("/** Constructor test */ \n");
 
-        Lab lab = new Lab();
-        Lab lab2 = new Lab(techniciansT,testsQ,testsT);
+        Lab lab = new Lab("refe",232);
+        Lab lab2 = new Lab("we",345,techniciansT,testsQ,testsT);
         
 
 
@@ -234,11 +276,11 @@ public class Lab extends Department {
 		
 		/** Modify methods */
 
-        lab.addTest(new BloodTest("11"));
-        lab.addTest(new BloodTest("12"));
+        lab.addOldTest(new BloodTest("11","234"));
+        lab.addOldTest(new BloodTest("12","2355235"));
         lab.addClinicalTechnician(new Technician("kemal", "leman", "11", 0, "ms", "sm"));
         lab.addClinicalTechnician(new Technician("kemal", "leman", "12", 0, "ms", "sm"));
-        lab.removeTest("12");
+        lab.removeOldTest("12");
         lab.removeClinicalTechnician("12");
 
 

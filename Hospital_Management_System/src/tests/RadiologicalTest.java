@@ -1,5 +1,4 @@
 package tests;
-import java.io.*;
 
 /**
  * @author S. Burak YASAR
@@ -14,20 +13,20 @@ public class RadiologicalTest extends Test{
     private String testResult;
 
     /*MR,PET,BT,X-RAY etc. and body parts Example test type: Head MR*/
-    private String testType;
+    private String radiologicalTestType;
 
     /** Constructor
     *@param patientID patient id
     */
-    public RadiologicalTest(String patientID){
-        super(patientID);
+    public RadiologicalTest(String patientID,String testID){
+        super(patientID,testID,2);
     }
     
     // A constructor.
-    public RadiologicalTest(String patientID, String testResult, String testType){
-        super(patientID);
+    public RadiologicalTest(String patientID,String testID,String testResult, String radiologicalTestType){
+        super(patientID,testID,2);
         this.testResult = testResult;
-        this.testType = testType;
+        this.radiologicalTestType = radiologicalTestType;
     }      
 
 
@@ -42,8 +41,8 @@ public class RadiologicalTest extends Test{
     /** Set Result
     *@param result test type
     */
-    public void setTestType(String type){
-        testType = type;
+    public void setTestType(String radiologicalTestType){
+        this.radiologicalTestType = radiologicalTestType;
     }
 
 
@@ -60,8 +59,8 @@ public class RadiologicalTest extends Test{
     *@return returns test type
     */
 
-    public String getTestType(){
-        return testType;
+    public String getRadiologicalTestType(){
+        return radiologicalTestType;
     }
 
 
@@ -70,7 +69,7 @@ public class RadiologicalTest extends Test{
     */
     public String toString(){
         
-        return "\nPatient ID:" + getID() + " Test Type: " + testType + "\tTest Result: " + testResult;
+        return "\nPatient ID:" + getPatientID() + " Test Type: " + radiologicalTestType + "\tTest Result: " + testResult;
     }
 
     /**
@@ -86,8 +85,8 @@ public class RadiologicalTest extends Test{
 
         /**Constructor test */
 
-        RadiologicalTest test1 = new RadiologicalTest(patientId1);
-        RadiologicalTest test2 = new RadiologicalTest(patientId2);
+        RadiologicalTest test1 = new RadiologicalTest(patientId1,"234234");
+        RadiologicalTest test2 = new RadiologicalTest(patientId2,"657657");
        
         /**Setter test */
 

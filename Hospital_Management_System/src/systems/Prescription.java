@@ -8,14 +8,18 @@ package systems;
  * This class is a prescription class which shows the medicine of the patient.
  */
 public class Prescription 
-{
+{   
+    private String prescriptionID;
+    private String patientID;
     private String medicine = "None";
     private String instructions = "None";
     private String note = "None";
 
     // A constructor that takes in three strings and sets the private variables to the new values.
-    public Prescription(String newMed, String newInst, String newNote)
-    {
+    public Prescription(String prescriptionID ,String patientID,String newMed, String newInst, String newNote)
+    {   
+        this.prescriptionID = prescriptionID;
+        this.patientID = patientID;
         medicine = newMed;
         instructions = newInst;
         note = newNote;
@@ -24,6 +28,43 @@ public class Prescription
     //Default Prescription
     public Prescription(){
         
+    }
+
+    /**
+     * This function returns the prescriptionID of the prescription
+     * 
+     * @return The prescriptionID is being returned.
+     */
+    public String getPrescriptionID() {
+        return prescriptionID;
+    }
+
+    /**
+     * This function sets the prescriptionID of the prescription object to the prescriptionID passed in
+     * as a parameter
+     * 
+     * @param prescriptionID String
+     */
+    public void setPrescriptionID(String prescriptionID) {
+        this.prescriptionID = prescriptionID;
+    }
+
+    /**
+     * This function returns the patientID of the patient
+     * 
+     * @return The patientID is being returned.
+     */
+    public String getPatientID() {
+        return patientID;
+    }
+
+    /**
+     * This function sets the patientID to the patientID passed in as a parameter
+     * 
+     * @param patientID The patient's ID
+     */
+    public void setPatientID(String patientID) {
+        this.patientID = patientID;
     }
 
     /**

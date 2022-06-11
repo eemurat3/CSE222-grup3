@@ -1,5 +1,5 @@
 package tests;
-import java.io.*;
+
 
 /**
  * @author S. Burak YASAR
@@ -15,14 +15,14 @@ public class CovidTest extends Test{
     /** Constructor
     *@param patientID patient id
     */
-    public CovidTest(String patientID){
-        super(patientID);
+    public CovidTest(String patientID,String testID){
+        super(patientID,testID,1);
         testResult = false;
     }
     
     // A constructor.
-    public CovidTest(String patientID, boolean testResult){
-        super(patientID);
+    public CovidTest(String patientID, String testID,boolean testResult){
+        super(patientID,testID,1);
         this.testResult = testResult;
     }     
 
@@ -47,7 +47,7 @@ public class CovidTest extends Test{
     */
     public String toString(){
         
-        return   "\nPatient ID:" + getID() + ((testResult == true) ? " Covid Test Result: Positive" :
+        return   "\nPatient ID:" + getPatientID() + ((testResult == true) ? " Covid Test Result: Positive" :
         " Covid Test Result: Negative");
     }
 
@@ -66,8 +66,8 @@ public class CovidTest extends Test{
 
         /**Constructor test */
 
-        CovidTest test1 = new CovidTest(patientId1);
-        CovidTest test2 = new CovidTest(patientId2);
+        CovidTest test1 = new CovidTest(patientId1,"32432");
+        CovidTest test2 = new CovidTest(patientId2,"234324");
 
 
         /**Setter test */

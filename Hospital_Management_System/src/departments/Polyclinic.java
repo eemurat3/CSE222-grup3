@@ -7,6 +7,7 @@ package departments;
 import users.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Queue;
 
 //import org.junit.jupiter.api.Test;
@@ -33,23 +34,50 @@ public class Polyclinic extends Department {
 	 */
 	private Queue<Patient> patients = new PriorityQueue<>();
 
-	//TODO polyclinicin kendi tek advisorı olacak
-	//TODO string name eklenecek
+	private String name;
 
+	
 	/**
 	 * default constructor
 	 */
-	public Polyclinic() {
-		
+	public Polyclinic(String departmentName,int departmentID) {
+		super(departmentName,departmentID,1);
+		this.doctors = new ArrayList<>();
+		this.nurses = new ArrayList<>();
+		this.secreters = new ArrayList<>();
+		this.patients = new LinkedList<>();
 	}
 	/**
 	 * two parameter constructor
 	 * @param name : polyclinic name
 	 * @param id  : polyclinic id
 	 */
-	public Polyclinic(String name,int id) {
-		super(name,id);
+	public Polyclinic(String departmentName,int departmentID,ArrayList<Doctor> doctors,ArrayList<Nurse> nurses,ArrayList<Secreter> secretars,Queue<Patient> patients) {
+		super(departmentName,departmentID,1);
+		this.doctors = doctors;
+		this.nurses = nurses;
+		this.secreters = secretars;
+		this.patients = patients;
 	}
+
+	/**
+	 * This function returns the name of the person.
+	 * 
+	 * @return The name of the person.
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * This function sets the name of the object to the value of the parameter.
+	 * 
+	 * @param name The name of the parameter.
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	/**
 	 * add new doctor to polyclinc
 	 * @param d : new doctor

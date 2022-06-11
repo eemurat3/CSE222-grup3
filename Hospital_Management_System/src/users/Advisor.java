@@ -2,14 +2,14 @@ package users;
 
 import java.util.*;
 
+import departments.Reception;
+import systems.Appointment;
+import systems.HMSystem;
+
 /**
  * It's a class that extends the Worker class and adds a priority queue of patients.
  */
 public class Advisor extends Worker {
-    
-    //TODO 
-    //Kendi patient list tutmayacak doktorların appointment liste ekleyecek , silinecek . 
-    // PriorityQueue<Patient> patients = new PriorityQueue<>();
 
 	// A constructor for the Advisor class.
     public Advisor(String name, String surname, String id, int age, String username, String password) {
@@ -23,38 +23,45 @@ public class Advisor extends Worker {
      * @param nextPatient The patient to be added to the list.
      * @return A boolean value.
      */
-    //TODO genel patient arraye ekleyecek
-    public boolean addPatient() {
-        return false;
+
+    public boolean addPatient(String name,String surname,String id,int age) {
+        HMSystem.users.add(new Patient(name, surname, id, age));
+        return true;
     }
     
-    //TODO doctorun appointmenına ekleyecek
-    public boolean addAppointment(Patient nextPatient){
+  
+    private boolean addAppointment(Doctor doctor,Appointment appointment){
+        //Add to doctor's appointments
+        doctor.addAppointment(appointment);
+
+        //Add to patient's appointments
+        appointment.getPatient().addAppointment(appointment);
+
+        //TODO Add to HMSystem appointments
+        HMSystem.appointments.add(appointment);
+
+        //Add to Reception class appointments
+        Reception reception = (Reception) getDepartment();
+        reception.addAppointment(appointment);
+
         return false;
     }
 
-
-
-    //TODO advisor patient silemesin
-    /**
-     * It removes the patient from the list.
-     * 
-     * @param nextPatient The patient to remove from the list.
-     * @return A boolean value.
-     */
-    public boolean removePatient(Patient nextPatient) {
-      return false;
-    }
-
-
-    //TODO display doctor list
     /**
      * This function takes the patients in the queue and displays them in a string
      * 
      * @return A string of the patients in the queue.
      */
-    public String displayQueue() {
-        return null;
+    public List<Doctor> displayDoctorList() {
+        ArrayList<Doctor> doctors = new ArrayList<>();
+
+        for(Worker w :HMSystem.workers){
+            if(w instanceof Doctor){
+                doctors.add((Doctor) w);
+            }
+        }
+
+        return doctors;
     }
 
     /**

@@ -1,10 +1,10 @@
 package users;
 
 import java.util.Date;
-import java.util.UUID;
-
 import systems.Appointment;
+import systems.HMSystem;
 import systems.Prescription;
+import util.TreeIterator;
 import departments.Polyclinic;
 
 /**
@@ -25,11 +25,36 @@ public class Nurse extends Worker{
      * @param appo Appointment object
      * @param note String
      */
-    //TODO delete addappointment statement
-    public void updatePatientInfo(Patient patient, Appointment appo, String note) 
-    {   
-        appo.setNote("Note");
-    	//patient.addAppointment(appo);
+    
+    public void updatePatientInfo(Patient patient, String appointmentID, String note) 
+    {  
+        for(Appointment i : patient.getAppointments()){
+            if(i.getId().equals(appointmentID)){
+                i.setNote(note);
+            }
+        }
+    }
+
+    /**
+     * This function updates the patient's information by calling the updatePatientInfo function in the
+     * Patient class
+     * 
+     * @param patientID The ID of the patient
+     * @param appointmentID The appointment ID of the appointment that the patient is attending.
+     * @param note The note that the doctor wants to add to the patient's file.
+     */
+    public void updatePatientInfo(String patientID, String appointmentID, String note) 
+    {  
+        TreeIterator<User> it = HMSystem.users.getIterator();
+
+        while(it.hasNext()){
+            User current = it.next().getData();
+
+            if(current.getId().equals(patientID)){
+                updatePatientInfo((Patient) current,appointmentID,note);
+                break;
+            }
+        }
     }
     
     /**
@@ -79,7 +104,7 @@ public class Nurse extends Worker{
         System.out.println("\n********Nurse Unit test************ \n");
         Nurse test = new Nurse("nurse","nurses","11",25,"nurse@nurse.com","nurses");
         Patient patient = new Patient("patient", "patient1", "10", 25);
-        Prescription prescription = new Prescription("try", "newpres", "prescription update");
+        Prescription prescription = new Prescription("0","0","try", "newpres", "prescription update");
         Doctor doctor= new Doctor("doctor","xyz","1",25,"xyz@gtu.uedu.tr","xyz");
         Polyclinic pol1 = new Polyclinic("e",5);
         Date d = new Date();

@@ -20,9 +20,9 @@ public class BloodTest extends Test{
     *  Constructor For BloodTest Class
     *  @param patientID number 
     */	
-	public BloodTest(String patientID)
+	public BloodTest(String patientID,String testID)
 	{
-		super(patientID);
+		super(patientID,testID,0);
 		vitaminD = (int)(Math.random() * 100);
 		vitaminA = (int)(Math.random() * 100);
 		vitaminE = (int)(Math.random() * 100);
@@ -40,7 +40,7 @@ public class BloodTest extends Test{
 	}
 	
 	/**No Parameter Constructor For BloodTest Class*/
-	public BloodTest(){super("0");}
+	public BloodTest(){super("0","0",0);}
 
 	/**
 	 * This function returns the blood type of the patient.
@@ -161,7 +161,7 @@ public class BloodTest extends Test{
 	@Override
 	public String toString()
 	{
-		return  "\n\nPatient's ID: " + getID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
+		return  "\n\nPatient's ID: " + getPatientID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
 			+ "\nVitamin-A : " + String.valueOf(vitaminA) + "ug/L" + "\nVitamin-D : " + String.valueOf(vitaminD) + "ug/L"
 			+ "\nVitamin-E : " + String.valueOf(vitaminE) + "ug/L" + "\nHemoglobin : " + String.valueOf(hemoglobin) + "gr/dL"
 			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL";
@@ -181,7 +181,7 @@ public class BloodTest extends Test{
 
 		/**Constructor test */
 
-		BloodTest test1 = new BloodTest(ID1);
+		BloodTest test1 = new BloodTest(ID1,"123");
 
 		/**initially created test result */
 

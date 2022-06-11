@@ -1,9 +1,9 @@
 package users;
 
-import javax.print.Doc;
-
-
+import java.util.LinkedList;
+import java.util.Queue;
 import systems.Prescription;
+import systems.HMSystem;
 
 /**
  *
@@ -12,26 +12,37 @@ import systems.Prescription;
  */
 public class Secreter extends Worker{
 
-    //TODO prescription list ekle , doktor bu listeye prescription ekleyecek ve secreter bu prescriptionları patientlara ekleyebilir.
-
+    Queue<Prescription> prescriptions;
 
 
     // A constructor.
     public Secreter(String name, String surname, String id, int age,String email , String password) 
     {
         super(name, surname, id, age, email ,  password);
+        prescriptions = new LinkedList<>();
     }
 
     /**
-     * This function prescribes a patient a prescription with a note
+     * This function prescribes a patient a prescription
      * 
      * @param patient The patient object
      * @param pres Prescription object
      * @param note String
      */
-    public void prescribePatient(Patient patient, Prescription pres , String note) 
-    {
-        patient.addPrescription(pres);
+    public void prescribePatient() 
+    {   
+        Prescription nextPrescribe = prescriptions.remove();
+        String nextPrescriptionPatientID;
+
+        if(nextPrescribe != null){
+            nextPrescriptionPatientID = nextPrescribe.getPatientID();
+
+            for(Patient i : HMSystem.patients){
+                if(i.getId().equals(nextPrescriptionPatientID)){
+                    i.addPrescription(nextPrescribe);
+                }
+            }
+        }
     }
 
     /**
@@ -57,7 +68,7 @@ public class Secreter extends Worker{
         String password = "password";
         Doctor doc = new Doctor(name, surname, id, age, email, password);
         Patient patient = new Patient(name, surname, id, age);
-        Prescription pres = new Prescription("medicine", "instruction", "note");
+        Prescription pres = new Prescription("0","0","medicine", "instruction", "note");
 
         long startTime = System.nanoTime();
         testPrescribePatient(100, patient, pres, "note");
@@ -96,7 +107,7 @@ public class Secreter extends Worker{
     public static void testPrescribePatient(int counter, Patient patient, Prescription pres, String note){
         Secreter sec = new Secreter("name", "surname", "id", 30, "email", "password");
         for(int i = 0 ; i < counter ; i++){
-            sec.prescribePatient(patient, pres, note);
+            sec.prescribePatient();
         }
 
     }

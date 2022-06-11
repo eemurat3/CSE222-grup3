@@ -19,7 +19,6 @@ public class Appointment implements Comparable<Appointment>
     private Doctor doctor;
     private Patient patient;
     private Date date;
-    private String prescription = "None";
     private String note = "No note";
     private boolean isTreated = false;
     private String id = "";
@@ -109,19 +108,6 @@ public class Appointment implements Comparable<Appointment>
      */
     public void setDate(Date date) {this.date = date;}
 
-    /**
-     * This function returns the prescription of the patient.
-     * 
-     * @return The prescription variable is being returned.
-     */
-    public String getPrescription() {return prescription;}
-
-    /**
-     * This function sets the prescription of the patient
-     * 
-     * @param prescription The prescription that has given to the patient.
-     */
-    public void setPrescription(String prescription) {this.prescription = prescription;}
 
     /**
      * This function sets the value of the isTreated variable to the value of the discharged variable.
@@ -175,7 +161,7 @@ public class Appointment implements Comparable<Appointment>
     @Override
     public String toString() {
         return "Appointment{" + "Polyclinic =" + polyclinic + ", Doctor =" + doctor + ", \n" +
-        "patient=" + patient + ", note =" + note + ", date=" + date + ", \n prescription=" + prescription +'}';
+        "patient=" + patient + ", note =" + note + ", date=" + date;
     }
     
     /**
@@ -228,7 +214,6 @@ public class Appointment implements Comparable<Appointment>
     	ap1.setDoctor(dr2);
     	ap1.setPolyclinic(pol2);
         ap1.setPatient(p2);
-        ap1.setPrescription("asdfgg");
         ap1.setNote("efgcsf");
         ap1.setDate(d2);
         ap1.setId("9");

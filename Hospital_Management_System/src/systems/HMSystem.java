@@ -5,13 +5,10 @@ import java.util.*;
 
 import departments.*;
 import users.*;
-<<<<<<< HEAD
 import util.*;
-=======
 import systems.*;
 import tests.*;
 import java.time.*;
->>>>>>> 69b98ad2f2db0fc070cfcb0a6178e27a4f50accf
 
 /**
  * HMSystem is a class that contains all the data structures that are used in the program
@@ -22,9 +19,7 @@ public class HMSystem
     static public List<Department> departments = new ArrayList<>();
     static public List<Patient> patients = new ArrayList<>();
     static public List<Worker> workers = new ArrayList<>();
-    
     static public BinarySearchTree<User> users = new BinarySearchTree<>();
-
     static public Queue<Test> tests = new LinkedList<>();
     
 
@@ -51,7 +46,8 @@ public class HMSystem
                 doctor.displayPatientInfo(doctor.getAppointment().getPatient());
             }
             else if(input == 2){
-                doctor.addAppointment(new Appointment(new Polyclinic(), doctor, doctor.getAppointment().getPatient(), new Date()));
+                //TODO patient parametresi 
+                doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor, new Patient("name","surname","002",12), new Date()));
             }   //ERROR Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
             else if(input == 3){
                 doctor.getAppointment().toString();
@@ -63,13 +59,17 @@ public class HMSystem
                 String inst = sc.nextLine();
                 System.out.println("\nEnter note for Patient : ");
                 String note = sc.nextLine();
-                doctor.givePrescription(doctor.getAppointment().getPatient(), new Prescription(med, inst, note), note);
+                //TODO Generate prescription id
+                doctor.givePrescription("234","23412",med,inst,note);
             }
             else if(input == 5){
                 doctor.dischargePatient(doctor.getAppointment(), "You are healthy!");
             }
             else if(input == 6){
-                doctor.requestTest(doctor.getAppointment().getPatient(), new CovidTest(doctor.getAppointment().getPatient().getId()));
+                //TODO select technician ID
+                //TODO select patient
+                //TODO generate test id
+                doctor.requestTest("2133", new CovidTest("234","234"));
             }
             else if(input == 7){
                 doctor.waitingPatients();

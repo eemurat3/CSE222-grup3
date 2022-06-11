@@ -1,5 +1,7 @@
 package users;
 
+import departments.Department;
+
 /**
  *
  * @author Muhammed Akif Sevilgen
@@ -9,13 +11,32 @@ public class Worker extends User
 {
     private String username;
     private String password;
-    //TODO add department object
+    private Department department;
+    
 
     // A constructor.
     public Worker(String name, String surname, String id, int age,String username , String password) {
         super(name, surname, id, age);
         setUsername(username);
         setPassword(password);
+    }
+
+    /**
+     * > This function returns the department of the employee
+     * 
+     * @return The department object.
+     */
+    public Department getDepartment() {
+        return department;
+    }
+
+    /**
+     * This function sets the department of the employee.
+     * 
+     * @param department The department that the employee belongs to.
+     */
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     /**

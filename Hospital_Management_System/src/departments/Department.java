@@ -2,14 +2,10 @@ package departments;
 /**
  * implementing hospital department class
  * @author Murat Kaymaz
- *
  */
 
-import java.util.ArrayList;
-import users.Worker;
 
-//TODO make abscract
-public class Department {
+public abstract class Department {
 	/**
 	 * Department name
 	 */
@@ -18,10 +14,10 @@ public class Department {
 	 * Department id
 	 */
 	private int id;
-	/**
-	 * Department worker list
-	 */
-	private ArrayList<Worker> workers;
+
+	private int departmentType;
+
+	
 	
 	/**
 	 * Default constructor
@@ -29,16 +25,17 @@ public class Department {
 	public Department() {
 		id = -1;
 		name = "none";
-		workers = new ArrayList<>();
+		departmentType = 0;
 	}
 	/**
 	 * Constructor
 	 * @param name : department name
 	 * @param id   : department id
 	 */
-	Department(String _name, int _id) {
+	Department(String _name, int _id,int departmentType) {
 		id = _id;
 		name = _name;
+		this.departmentType = departmentType;
 	}
 	/**
 	 * Set the department id
@@ -68,20 +65,25 @@ public class Department {
 	public String getName() {
 		return name;
 	}
+
 	/**
-	 * set the department worker list
+	 * > This function returns the department type of the department
+	 * 
+	 * @return The departmentType variable is being returned.
 	 */
-	public void setWorkers(ArrayList<Worker> _workers) {
-		workers = _workers;
+	public int getDepartmentType() {
+		return departmentType;
 	}
+
 	/**
-	 * Get the department worker list
-	 * @return : department worker list
+	 * > This function sets the department type of the department
+	 * 
+	 * @param departmentType The type of department. This is an integer value.
 	 */
-	public  ArrayList<Worker> getWorkers() {
-		return workers;
+	public void setDepartmentType(int departmentType) {
+		this.departmentType = departmentType;
 	}
-	
+
 	/**
 	 * The toString() method returns the string representation of the object
 	 * 

@@ -1,8 +1,7 @@
 package users;
 
-import tests.BloodTest;
-import tests.CovidTest;
-import tests.RadiologicalTest;
+import departments.Lab;
+import systems.HMSystem;
 import tests.Test;
 import util.*;
 
@@ -17,126 +16,82 @@ public class Technician extends Worker {
         super(name, surname, id, age, username, password);
     }
 
-     //TODO 
-    // bütün testlere ulaşabiliyor olması lazım.
-    // takeTest() ekle , takeRadiologicalTest() , takeBloodTest() vs. sil
-    // takeTest() update test and pop from waiting test
-    // after takeTest() update test
-    // displayAllTests() tüm testleri göstersin
-    // displayWaitingTests() tüm testleri göstersin
-    // updateTest()
-
-    /**
-     * This function takes a new CovidTest object and a BinarySearchTree of CovidTest objects and adds
-     * the new CovidTest object to the BinarySearchTree of CovidTest objects
-     * 
-     * @param newTest a CovidTest object
-     * @param covidTests BinarySearchTree of type Test
-     */
-   
-    public void takeCovidTest(CovidTest newTest, BinarySearchTree<Test> covidTests) {
-
-        covidTests.add(newTest);
-
+    public void addTest(Test newTest) {
+        //Add test to Lab department
+        Lab lab = (Lab) getDepartment();
+        lab.addWaitingTest(newTest); 
     }
 
-    /**
-     * This function takes a RadiologicalTest object and a BinarySearchTree object as parameters and
-     * adds the RadiologicalTest object to the BinarySearchTree object
-     * 
-     * @param newTest The new test that is being added to the tree.
-     * @param radiologicalTests a BinarySearchTree of type Test
-     */
-    public void takeRadiologicalTest(RadiologicalTest newTest, BinarySearchTree<Test> radiologicalTests) {
+    public void takeTest(){
+        Lab lab = (Lab) getDepartment();
 
-        radiologicalTests.add(newTest);
-    }
+        //Remove test from waiting tests
+        Test t = lab.removeWaitingTest();
 
-    /**
-     * This function takes a blood test and a binary search tree of blood tests as parameters and adds
-     * the blood test to the binary search tree
-     * 
-     * @param newTest The new blood test that is being added to the tree.
-     * @param bloodTests BinarySearchTree<Test>
-     */
-    public void takeBloodTest(BloodTest newTest, BinarySearchTree<Test> bloodTests) {
+        //Add test to old tests
+        lab.addOldTest(t);
 
-        bloodTests.add(newTest);
-    }
+        //Add test to patient's tests
+        TreeIterator<User> it = HMSystem.users.getIterator();
 
-    /**
-     * This function displays the inorder traversal of the binary search tree
-     * 
-     * @param covidTests BinarySearchTree<Test>
-     */
-    public void displayCovidTests(BinarySearchTree<Test> covidTests) {
+        while(it.hasNext()){
+            User current = it.next().getData();
 
-        System.out.println(covidTests.inorder());
-    }
-
-    /**
-     * This function displays the radiological tests in the order of the test name
-     * 
-     * @param radiologicalTests BinarySearchTree<Test>
-     */
-    public void displayRadiologicalTests(BinarySearchTree<Test> radiologicalTests) {
-        
-        System.out.println(radiologicalTests.inorder());
-    }
-
-    /**
-     * This function displays the blood tests in order
-     * 
-     * @param bloodTests BinarySearchTree<Test>
-     */
-    public void displayBloodTests(BinarySearchTree<Test> bloodTests) {
-
-        System.out.println(bloodTests.inorder());
-    }
-
-    /**
-     * This function takes in a CovidTest object and a BinarySearchTree of CovidTest objects. It then
-     * deletes the CovidTest object from the BinarySearchTree and adds a new CovidTest object with the
-     * same ID and test result
-     * 
-     * @param updateTest The test that is being updated
-     * @param covidTests BinarySearchTree of type Test
-     */
-    public void updateCovidTest(CovidTest updateTest, BinarySearchTree<Test> covidTests) {
-        
-
-        if (covidTests.deleteS(updateTest) != null) {
-            covidTests.add(new CovidTest(updateTest.getID(), updateTest.getTestResult()));
+            if(current.getId().equals(t.getPatientID())){
+                ((Patient) current).addTest(t);
+                break;
+            }
         }
-
     }
 
     /**
-     * This function takes in a RadiologicalTest object and a BinarySearchTree object as parameters. It
-     * then deletes the RadiologicalTest object from the BinarySearchTree object and adds the
-     * RadiologicalTest object back into the BinarySearchTree object
-     * 
-     * @param updateTest The test that is being updated
-     * @param radiologicalTests BinarySearchTree of type Test
+     * The function `displayTests()` displays all the tests in the lab
      */
-    public void updateRadiologicalTest(RadiologicalTest updateTest, BinarySearchTree<Test> radiologicalTests) {
+    public void displayAllTests(){
+        Lab lab = (Lab) getDepartment();
 
-        if (radiologicalTests.deleteS(updateTest) != null) {
-            radiologicalTests.add(new RadiologicalTest(updateTest.getID(), updateTest.getTestResult(), updateTest.getTestType()));
-        }
-                     
+        System.out.println(lab.getAllTests().inorder());
     }
 
     /**
-     * If the blood test is found, delete it and add a new one with the same ID
-     * 
-     * @param updateTest The test that is being updated
-     * @param bloodTests BinarySearchTree of type Test
+     * This function displays the waiting tests of the lab.
      */
-    public void updateBloodTest(BloodTest updateTest, BinarySearchTree<Test> bloodTests) {
+    public void displayWaitingTests(){
+        Lab lab = (Lab) getDepartment();
 
-        if (bloodTests.deleteS(updateTest) != null) {
-            bloodTests.add(new BloodTest(updateTest.getID()));
+        System.out.println(lab.getWaitingTests());
+    }
+
+    /**
+     * > This function updates a test in the lab's test list
+     * 
+     * @param test The test to be updated
+     * @param newTest The new test that will replace the old one.
+     */
+    public void updateTest(Test test , Test newTest){
+        test.setPatientID(newTest.getPatientID());
+        test.setTestID(newTest.getTestID());
+        test.setTestType(newTest.getTestType());
+    }
+
+    /**
+     * > This function updates a test in the lab's test list
+     * 
+     * @param testID The ID of the test to be updated
+     * @param newTest The new test object that will replace the old one.
+     */
+    public void updateTest(String testID , Test newTest){
+        Lab lab = (Lab) getDepartment();
+        
+        TreeIterator<Test> it = lab.getAllTests().getIterator();
+
+        while(it.hasNext()){
+            Test current = it.next().getData();
+
+            if(current.getTestID().equals(testID)){
+                updateTest(current, newTest);
+                break;
+            }
         }
     }
     

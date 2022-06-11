@@ -230,15 +230,15 @@ public class Patient extends User
             System.out.println("\nTesting Tests related methods \n");
 
             ArrayList<Test> tests = new ArrayList<Test>();
-            tests.add(new BloodTest("1"));
-            tests.add(new BloodTest("1"));
-            tests.add(new BloodTest("1"));
-            tests.add(new CovidTest("1"));
-            tests.add(new CovidTest("1"));
-            tests.add(new CovidTest("1"));
-            tests.add(new RadiologicalTest("1"));
-            tests.add(new RadiologicalTest("1"));
-            tests.add(new RadiologicalTest("1"));
+            tests.add(new BloodTest("1","2353452354"));
+            tests.add(new BloodTest("23","32342"));
+            tests.add(new BloodTest("234","2312321"));
+            tests.add(new CovidTest("3454","3453453"));
+            tests.add(new CovidTest("323","234243234"));
+            tests.add(new CovidTest("234423","4565345"));
+            tests.add(new RadiologicalTest("56756","2341234"));
+            tests.add(new RadiologicalTest("345","235235"));
+            tests.add(new RadiologicalTest("34535","2342315"));
 
             System.out.println("tests:");
             for (int i = 0 ; i < tests.size() ; i++) {
@@ -257,9 +257,9 @@ public class Patient extends User
 
             System.out.println("\nfew tests added to tests of patient pat1\n");
 
-            pat1.addTest(new BloodTest("1"));
-            pat1.addTest(new CovidTest("1"));
-            pat1.addTest(new RadiologicalTest("1"));
+            pat1.addTest(new BloodTest("1","2353452354"));
+            pat1.addTest(new CovidTest("323","234243234"));
+            pat1.addTest(new RadiologicalTest("34535","2342315"));
 
 
             System.out.println("tests of patient pat1 is returned to returned_tests\n");
@@ -276,7 +276,7 @@ public class Patient extends User
 
             System.out.println("\nTesting Appointments related methods \n");
 
-            Polyclinic poly = new Polyclinic();
+            Polyclinic poly = new Polyclinic("dsfdsff",2342);
             Doctor doc = new Doctor("doc_n", "doc_sn", "doc_id", 999, "doc_m", "doc_p");
 
             ArrayList<Appointment> appointments = new ArrayList<Appointment>();
@@ -324,10 +324,10 @@ public class Patient extends User
             System.out.println("\nTesting Prescriptions related methods \n");
 
             ArrayList<Prescription> prescriptions = new ArrayList<Prescription>();
-            prescriptions.add(new Prescription("medicine1", "instructions1", "note1"));
-            prescriptions.add(new Prescription("medicine2", "instructions2", "note2"));
-            prescriptions.add(new Prescription("medicine3", "instructions3", "note3"));
-            prescriptions.add(new Prescription("medicine4", "instructions4", "note4"));
+            prescriptions.add(new Prescription("234234","234234111","medicine1", "instructions1", "note1"));
+            prescriptions.add(new Prescription("2342234","21321311123","medicine2", "instructions2", "note2"));
+            prescriptions.add(new Prescription("2342111","5555","medicine3", "instructions3", "note3"));
+            prescriptions.add(new Prescription("2222","11111","medicine4", "instructions4", "note4"));
 
             System.out.println("prescriptions:");
             for (int i = 0 ; i < prescriptions.size() ; i++) {
@@ -346,8 +346,8 @@ public class Patient extends User
 
             System.out.println("\nfew prescriptions added to prescriptions of patient pat1\n");
 
-            prescriptions.add(new Prescription("medicine5", "instructions5", "note5"));
-            prescriptions.add(new Prescription("medicine6", "instructions6", "note6"));
+            prescriptions.add(new Prescription("12111","23235","medicine5", "instructions5", "note5"));
+            prescriptions.add(new Prescription("11231","3333","medicine6", "instructions6", "note6"));
 
 
             System.out.println("prescriptions of patient pat1 is returned to returned_prescriptions\n");

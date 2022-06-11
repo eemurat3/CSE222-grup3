@@ -30,13 +30,15 @@ public class Reception extends Department{
     
     
     // A constructor.
-    public Reception(){
+    public Reception(String departmentName,int departmentID){
+        super(departmentName,departmentID,2);
         advisors = new ArrayList<Advisor>();
         appointments = new ArrayList<Appointment>();
     }
 
     // A constructor.
-    public Reception(ArrayList<Advisor> advisors,ArrayList<Appointment> appointments){
+    public Reception(String departmentName,int departmentID,ArrayList<Advisor> advisors,ArrayList<Appointment> appointments){
+        super(departmentName,departmentID,2);
         this.advisors = advisors;
         this.appointments = appointments;
     }
@@ -146,7 +148,7 @@ public class Reception extends Department{
             advisorsT.add(new Advisor("a", "b",String.valueOf(i), 0, "username", "password"));
         }
         for(int i=0;i<10;i++){
-            appointmentsT.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(),String.valueOf(i)));
+            appointmentsT.add(new Appointment(new Polyclinic("sad",123), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(),String.valueOf(i)));
         }
 
 		System.out.println("------------ Test of Reception Department ---------------");
@@ -154,8 +156,8 @@ public class Reception extends Department{
 		/** Constructor test */
         System.out.println("/** Constructor test */ \n");
 
-        Reception reception = new Reception();
-        Reception reception2 = new Reception(advisorsT,appointmentsT);
+        Reception reception = new Reception("ab", 0);
+        Reception reception2 = new Reception("abd",213,advisorsT,appointmentsT);
 
 		/** Initially created test result */
         System.out.println("/** Initially created test result */ \n");
@@ -166,9 +168,9 @@ public class Reception extends Department{
 		/** Modify methods */
         
         reception.addAdvisorStaff(new Advisor("name", "surname", "11", 0, "username", "password"));
-        reception.addAppointment(new Appointment(new Polyclinic(), new Doctor("name", "surname", "11", 0, "email", "password"), new Patient("name", "surname", "11", 0), new Date(), "11"));
+        reception.addAppointment(new Appointment(new Polyclinic("wef",324), new Doctor("name", "surname", "11", 0, "email", "password"), new Patient("name", "surname", "11", 0), new Date(), "11"));
         reception.addAdvisorStaff(new Advisor("name", "surname", "12", 0, "username", "password"));
-        reception.addAppointment(new Appointment(new Polyclinic(), new Doctor("name", "surname", "12", 0, "email", "password"), new Patient("name", "surname", "12", 0), new Date(), "12"));
+        reception.addAppointment(new Appointment(new Polyclinic("dfgfg",2344), new Doctor("name", "surname", "12", 0, "email", "password"), new Patient("name", "surname", "12", 0), new Date(), "12"));
         reception.removeAdvisorStaff("11");
         reception.removeAppointment("12");
 		
@@ -217,7 +219,7 @@ public class Reception extends Department{
 
         startApp = System.nanoTime(); 
         for(int i = 0; i < 100; i++){
-            appointments100.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
+            appointments100.add(new Appointment(new Polyclinic("sdfds",21312), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
         end1App = System.nanoTime(); 
         sumApp = (end1App - startApp); 
@@ -259,7 +261,7 @@ public class Reception extends Department{
 
         startApp2 = System.nanoTime(); 
         for(int i = 0; i < 1000; i++){
-            appointments1000.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
+            appointments1000.add(new Appointment(new Polyclinic("dffdg",324234), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
         end1App2 = System.nanoTime(); 
         sumApp2 = (end1App2 - startApp2); 
@@ -302,7 +304,7 @@ public class Reception extends Department{
 
         startApp3 = System.nanoTime(); 
         for(int i = 0; i < 10000; i++){
-            appointments10000.add(new Appointment(new Polyclinic(), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
+            appointments10000.add(new Appointment(new Polyclinic("wefwf",54654), new Doctor("name", "surname", String.valueOf(i), 0, "email", "password"), new Patient("name", "surname", String.valueOf(i), 0), new Date(), String.valueOf(i)));
         }
         end1App3 = System.nanoTime(); 
         sumApp3 = (end1App3 - startApp3); 

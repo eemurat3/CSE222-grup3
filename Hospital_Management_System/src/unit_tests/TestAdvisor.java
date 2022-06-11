@@ -9,6 +9,9 @@ public class TestAdvisor {
      * It creates an Advisor object, adds 3 patients to it, and then prints the queue
      */
     public static void testAdvisor() {
+        //TODO We do some changes on Advisor class so we need some changes on test codes
+        
+        /* 
 
         System.out.print("\n\n\t\t\t ADVISOR UNIT TESTING STARTS \n\n");
 
@@ -53,7 +56,7 @@ public class TestAdvisor {
         
         System.out.print("\n\n\t\t\t ADVISOR UNIT TESTING ENDS \n\n");
 
-
+        */
     }    
 
     /**

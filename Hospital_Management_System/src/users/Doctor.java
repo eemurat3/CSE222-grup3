@@ -1,13 +1,12 @@
 package users;
 
-
-import java.io.IOException;
 import java.util.Date;
 import java.util.PriorityQueue;
-import java.util.UUID;
+
 
 import departments.Polyclinic;
 import systems.Appointment;
+import systems.HMSystem;
 import systems.Prescription;
 import tests.BloodTest;
 import tests.Test;
@@ -21,20 +20,31 @@ import tests.Test;
  */
 public class Doctor extends Worker
 {
-<<<<<<< HEAD
-    
-    //TODO secreter data field eklenecek
-    //secreter get set
-=======
->>>>>>> 69b98ad2f2db0fc070cfcb0a6178e27a4f50accf
-
+    private Secreter secreter;
     private PriorityQueue<Appointment> appointments;
 
     public Doctor(String name, String surname, String id, int age,String email , String password) 
     {
         super(name, surname, id, age, email ,  password);
         appointments = new PriorityQueue<>();
-        // HMSystem.appointmets.add(appointment);
+    }
+
+    /**
+     * This function returns the secreter.
+     * 
+     * @return The secreter object.
+     */
+    public Secreter getSecreter() {
+        return secreter;
+    }
+
+    /**
+     * This function sets the secreter variable to the secreter parameter.
+     * 
+     * @param secreter The secreter object that will be used to encrypt and decrypt the data.
+     */
+    public void setSecreter(Secreter secreter) {
+        this.secreter = secreter;
     }
 
     /**
@@ -51,10 +61,9 @@ public class Doctor extends Worker
     }
 
     public boolean addAppointment(Appointment appo) {
+        //Add to doctor's appointments
         appointments.offer(appo);
-        this.getAppointment().getPatient().addAppointment(appo);    //YeTeA
-        // HMSystem.appointmets.add(appointment);
-        // HMSystem.addAppointmentToDataBase(app);
+        
         return true;
     }
 
@@ -74,13 +83,9 @@ public class Doctor extends Worker
      * @param pres Prescription object
      * @param note String
      */
-    // TODO doctor can create prescription
-    // Prescription u sekreterin listesine ekle
-    public void givePrescription(Patient patient, Prescription pres , String note) {
-        
-        pres.setNote(note);
-        patient.addPrescription(pres);
-        //HMSystem.addAppointmentToDataBase(appo);
+
+    public void givePrescription(String prescriptionID,String patientID,String medicine,String instructions,String note) {
+        secreter.prescriptions.add(new Prescription(prescriptionID,patientID,medicine,instructions,note));
     }
    
     /**
@@ -94,19 +99,33 @@ public class Doctor extends Worker
         appo.setNote(note);
         appointments.peek().setDischarged(true);
         appointments.remove();
-        //HMSystem.addAppointmentToDataBase(appo);
     }
 
     /**
-     * > This function adds a test to a patient
+     * > This function request a test from a technician
      * 
-     * @param patient The patient object that is requesting the test.
+     * @param technician The patient object that is requesting the test.
      * @param test The test to be requested
      */
-    //TODO labdaki testlere eklemeli
-    public void requestTest(Patient patient, Test test)
+    public void requestTest(Technician technician ,Test test)
     {
-        patient.addTest(test);
+        technician.addTest(test);
+    }
+
+     /**
+     * > This function request a test from a technician
+     * 
+     * @param technicianID The patient object that is requesting the test.
+     * @param test The test to be requested
+     */
+    public void requestTest(String technicianID ,Test test)
+    {
+        for(Worker t : HMSystem.workers){
+            if(t.getId().equals(technicianID)){
+                requestTest((Technician) t, test);
+                break;
+            }
+        }
     }
 
     /**
@@ -156,7 +175,6 @@ public class Doctor extends Worker
         System.out.print("\n");
         System.out.print("Doctor 1 created = "+dr1 + "\n");
 
-        PriorityQueue<Appointment> appoints = new PriorityQueue<>();
         Appointment appo1 = new Appointment(new Polyclinic("Radiology",7), dr1, new Patient("name", "surname", "id", 30), new Date(), "11111");
         System.out.println("\nAppointment 1 created = "+appo1);
         dr1.addAppointment(appo1);
@@ -165,10 +183,10 @@ public class Doctor extends Worker
         dr1.displayPatientInfo(dr1.getAppointment().getPatient());
         System.out.println("\nFirst patient at appointment list is shown = "+dr1.getAppointment().getPatient());
 
-        dr1.givePrescription(dr1.getAppointment().getPatient(), new Prescription("newMed", "newInst", "newNote"), "Additional note");
+        dr1.givePrescription("234","123","med","inst","note");
         System.out.println("\nAdded Prescription to the patient at the top of the list = "+dr1.getAppointment().getPatient().displayPrescriptions());
         
-        dr1.requestTest(dr1.getAppointment().getPatient(), new BloodTest());
+        dr1.requestTest("2332", new BloodTest());
         System.out.println("\nBloodtest requested from patient = "+dr1.getAppointment().getPatient().getTests());
 
         dr1.dischargePatient(appo1, "note");

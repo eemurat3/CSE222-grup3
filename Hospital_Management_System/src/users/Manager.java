@@ -1,6 +1,9 @@
 package users;
 
 import departments.Department;
+import departments.Lab;
+import departments.Polyclinic;
+import departments.Reception;
 import systems.HMSystem;
 
 /**
@@ -28,9 +31,18 @@ public class Manager extends Worker{
     }
 
     // Department copy constructor gerekebilir 
-    public void addDepartment(Department department){
-        Department newDep = new Department(); // Department newDep = new Department(department);
-        HMSystem.departments.add(newDep);
+    public void addDepartment(int departmentType,String departmentName,int departmentID){
+        switch(departmentType){
+            //Lab
+            case 0:
+                HMSystem.departments.add(new Lab(departmentName,departmentID));
+            //Polyclinic
+            case 1:
+                HMSystem.departments.add(new Polyclinic(departmentName,departmentID));
+            //Reception
+            case 2:
+                HMSystem.departments.add(new Reception(departmentName,departmentID));
+        }
     }
 
     /**
@@ -72,7 +84,7 @@ public class Manager extends Worker{
         String username = "username";
         String password = "password";
         Worker worker = new Worker(name, surname, id, age, username, password);
-        Department dep = new Department();
+        Department dep = new Reception("wf",34);
         Patient patient = new Patient(name, surname, id, age);
 
         
@@ -198,7 +210,7 @@ public class Manager extends Worker{
     public static void testAddDepartment(int counter, Department dep){
         Manager manager = new Manager("name", "surname", "id", 30, "email", "password");
         for(int i = 0 ; i < counter ; i++){
-            manager.addDepartment(dep);
+            manager.addDepartment(0,"d",i);
         }     
     }
 
