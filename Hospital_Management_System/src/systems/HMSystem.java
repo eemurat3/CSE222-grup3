@@ -85,5 +85,74 @@ public class HMSystem
         
     }
 
+    public void ADVMenu(Advisor adv){
+        Scanner sc = new Scanner(System.in);
+        int count = 15;
+        int input;
+        boolean loop = true, loop2 = true;
+
+        System.out.println("\nSIGNED IN AS AN ADVISORY STAFF\n\n");
+
+        while(loop){
+            System.out.println("CHOOSE AN OPTION\n");
+            System.out.println("1) Register New Patient");
+            System.out.println("2) Log Out");
+            
+            input = sc.nextInt();
+
+            if(input == 1){
+                Patient nPatient = new Patient("x","y",Integer.toString(count),count++);
+                patients.add(nPatient);
+                loop2 = true;
+                while(loop2){    
+                    System.out.println("1) Display Doctors");
+                    System.out.println("2) Make Appoinment");
+                    
+                    if(input == 2){
+                        System.out.println("\nEnter Polyclinic Department ID: ");
+                        String pol = sc.nextLine();
+                        if(returnObj(pol, departments) != null){
+                            Polyclinic polyclinic = returnObj(pol, departments);
+                        }
+                        System.out.println("\nEnter Doctor ID: ");
+                        String doc = sc.nextLine();
+                        if(returnObj(pol, workers) != null){
+                            Doctor doctor = returnObj(pol, departments);
+                        }
+                        Appointment apt = new Appointment(polyclinic, doctor, patients.get(patients.size()-1), " ");
+                        adv.addAppointment(doctor, apt);
+                    }
+                    if(input == 1){
+                        adv.displayDoctorList();
+                        loop2 = false;
+                    }
+                    else{
+                        System.out.println("Invalid input, try again!\n");
+                    }
+                }
+            }
+            if(input == 2){
+                System.out.println("Exiting...");
+                loop = false;
+            }
+            else{
+                System.out.println("Invalid input, try again!\n");
+            }
+        }
+
+
+    }
+
+    // A generic method that returns an object from a list.
+    public E returnObj(String ID, List<E> list){
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getId().compareTo(ID) == 0){
+                return list.get(i);
+            }
+        }
+        return null;
+    }
+
+
 
 }
