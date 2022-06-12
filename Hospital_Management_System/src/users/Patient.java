@@ -432,4 +432,9 @@ public class Patient extends User
         System.out.print("\n\n\t\t\t PATIENT TESTING ENDS \n\n");
 
     }
+
+    public static void patientMenu()
+    {
+        
+    }
 }
