@@ -108,8 +108,7 @@ public class Group3Main {
 
         myHospital.patients.add(patient);
 
-        myHospital.appointments.add(new PriorityQueue<>());
-        myHospital.appointments.get(0).add(appointment);
+        myHospital.appointments.add(appointment);
 
         myHospital.tests.add(covidTest);
         myHospital.tests.add(bloodTest);
@@ -117,7 +116,7 @@ public class Group3Main {
 
         
 
-        myHospital.doctorMenu(new Doctor("name", "surname", "id", 32, "email", "password"));
+        myHospital.doctorMenu(doctor);
 
         /*
         Doctor.main(args);
