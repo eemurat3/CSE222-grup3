@@ -43,12 +43,13 @@ public class Group3Main {
         Date date = new Date();
 
 
-        Doctor doctor = new Doctor(name, surname, id, age++, email, password);
+        Doctor doctor = new Doctor(name, surname, "1", age++, email, password);
         Nurse nurse = new Nurse(name, surname, id, age++, email, password);
         Technician technician = new Technician(name, surname, id, age++," username", password);
         Patient patient = new Patient(name, surname, id, age++);
         Secreter secreter = new Secreter(name, surname, id, age++, email, password);
         Advisor advisor = new Advisor(name, surname, id, age++, "username", password);
+        advisor.setDepartment(new Department("departmentName", 0, 1));
 
         Manager manager = new Manager(name, surname, id, age++, email, password);
 
@@ -117,6 +118,7 @@ public class Group3Main {
         
 
         myHospital.doctorMenu(doctor);
+        myHospital.ADVMenu(advisor);
 
         /*
         Doctor.main(args);
