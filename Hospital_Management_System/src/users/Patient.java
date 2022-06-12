@@ -6,6 +6,7 @@ import departments.*;
 import systems.*;
 import tests.*;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Patient extends User
     public Patient(String name, String surname, String id, int age) {
         super(name, surname, id, age);
     }
+
 
     //DISCHARGED
 
@@ -433,8 +435,6 @@ public class Patient extends User
 
     }
 
-    public static void patientMenu()
-    {
-        
-    }
+    
+    
 }

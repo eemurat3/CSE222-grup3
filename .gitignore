@@ -57,3 +57,7 @@ Hospital_Management_System/src/users/Worker.class
 Hospital_Management_System/src/util/BinarySearchTree.class
 Hospital_Management_System/src/util/BinarySearchTree$Node.class
 Hospital_Management_System/src/util/TreeIterator.class
+Hospital_Management_System/src/bin/util/TreeIterator.class
+Hospital_Management_System/src/bin/util/BinarySearchTree$Node.class
+Hospital_Management_System/src/bin/util/BinarySearchTree.class
+Hospital_Management_System/src/bin/users/Manager.class

@@ -54,6 +54,11 @@ public class Secreter extends Worker{
         doctor.waitingPatients();
     }
 
+    public void addPrescription(Prescription prescription) 
+    { 
+        prescriptions.add(prescription);
+    }
+
     public static void main(String[] args) {
         System.out.print("\n\n\t\t\t SECRETER TESTING STARTS \n\n");
 
