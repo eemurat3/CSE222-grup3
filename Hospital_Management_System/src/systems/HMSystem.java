@@ -15,7 +15,7 @@ import java.time.*;
  */
 public class HMSystem 
 {
-    static public List<PriorityQueue<Appointment>> appointments = new ArrayList<>();
+    static public List<Appointment> appointments = new ArrayList<>();
     static public List<Department> departments = new ArrayList<>();
     static public List<Patient> patients = new ArrayList<>();
     static public List<Worker> workers = new ArrayList<>();

@@ -38,8 +38,7 @@ public class Advisor extends Worker {
         appointment.getPatient().addAppointment(appointment);
 
         //TODO Add to HMSystem appointments
-        // hmsystemdeki appointments list of priority queues. yanlis burasi.
-        //HMSystem.appointments.add(appointment);
+        HMSystem.appointments.add(appointment);
 
         //Add to Reception class appointments
         Reception reception = (Reception) getDepartment();
