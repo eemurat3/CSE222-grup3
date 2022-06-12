@@ -106,7 +106,7 @@ public class HMSystem
                 patients.add(nPatient);
                 loop2 = true;
                 while(loop2){    
-                    System.out.println("1) Display Doctors");
+                    System.out.println("\n1) Display Doctors");
                     System.out.println("2) Make Appoinment");
                     input = sc.nextInt();
 
@@ -144,15 +144,114 @@ public class HMSystem
                 System.out.println(adv.displayDoctorList());
             }
             else if(input == 4){
-                System.out.println("Exiting...");
+                System.out.println("\nExiting...");
                 loop = false;
             }
             else{
-                System.out.println("Invalid input, try again!\n");
+                System.out.println("\nInvalid input, try again!\n");
             }
         }
+    }
 
-        sc.close();
+    public void NurseMenue(Nurse nurse){
+        Scanner sc = new Scanner(System.in);
+        int input;
+        boolean loop = true;
+
+        System.out.println("\nSIGNED IN AS A NURSE\n\n");
+
+        while(loop){
+            System.out.println("Enter Patient ID | Enter -1 to Log Out\n");
+            String id = sc.nextLine();
+            Patient patient = (Patient) returnUser(id, patients);  
+            if(id.compareTo("-1") == 0){
+                System.out.println("Exiting...");
+                break;
+            }
+
+            if(patient == null){
+                System.out.println("Invalid ID, try again!\n");
+                continue;
+            }
+            else{    
+                while(true){    
+                    System.out.println("CHOOSE AN OPTION\n");
+                    System.out.println("1) Update Patient Info");
+                    System.out.println("2) Display Patient Info");
+                    System.out.println("3) Display Patient Prescriptions");
+                    System.out.println("4) Display Patient Appointments");
+                    System.out.println("5) Display Patient Tests");
+                    System.out.println("6) Log Out");
+                    
+                    input = sc.nextInt();
+                    if(input == 1){
+                        System.out.println("CHOOSE A DATA TO UPDATE\n");
+                        System.out.println("1) Name ");
+                        System.out.println("2) Surname ");
+                        System.out.println("3) ID ");
+                        System.out.println("4) Age ");
+                        input = sc.nextInt();
+                        if(input == 1){
+                            sc.nextLine();
+                            System.out.print("Enter The new Name: ");
+                            String name = sc.nextLine();
+                            patient.setName(name);
+
+                        }
+                        else if(input == 2){
+                            sc.nextLine();
+                            System.out.print("Enter The new Surname: ");
+                            String surname = sc.nextLine();
+                            patient.setSurname(surname);
+                            
+                        }
+                        else if(input == 3){
+                            sc.nextLine();
+                            System.out.print("Enter The new ID: ");
+                            String ID = sc.nextLine();
+                            patient.setId(ID);
+                            
+                        }
+                        else if(input == 4){
+                            sc.nextLine();
+                            System.out.print("Enter The new Age: ");
+                            int age = sc.nextInt();
+                            patient.setAge(age);
+                            
+                        }
+                        else
+                            System.out.println("Invalid input, try again!\n");
+                        
+                    }
+                    else if(input == 2){
+                        System.out.println("\nName: " + patient.getName());
+                        System.out.println("Surname: " + patient.getSurname());
+                        System.out.println("ID: " + patient.getId());
+                        System.out.println("Age: " + patient.getAge());
+                    }
+                    else if(input == 3){
+                        if(patient.getPrescriptions() != null) System.out.println(patient.getPrescriptions());
+                        else System.out.println("Patient doesn't have any prescription");
+                    }
+                    else if(input == 4){
+                        if(patient.getAppointments() != null) System.out.println(patient.getAppointments());
+                        else System.out.println("Patient doesn't have any appointment");
+                    }
+                    else if(input == 5){
+                        if(patient.getTests() != null) System.out.println(patient.getTests());
+                        else System.out.println("Patient doesn't have any test");
+                    }
+                    else if(input == 6){
+                        System.out.println("Exiting...");
+                        sc.nextLine();
+                        break;
+                    }
+                    else{
+                        System.out.println("Invalid input, try again!\n");
+                    }
+                }
+            }
+        }
     }
 
     // A generic method that returns an object from a list.
@@ -164,6 +263,7 @@ public class HMSystem
         }
         return null;
     }
+
 
 
 
