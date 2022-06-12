@@ -84,4 +84,49 @@ public class HMSystem
         }
         
     }
+
+    public void ADVMenu(Advisor adv){
+        Scanner sc = new Scanner(System.in);
+        int input;
+        boolean loop = true;
+
+        System.out.println("\nSIGNED IN AS AN ADVISORY STAFF\n\n");
+
+        while(loop){
+            System.out.println("CHOOSE AN OPTION BETWEEN 1 AND 4\n");
+            System.out.println("1) Make Appointment");
+            System.out.println("2) Make Appointment");
+            System.out.println("3) Display List of Doctors");
+            System.out.println("4) Log Out");
+            
+            input = sc.nextInt();
+
+            if(input == 2){
+                System.out.println("\nEnter Polyclinic Department ID: ");
+                String pol = sc.nextLine();
+                Polyclinic polyclinic;
+                System.out.println("\nEnter Doctor ID: ");
+                String doc = sc.nextLine();
+                Doctor doctor 
+                System.out.println("\nEnter the Date: ");
+                String dte = sc.nextLine();
+                Date date;
+
+                Appointment apt = new Appointment(polyclinic, doctor, patient, date);
+                adv.addAppointment(doctor, apt);
+            }
+            if(input == 3){
+                adv.displayDoctorList();
+            }
+            if(input == 4){
+                System.out.println("Exiting...");
+                loop = false;
+            }
+            else{
+                System.out.println("Invalid input, try again!\n");
+            }
+        }
+
+
+    }
 }
