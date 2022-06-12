@@ -99,7 +99,6 @@ public class HMSystem
             System.out.println("2) Log Out");
             
             input = sc.nextInt();
-
             if(input == 1){
                 Patient nPatient = new Patient("x","y",Integer.toString(count),count++);
                 patients.add(nPatient);
@@ -107,14 +106,14 @@ public class HMSystem
                 while(loop2){    
                     System.out.println("1) Display Doctors");
                     System.out.println("2) Make Appoinment");
-                    
+                    input = sc.nextInt();
+
                     if(input == 2){
-                        System.out.println("\nEnter Polyclinic Department ID: ");
-                        String pol = sc.nextLine();
                         System.out.println("\nEnter Doctor ID: ");
                         String doc = sc.nextLine();
-                        Appointment apt = new Appointment((Polyclinic) returnObj(pol, departments), (Doctor) returnObj(pol, workers), patients.get(patients.size()-1), new Date());
-                        adv.addAppointment((Doctor) returnObj(pol, workers), apt);
+                        sc.next();
+                        Appointment apt = new Appointment((Polyclinic)((Doctor) returnUser(doc, workers)).getDepartment(), (Doctor) returnUser(doc, workers), nPatient, new Date());
+                        adv.addAppointment((Doctor) returnUser(doc, workers), apt);
                     }
                     if(input == 1){
                         adv.displayDoctorList();
@@ -134,11 +133,11 @@ public class HMSystem
             }
         }
 
-
+        sc.close();
     }
 
     // A generic method that returns an object from a list.
-    public <E> E returnObj(String ID, List<E> list){
+    public <E> E returnUser(String ID, List<E> list){
         for(int i = 0; i < list.size(); i++){
             if(((User) list.get(i)).getId().compareTo(ID) == 0){
                 return list.get(i);
