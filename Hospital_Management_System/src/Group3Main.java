@@ -49,7 +49,7 @@ public class Group3Main {
         Patient patient = new Patient(name, surname, id, age++);
         Secreter secreter = new Secreter(name, surname, id, age++, email, password);
         Advisor advisor = new Advisor(name, surname, id, age++, "username", password);
-        advisor.setDepartment(new Department("departmentName", 0, 1));
+        advisor.setDepartment(new Polyclinic("departmentName", 0));
 
         Manager manager = new Manager(name, surname, id, age++, email, password);
 
