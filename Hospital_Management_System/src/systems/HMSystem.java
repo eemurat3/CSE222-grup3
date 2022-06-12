@@ -96,7 +96,9 @@ public class HMSystem
         while(loop){
             System.out.println("CHOOSE AN OPTION\n");
             System.out.println("1) Register New Patient");
-            System.out.println("2) Log Out");
+            System.out.println("2) Make Appoinment to Existed Patient");
+            System.out.println("3) Display Doctors");
+            System.out.println("4) Log Out");
             
             input = sc.nextInt();
             if(input == 1){
@@ -110,21 +112,38 @@ public class HMSystem
 
                     if(input == 2){
                         System.out.println("\nEnter Doctor ID: ");
-                        String doc = sc.nextLine();
-                        sc.next();
-                        Appointment apt = new Appointment((Polyclinic)((Doctor) returnUser(doc, workers)).getDepartment(), (Doctor) returnUser(doc, workers), nPatient, new Date());
-                        adv.addAppointment((Doctor) returnUser(doc, workers), apt);
-                    }
-                    if(input == 1){
-                        adv.displayDoctorList();
+                        sc.nextLine();
+                        String doc = sc.nextLine();     
+                        Doctor d = (Doctor) returnUser(doc, workers);
+                        Appointment apt = new Appointment((Polyclinic)(d).getDepartment(),d, nPatient, new Date());
+                        adv.addAppointment(d, apt);
                         loop2 = false;
+                    }
+                    else if(input == 1){
+                        System.out.println(adv.displayDoctorList());
                     }
                     else{
                         System.out.println("Invalid input, try again!\n");
                     }
                 }
             }
-            if(input == 2){
+            else if(input == 2){
+                System.out.println("\nEnter Patient ID: ");
+                sc.nextLine();
+                String pt = sc.nextLine();   
+                Patient patient = (Patient) returnUser(pt, patients);
+
+                System.out.println("\nEnter Doctor ID: ");
+                String doc = sc.nextLine();     
+                Doctor d = (Doctor) returnUser(doc, workers);
+
+                Appointment apt = new Appointment((Polyclinic)(d).getDepartment(),d, patient, new Date());
+                adv.addAppointment(d, apt);
+            }
+            else if(input == 3){
+                System.out.println(adv.displayDoctorList());
+            }
+            else if(input == 4){
                 System.out.println("Exiting...");
                 loop = false;
             }

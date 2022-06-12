@@ -41,7 +41,7 @@ public class Advisor extends Worker {
         HMSystem.appointments.add(appointment);
 
         //Add to Reception class appointments
-        Reception reception = (Reception) getDepartment();
+        Reception reception = new Reception(getDepartment().getName(), getDepartment().getId());
         reception.addAppointment(appointment);
 
         return false;

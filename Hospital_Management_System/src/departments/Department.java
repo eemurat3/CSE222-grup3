@@ -32,7 +32,7 @@ public abstract class Department {
 	 * @param name : department name
 	 * @param id   : department id
 	 */
-	Department(String _name, int _id,int departmentType) {
+	public Department(String _name, int _id,int departmentType) {
 		id = _id;
 		name = _name;
 		this.departmentType = departmentType;
