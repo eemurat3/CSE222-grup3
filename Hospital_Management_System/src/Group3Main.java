@@ -66,6 +66,7 @@ public class Group3Main {
 
         doctor.addAppointment(appointment);
         doctor.setSecreter(secreter);
+        doctor.setDepartment(polyclinic);
 
         patient.addAppointment(appointment);
         patient.addPrescription(prescription);
@@ -117,6 +118,7 @@ public class Group3Main {
         
 
         myHospital.doctorMenu(doctor);
+        myHospital.ADVMenu(advisor);
 
         /*
         Doctor.main(args);
