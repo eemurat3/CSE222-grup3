@@ -30,7 +30,7 @@ public class Advisor extends Worker {
     }
     
   
-    private boolean addAppointment(Doctor doctor,Appointment appointment){
+    public boolean addAppointment(Doctor doctor,Appointment appointment){
         //Add to doctor's appointments
         doctor.addAppointment(appointment);
 

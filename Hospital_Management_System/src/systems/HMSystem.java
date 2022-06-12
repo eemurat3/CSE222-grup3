@@ -111,16 +111,10 @@ public class HMSystem
                     if(input == 2){
                         System.out.println("\nEnter Polyclinic Department ID: ");
                         String pol = sc.nextLine();
-                        if(returnObj(pol, departments) != null){
-                            Polyclinic polyclinic = returnObj(pol, departments);
-                        }
                         System.out.println("\nEnter Doctor ID: ");
                         String doc = sc.nextLine();
-                        if(returnObj(pol, workers) != null){
-                            Doctor doctor = returnObj(pol, departments);
-                        }
-                        Appointment apt = new Appointment(polyclinic, doctor, patients.get(patients.size()-1), " ");
-                        adv.addAppointment(doctor, apt);
+                        Appointment apt = new Appointment((Polyclinic) returnObj(pol, departments), (Doctor) returnObj(pol, workers), patients.get(patients.size()-1), new Date());
+                        adv.addAppointment((Doctor) returnObj(pol, workers), apt);
                     }
                     if(input == 1){
                         adv.displayDoctorList();
@@ -144,9 +138,9 @@ public class HMSystem
     }
 
     // A generic method that returns an object from a list.
-    public E returnObj(String ID, List<E> list){
+    public <E> E returnObj(String ID, List<E> list){
         for(int i = 0; i < list.size(); i++){
-            if(list.get(i).getId().compareTo(ID) == 0){
+            if(((User) list.get(i)).getId().compareTo(ID) == 0){
                 return list.get(i);
             }
         }
