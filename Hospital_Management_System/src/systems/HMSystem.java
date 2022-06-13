@@ -73,6 +73,339 @@ public class HMSystem
         }
         return pList;
     }
+    
+    public int getInt(Scanner input) {
+        int retval = 0;
+        try {
+            retval = Integer.parseInt(input.nextLine());
+        } catch (Exception e) {
+            System.out.print("INVALID INPUT! Please Try Again: ");
+            retval = getInt(input);
+        }
+        return retval;
+    }     
+    
+    public void managerMenu(Manager manager) {
+        
+        Scanner sc = new Scanner(System.in);
+        int input = 0;
+        System.out.println("\nSIGNED IN AS A MANAGER");
+        
+        while (true) {
+            System.out.println("\nChoose Option Below: ");
+            System.out.println("1) Add a New Staff");
+            System.out.println("2) Remove a Staff");
+            System.out.println("3) Add a New Department");
+            System.out.println("4) Remove a Department");
+            System.out.println("5) Display a Patient's Info");
+            System.out.println("6) Edit a Staff");
+            System.out.println("7) Display All Staff");
+            System.out.println("8) Exit");
+            System.out.print("Select: ");
+            input = getInt(sc);
+
+            if (input == 1) {
+                
+                for (Department dep : departments)
+                    System.out.println(dep.getName());
+                
+                System.out.print("Select a Department to Add New Staff: ");
+                String tempName = sc.nextLine();
+
+                int index = 0;
+
+                for (Department dep : departments) {
+                    if (dep.getName().equals(tempName))
+                        break;
+                    index++;
+                }
+
+                if (index == departments.size())
+                    System.out.println("Entered Department Is Not Available!");
+                else {
+
+                    int type = -1;
+                  
+                    if (departments.get(index).getClass() == Reception.class)
+                        type = 3;
+                    else if (departments.get(index).getClass() == Lab.class)
+                        type = 4;
+                    else {
+                        System.out.print("Enter The Type Of The New Staff");
+                        while (type > 2 || type < 0) {
+                            System.out.print("(0: Doctor, 1: Nurse, 2: Secreter): ");
+                            type = getInt(sc);
+                        }                           
+                    }
+
+                    System.out.print("Enter a Name For The New Staff: ");
+                    String name = sc.nextLine();
+    
+                    System.out.print("Enter a Surname For The New Staff: ");
+                    String surname = sc.nextLine();
+    
+                    System.out.print("Enter an ID For The New Staff: ");
+                    String id = sc.nextLine();
+                    
+                    System.out.print("Enter an Age For The New Staff: ");
+                    int age = getInt(sc);
+                    
+                    System.out.print("Enter a Username For The New Staff: ");
+                    String username = sc.nextLine();
+                    
+                    System.out.print("Enter a Password For The New Staff: ");
+                    String password = sc.nextLine();
+    
+                    if (type == 0) {
+                        Doctor d = new Doctor(name, surname, id, age, username, password);
+                        Polyclinic poly = (Polyclinic) departments.get(index);
+                        poly.addDoctor(d);
+                        workers.add(d);                        
+
+                    }
+                    else if (type == 1) {
+                        Nurse n = new Nurse(name, surname, id, age, username, password);
+                        Polyclinic poly = (Polyclinic) departments.get(index);
+                        poly.addNurse(n);
+                        workers.add(n);
+                    }
+                    else if (type == 2) {
+                        Secreter s = new Secreter(name, surname, id, age, username, password);
+                        Polyclinic poly = (Polyclinic) departments.get(index);
+                        poly.addSecreter(s);
+                        workers.add(s);
+                    }
+                    else if (type == 3) {
+                        Advisor a = new Advisor(name, surname, id, age, username, password);
+                        Reception recept = (Reception) departments.get(index);
+                        recept.addAdvisorStaff(a);
+                        workers.add(a);
+                    }
+                    else if (type == 4) {
+                        Technician t = new Technician(name, surname, id, age, username, password);
+                        Lab lab = (Lab) departments.get(index);
+                        lab.addClinicalTechnician(t);
+                        workers.add(t);
+                    }
+    
+                    workers.get(workers.size()-1).setDepartment(departments.get(index));
+                }
+            }
+            else if (input == 2) {
+                System.out.print("Enter an ID For Remove a Staff: ");
+                String id = sc.nextLine();
+                
+                int index = 0;
+                for (Worker worker : workers) {
+                    if (worker.getId().equals(id))
+                        break;
+                    index++;
+                }
+
+                if (index != workers.size())
+                    workers.remove(index);
+            }
+            else if (input == 3) {
+                System.out.print("Enter a Name For The New Department: ");
+                String name = sc.nextLine();
+
+                System.out.print("Enter an ID For The New Department: ");
+                int id = getInt(sc);
+                
+                int type = -1;
+                while (type > 2 || type < 0) {
+                    System.out.print("Enter The Type of The New Department(0:Lab, 1:Polyclinic, 2:Reception): ");
+                    type = getInt(sc);
+                }
+
+                if (type == 0)
+                    departments.add(new Lab(name, id));
+                else if (type == 1)
+                    departments.add(new Polyclinic(name, id));
+                else if (type == 2)
+                    departments.add(new Reception(name, id));
+            }
+            else if (input == 4) {
+                System.out.print("Enter an ID For Remove a Department: ");
+                int id = getInt(sc);
+                
+                int index = 0;
+                for (Department dp : departments) {
+                    if (dp.getId() == id)
+                        break;
+                    index++;
+                }
+
+                if (index != departments.size())
+                    departments.remove(index);
+            }
+            else if (input == 5) {
+                System.out.print("Enter an ID For Display a Patient: ");
+                String id = sc.nextLine(); 
+                
+                for (Patient patient : patients) {
+                    if (patient.getId().equals(id)) {
+                        patient.displayPrescriptions();
+                        patient.displayDoctors();
+                        patient.displayRecords();
+                    }
+                }
+            }
+            else if (input == 6) {
+                System.out.print("Enter an ID For Edit a Staff: ");
+                String id = sc.nextLine(); 
+
+                int index = 0;
+                for (Worker worker : workers) {
+                    if (worker.getId().equals(id))
+                        break;
+                    index++;
+                }
+                
+                if (index != workers.size()) {
+                    System.out.print("Enter a Name For The New Staff: ");
+                    String name = sc.nextLine();
+    
+                    System.out.print("Enter a Surname For The New Staff: ");
+                    String surname = sc.nextLine();
+    
+                    System.out.print("Enter an ID For The New Staff: ");
+                    String newId = sc.nextLine();
+                    
+                    System.out.print("Enter an Age For The New Staff: ");
+                    int age = getInt(sc);
+                    
+                    System.out.print("Enter a Username For The New Staff: ");
+                    String username = sc.nextLine();
+                    
+                    System.out.print("Enter a Password For The New Staff: ");
+                    String password = sc.nextLine();
+                    
+                    if (workers.get(index).getClass() == Doctor.class) {
+                        Doctor d = new Doctor(name, surname, newId, age, username, password);
+                        d.setDepartment(workers.get(index).getDepartment());
+                        workers.set(index, d);
+                    }
+                    if (workers.get(index).getClass() == Nurse.class) {
+                        Nurse n = new Nurse(name, surname, newId, age, username, password);
+                        n.setDepartment(workers.get(index).getDepartment());
+                        workers.set(index, n);
+                    }
+                    if (workers.get(index).getClass() == Secreter.class) {
+                        Secreter s = new Secreter(name, surname, newId, age, username, password);
+                        s.setDepartment(workers.get(index).getDepartment());
+                        workers.set(index, s);
+                    }
+                    if (workers.get(index).getClass() == Technician.class) {
+                        Technician t = new Technician(name, surname, newId, age, username, password);
+                        t.setDepartment(workers.get(index).getDepartment());
+                        workers.set(index, t);
+                    }
+                    if (workers.get(index).getClass() == Advisor.class) {
+                        Advisor a = new Advisor(name, surname, newId, age, username, password);
+                        a.setDepartment(workers.get(index).getDepartment());
+                        workers.set(index, a);
+                    }                                                                                
+                }
+            }
+            else if (input == 7) {
+                System.out.println("\nDoctors:");
+                for (Worker it : workers)
+                    if (it.getClass() == Doctor.class)
+                        System.out.println("\t" + it);
+                
+                        System.out.println("\nNurses:");
+                for (Worker it : workers)
+                    if (it.getClass() == Nurse.class)
+                        System.out.println("\t" + it);
+                
+                        System.out.println("\nSecretaries:");
+                for (Worker it : workers)
+                    if (it.getClass() == Secreter.class)
+                        System.out.println("\t" + it);
+                
+                System.out.println("\nTechnicians:");
+                for (Worker it : workers)
+                    if (it.getClass() == Technician.class)
+                        System.out.println("\t" + it);
+                
+                System.out.println("\nAdvisors:");
+                for (Worker it : workers)
+                    if (it.getClass() == Advisor.class)
+                        System.out.println("\t" + it);
+            }
+        }
+    }
+    
+    public void technicianMenu(Technician tech) {
+        
+        Scanner sc = new Scanner(System.in);
+        int input = 0;
+        System.out.println("\nSIGNED IN AS A TECHNICIAN");
+
+        while (true) {
+            System.out.println("\nChoose Option Below: ");
+            System.out.println("1) Add New Test");
+            System.out.println("2) Apply Test");
+            System.out.println("3) Update a Test");
+            System.out.println("4) Display Old Tests");
+            System.out.println("5) Display Waiting Tests");
+            System.out.println("6) EXIT");
+            System.out.print("Select: ");
+            input = getInt(sc);
+
+            if (input == 1) {
+                
+                int type = -1;
+                while (type > 2 || type < 0) {
+                    System.out.print("Enter Test Type(0: Blood, 1: Covid, 2: Radiological): ");
+                    type = getInt(sc);
+                }
+                    
+                System.out.print("Enter Test ID: ");
+                String testID = sc.nextLine();
+
+                System.out.print("Enter Patient ID: ");
+                String patientID = sc.nextLine();
+
+                if (type == 0)
+                    tech.addTest(new BloodTest(patientID, testID));
+                else if (type == 1)
+                    tech.addTest(new CovidTest(patientID, testID));
+                else
+                    tech.addTest(new RadiologicalTest(patientID, testID));
+            }
+            else if (input == 2)
+                System.out.println("REMOVED TEST: " + tech.takeTest());
+            else if (input == 3) {
+                System.out.print("Enter The Test ID to Update: ");
+                String temp = sc.nextLine();
+                Test tempTest = tech.getTest(temp);
+
+                System.out.print("Enter New ID to Update: ");
+                String newTestID = sc.nextLine();
+
+                System.out.print("Enter New Patient ID to Update: ");
+                String newPatientID = sc.nextLine();
+
+                if (tempTest.getTestType() == 0)
+                    tech.updateTest(temp, new BloodTest(newPatientID, newTestID));
+                else if (tempTest.getTestType() == 1)
+                    tech.updateTest(temp, new CovidTest(newPatientID, newTestID));
+                else if (tempTest.getTestType() == 2)
+                    tech.updateTest(temp, new RadiologicalTest(newPatientID, newTestID));
+
+            }
+            else if (input == 4) {
+                tech.displayOldTests();
+            }
+            else if (input == 5)
+                tech.displayWaitingTests();
+            else if (input == 6)
+                return;
+
+        }
+    }    
 
     public void doctorMenu(Doctor doctor){
         Scanner sc = new Scanner(System.in);
