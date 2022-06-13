@@ -37,7 +37,7 @@ public class Advisor extends Worker {
         //Add to patient's appointments
         appointment.getPatient().addAppointment(appointment);
 
-        //TODO Add to HMSystem appointments
+        //Add to HMSystem appointments
         HMSystem.appointments.add(appointment);
 
         //Add to Reception class appointments
