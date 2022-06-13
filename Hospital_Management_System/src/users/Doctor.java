@@ -2,6 +2,7 @@ package users;
 
 import java.util.Date;
 import java.util.PriorityQueue;
+import java.util.ArrayList;
 
 
 import departments.Polyclinic;
@@ -52,11 +53,20 @@ public class Doctor extends Worker
      * 
      * @param patient The patient object that is being displayed.
      */
-    public void displayPatientInfo(Patient patient) 
+    public void displayPatientInfo(Patient patient)
     {
-        patient.displayPrescriptions();
-        patient.displayDoctors();
-        patient.displayRecords();
+        ArrayList<Doctor> doctors;
+        System.out.println("Patient's Name : " + patient.getName() + " " + patient.getSurname());
+        System.out.println("Patient's Age : " + patient.getAge() + "\n");
+        System.out.println("Patient's Prescriptions : ");
+        System.out.println(patient.displayPrescriptions());
+        System.out.println("Patient's Doctors : ");
+        doctors = patient.displayDoctors();
+        for(Doctor d : doctors){
+            System.out.println(d.getName() + " " + d.getSurname());
+        }
+        System.out.println("\n\nPatient's Appointments : ");
+        System.out.println(patient.displayRecords());
         
     }
 
