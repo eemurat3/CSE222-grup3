@@ -65,8 +65,8 @@ public class Group3Main {
         Prescription prescription = new Prescription("prescID", patient.getId(), "Med", "Inst", "newNote");
         
         CovidTest covidTest = new CovidTest(patient.getId(), testID);
-        BloodTest bloodTest = new BloodTest(patient.getId(), testID + "-1");
-        RadiologicalTest radiologicalTest = new RadiologicalTest(patient.getId(), testID + "-2");
+        BloodTest bloodTest = new BloodTest(patient.getId(), testID);
+        RadiologicalTest radiologicalTest = new RadiologicalTest(patient.getId(), testID);
 
         
 

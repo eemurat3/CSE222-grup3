@@ -105,7 +105,6 @@ public class HMSystem
                 System.out.println(doctor.getAppointment().toString());
             }
             else if(input == 4){
-                //TODO hastaya recete verip, display patient info'ya girince verilen recete gozukmuyor
                 sc.nextLine();
                 System.out.println("\nEnter Medicine Name for Patient : ");
                 String med = sc.next();
@@ -113,7 +112,6 @@ public class HMSystem
                 String inst = sc.next();
                 System.out.println("\nEnter note for Patient : ");
                 String note = sc.next();
-                //TODO Generate prescription id
                 doctor.givePrescription("0",doctor.getAppointment().getPatient().getId(),med,inst,note);
             }
             else if(input == 5){
@@ -121,8 +119,6 @@ public class HMSystem
             }
             else if(input == 6){
                 //TODO select technician ID
-                //TODO select patient
-                //TODO generate test id
                 doctor.requestTest("2133", new CovidTest(doctor.getAppointment().getPatient().getId(),"0"));
             }
             else if(input == 7){
@@ -429,7 +425,7 @@ public class HMSystem
                 appointments.add(appo);
             
             
-            }   //ERROR Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
+            }   
             else if(input == 3){
                 System.out.println(currPatient.getAppointments());
             }
