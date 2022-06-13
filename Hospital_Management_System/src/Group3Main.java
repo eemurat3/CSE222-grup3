@@ -46,8 +46,8 @@ public class Group3Main {
         Doctor doctor = new Doctor("doctorName", "doctorSurname", "1", age++, email, password);
         Nurse nurse = new Nurse("nurseName", "nurseSurname", id, age++, email, password);
         Technician technician = new Technician("technicianName", "technicianSurname", id, age++," username", password);
-        Patient patient = new Patient("patientName", "patientSurname", id, age++);
-        Patient patient1 = new Patient("patientName1", "patientSurname1", id, age++);
+        Patient patient = new Patient("patientName", "patientSurname", "0", age++);
+        Patient patient1 = new Patient("patientName1", "patientSurname1", "1", age++);
         Secreter secreter = new Secreter("secreterName", "secreterSurname", id, age++, email, password);
         Advisor advisor = new Advisor("advisorName", "advisorSurname", id, age++, "username", password);
         advisor.setDepartment(new Polyclinic("departmentName", 0));
@@ -132,6 +132,8 @@ public class Group3Main {
 
         myHospital.doctorMenu(doctor);
         myHospital.ADVMenu(advisor);
+        myHospital.secreterMenu(secreter);
+        myHospital.doctorMenu(doctor);
 
         /*
         Doctor.main(args);
