@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 import departments.Department;
 import departments.Lab;
@@ -43,7 +44,7 @@ public class Group3Main {
         Date date = new Date();
 
 
-        Doctor doctor = new Doctor("doctorName", "doctorSurname", "1", age++, email, password);
+        Doctor doctor = new Doctor("doctorName", "doctorSurname", "1", age++, "email", "password");
         Nurse nurse = new Nurse("nurseName", "nurseSurname", id, age++, email, password);
         Technician technician = new Technician("technicianName", "technicianSurname", id, age++," username", password);
         Patient patient = new Patient("patientName", "patientSurname", "0", age++);
@@ -128,12 +129,7 @@ public class Group3Main {
         myHospital.tests.add(bloodTest);
         myHospital.tests.add(radiologicalTest);
 
-        
-
-        myHospital.doctorMenu(doctor);
-        myHospital.ADVMenu(advisor);
-        myHospital.secreterMenu(secreter);
-        myHospital.doctorMenu(doctor);
+        mainMenu(myHospital);
 
         /*
         Doctor.main(args);
@@ -155,6 +151,79 @@ public class Group3Main {
         Reception.main(args);
         ut_polyclinic.main(args);*/
         
+
+    }
+
+    public static void mainMenu(HMSystem myHospital)
+    {
+        System.out.println("\n\t\tHospital Management System");
+        Scanner sc = new Scanner(System.in);
+        int input;
+        boolean loop = true;
+        String mail;
+        String password;
+        
+        while(loop){
+            System.out.println("\nCHOOSE AN OPTION BETWEEN 1 AND 2\n");
+            System.out.println("1) Personel Log-in");
+            System.out.println("2) Patient Log-in");
+            System.out.println("3) Log out");
+
+            input = sc.nextInt();
+            System.out.println("\n");
+
+            if(input == 1)
+            {
+                System.out.print("Mail:");
+                mail = sc.next();
+                System.out.print("Password:");
+                password = sc.next();
+                
+                myHospital.addAlltoWMap();
+                Worker temp = HMSystem.wMap.get(mail);
+
+                if(temp == null)
+                    System.out.println("Invalid mail.");
+                else if(temp.getPassword().compareTo(password) == 0)
+                {
+                    if(temp.getClass() == Doctor.class)
+                        myHospital.doctorMenu((Doctor)temp);
+                    
+                    else if(temp.getClass() == Advisor.class)
+                        myHospital.ADVMenu((Advisor)temp);
+                
+                    else if(temp.getClass() == Secreter.class)
+                        myHospital.secreterMenu((Secreter)temp);
+                
+                    else if(temp.getClass() == Nurse.class)
+                        myHospital.NurseMenue((Nurse)temp);
+                    
+                    else if(temp.getClass() == Manager.class)
+                        myHospital.NurseMenue((Nurse)temp);//TODO manager menu eklenecek
+                    
+                    else if(temp.getClass() == Technician.class)
+                        myHospital.NurseMenue((Nurse)temp);//TODO technician menu eklenecek
+                    
+                    else
+                        System.out.println("Invalid Mail or Password ");        
+                }                      
+                else
+                    System.out.println("Invalid Password.");
+
+            }
+            else if(input == 2)
+            {
+                myHospital.patientMenu();
+            }
+            else if(input == 3){        
+                System.out.println("Exiting...");
+                loop = false;
+            }
+            else{
+                System.out.println("Entered Input is Wrong, Please Try Again");
+            }
+        }
+
 
     }
 }
