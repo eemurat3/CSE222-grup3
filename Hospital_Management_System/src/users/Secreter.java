@@ -30,18 +30,24 @@ public class Secreter extends Worker{
      * @param note String
      */
     public void prescribePatient() 
-    {   
-        Prescription nextPrescribe = prescriptions.remove();
-        String nextPrescriptionPatientID;
+    {
+        if(!prescriptions.isEmpty()){
+            Prescription nextPrescribe = prescriptions.remove();
+            String nextPrescriptionPatientID;
 
-        if(nextPrescribe != null){
-            nextPrescriptionPatientID = nextPrescribe.getPatientID();
-
-            for(Patient i : HMSystem.patients){
-                if(i.getId().equals(nextPrescriptionPatientID)){
-                    i.addPrescription(nextPrescribe);
+            if(nextPrescribe != null){
+                nextPrescriptionPatientID = nextPrescribe.getPatientID();
+                for(Patient i : HMSystem.patients){
+                    if(i.getId().equals(nextPrescriptionPatientID)){
+                        for(Prescription p : prescriptions){
+                            i.addPrescription(p);
+                        }
+                    }
                 }
             }
+        }
+        else{
+            System.out.println("There is no waiting prescription");
         }
     }
 
@@ -55,7 +61,7 @@ public class Secreter extends Worker{
     }
 
     public void addPrescription(Prescription prescription) 
-    { 
+    {
         prescriptions.add(prescription);
     }
 
@@ -109,6 +115,7 @@ public class Secreter extends Worker{
         System.out.print("\n\n\t\t\t SECRETER TESTING ENDS \n\n");
 
     }
+    
     public static void testPrescribePatient(int counter, Patient patient, Prescription pres, String note){
         Secreter sec = new Secreter("name", "surname", "id", 30, "email", "password");
         for(int i = 0 ; i < counter ; i++){
