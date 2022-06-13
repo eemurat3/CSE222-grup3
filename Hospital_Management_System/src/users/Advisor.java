@@ -70,7 +70,7 @@ public class Advisor extends Worker {
      */
     @Override
     public String toString() {
-        return  "Role: Advisor, " + super.toString();
+        return  super.toString();
     }
 
 }
