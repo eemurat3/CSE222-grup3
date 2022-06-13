@@ -37,8 +37,6 @@ public class Appointment implements Comparable<Appointment>
         idcount++;
     }
 
-<<<<<<< HEAD
-=======
     public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date) {
         this.polyclinic = polyclinic;
         this.doctor = doctor;
@@ -47,7 +45,6 @@ public class Appointment implements Comparable<Appointment>
         this.id = idcount.toString();
         idcount++;
     }
->>>>>>> 45af3ff680e71372a9717f5276a36db0da90a247
 
     /**
      * Returns the polyclinic that this doctor works in.

@@ -87,14 +87,8 @@ public class HMSystem
                 doctor.displayPatientInfo(doctor.getAppointment().getPatient());
             }
             else if(input == 2){
-<<<<<<< HEAD
-                
-                doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor,doctor.getAppointment().getPatient(), new Date(),"ID"));
-            }   //TODO Date classi sikintili
-=======
                 doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor, doctor.getAppointment().getPatient(), new Date()));
             }    
->>>>>>> 45af3ff680e71372a9717f5276a36db0da90a247
             else if(input == 3){        
                 System.out.println(doctor.getAppointment().toString());
             }
@@ -107,12 +101,8 @@ public class HMSystem
                 String inst = sc.nextLine();
                 System.out.println("\nEnter note for Patient : ");
                 String note = sc.nextLine();
-<<<<<<< HEAD
-                doctor.givePrescription("234","23412",med,inst,note);
-=======
                 //TODO Generate prescription id
                 doctor.givePrescription("234",doctor.getAppointment().getPatient().getId(),med,inst,note);
->>>>>>> 45af3ff680e71372a9717f5276a36db0da90a247
             }
             else if(input == 5){
                 doctor.dischargePatient(doctor.getAppointment(), "You are healthy!");
