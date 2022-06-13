@@ -68,6 +68,7 @@ public class HMSystem
         int input;
         boolean loop = true;
 
+
         System.out.println("\nSIGNED IN AS A DOCTOR\n\n");
         while(loop){
             System.out.println("\nCHOOSE AN OPTION BETWEEN 1 AND 8\n");
@@ -102,15 +103,21 @@ public class HMSystem
                 System.out.println("\nEnter note for Patient : ");
                 String note = sc.nextLine();
                 //TODO Generate prescription id
-                doctor.givePrescription("234",doctor.getAppointment().getPatient().getId(),med,inst,note);
+                doctor.givePrescription("0",doctor.getAppointment().getPatient().getId(),med,inst,note);
             }
             else if(input == 5){
                 doctor.dischargePatient(doctor.getAppointment(), "You are healthy!");
             }
             else if(input == 6){
                 //TODO select technician ID
+<<<<<<< Updated upstream
                 //TODO select patient ID
                 doctor.requestTest("2133", new CovidTest("234","234"));
+=======
+                //TODO select patient
+                //TODO generate test id
+                doctor.requestTest("2133", new CovidTest(doctor.getAppointment().getPatient().getId(),"0"));
+>>>>>>> Stashed changes
             }
             else if(input == 7){
                 doctor.waitingPatients();
