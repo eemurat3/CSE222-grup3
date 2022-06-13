@@ -110,14 +110,9 @@ public class HMSystem
             }
             else if(input == 6){
                 //TODO select technician ID
-<<<<<<< Updated upstream
-                //TODO select patient ID
-                doctor.requestTest("2133", new CovidTest("234","234"));
-=======
                 //TODO select patient
                 //TODO generate test id
                 doctor.requestTest("2133", new CovidTest(doctor.getAppointment().getPatient().getId(),"0"));
->>>>>>> Stashed changes
             }
             else if(input == 7){
                 doctor.waitingPatients();
