@@ -120,6 +120,6 @@ public class Prescription
      */
     @Override
     public String toString() {
-        return "Prescription{" + "\nmedicine name: " + getMed() + "\nInstructions: " + getInstructions() + "\nNote: " + getNote() + "\n}\n";
+        return "\n\t\t\tPrescription Informations" + "\nMedicine Name : " + getMed() + "\nInstructions : " + getInstructions() + "\nNote : " + getNote() + "\n";
     }
 }
