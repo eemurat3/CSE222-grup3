@@ -12,13 +12,15 @@ public class Worker extends User
     private String username;
     private String password;
     private Department department;
+    private static Integer idCount = 0;
     
 
     // A constructor.
     public Worker(String name, String surname, String id, int age,String username , String password) {
-        super(name, surname, id, age);
+        super(name, surname, idCount.toString(), age);
         setUsername(username);
         setPassword(password);
+        idCount++;
     }
 
     /**
