@@ -14,15 +14,17 @@ public class Prescription
     private String medicine = "None";
     private String instructions = "None";
     private String note = "None";
+    private static Integer idCount = 0;
 
     // A constructor that takes in three strings and sets the private variables to the new values.
     public Prescription(String prescriptionID ,String patientID,String newMed, String newInst, String newNote)
     {   
-        this.prescriptionID = prescriptionID;
+        this.prescriptionID = idCount.toString();
         this.patientID = patientID;
         medicine = newMed;
         instructions = newInst;
         note = newNote;
+        idCount++;
     }
 
     public Prescription(Prescription pres){

@@ -15,7 +15,7 @@ public abstract class User implements Comparable<User>
 	private int age;
 
 	// A constructor.
-    public User(String name, String surname, String id, int age) {
+    protected User(String name, String surname, String id, int age) {
         setName(name);
         setSurname(surname);
         setId(id);
