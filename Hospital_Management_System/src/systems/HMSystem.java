@@ -30,10 +30,10 @@ public class HMSystem
 
         System.out.println("\nSIGNED IN AS A DOCTOR\n\n");
         while(loop){
-            System.out.println("CHOOSE AN OPTION BETWEEN 1 AND 8\n");
+            System.out.println("\nCHOOSE AN OPTION BETWEEN 1 AND 8\n");
             System.out.println("1) Display Patient Info");
             System.out.println("2) Add Appointment for Patient");
-            System.out.println("3) See Next Appointment");
+            System.out.println("3) See Current Appointment Information");
             System.out.println("4) Give Prescription to Patient");
             System.out.println("5) Discharge Current Patient");
             System.out.println("6) Request Test From Patient");
@@ -41,6 +41,7 @@ public class HMSystem
             System.out.println("8) Log out");
 
             input = sc.nextInt();
+            System.out.println("\n");
 
             if(input == 1){
                 doctor.displayPatientInfo(doctor.getAppointment().getPatient());
@@ -48,11 +49,13 @@ public class HMSystem
             else if(input == 2){
                 //TODO patient parametresi 
                 doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor, new Patient("name","surname","002",12), new Date()));
-            }   //ERROR Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
-            else if(input == 3){
-                doctor.getAppointment().toString();
+            }   //TODO Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
+            else if(input == 3){        
+                System.out.println(doctor.getAppointment().toString());
             }
             else if(input == 4){
+                //TODO hastaya recete verip, display patient info'ya girince verilen recete gozukmuyor
+                sc.nextLine();
                 System.out.println("\nEnter Medicine Name for Patient : ");
                 String med = sc.nextLine();
                 System.out.println("\nEnter Instructions for Patient : ");
