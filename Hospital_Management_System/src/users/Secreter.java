@@ -13,7 +13,7 @@ import systems.HMSystem;
 public class Secreter extends Worker{
 
     Queue<Prescription> prescriptions;
-
+    Doctor doctor;
 
     // A constructor.
     public Secreter(String name, String surname, String id, int age,String email , String password) 
@@ -56,13 +56,18 @@ public class Secreter extends Worker{
      * 
      * @param doctor The doctor that the patient is going to see.
      */
-    public void displayQueue(Doctor doctor){
+    public void displayQueue(){
         doctor.waitingPatients();
     }
 
     public void addPrescription(Prescription prescription) 
     {
         prescriptions.add(prescription);
+    }
+
+    public void setDoctor(Doctor doctor) 
+    {
+        this.doctor = doctor;
     }
 
     public static void main(String[] args) {
@@ -127,7 +132,7 @@ public class Secreter extends Worker{
     public static void testDisplayQueue(int counter, Doctor doctor){
         Secreter sec = new Secreter("name", "surname", "id", 30, "email", "password");
         for(int i = 0 ; i < counter ; i++){
-            sec.displayQueue(doctor);
+            sec.displayQueue();
         }
     }
 }
