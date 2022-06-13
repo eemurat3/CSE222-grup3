@@ -10,6 +10,7 @@ public abstract class Test implements Comparable <Test> {
 	private String testID;
 	private String patientID;
 	private int testType;
+	private static Integer idcount = 0;
 
 	//0 Blood Test
 	//1 Covid Test
@@ -21,8 +22,9 @@ public abstract class Test implements Comparable <Test> {
   	*/
   	public Test(String patientID,String testID,int testType){
 		this.patientID = patientID;
-		this.testID = testID;
+		this.testID = idcount.toString();
 		this.testType = testType;
+		idcount++;
 	}
 
 	

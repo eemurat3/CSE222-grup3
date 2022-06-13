@@ -22,6 +22,8 @@ public class Appointment implements Comparable<Appointment>
     private String note = "No note";
     private boolean isTreated = false;
     private String id = "";
+	private static Integer idcount = 0;
+    
 
     /** 
     * A constructor.
@@ -31,7 +33,8 @@ public class Appointment implements Comparable<Appointment>
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
-        this.id = id;
+        this.id = idcount.toString();
+        idcount++;
     }
 
     public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date) {
@@ -39,7 +42,8 @@ public class Appointment implements Comparable<Appointment>
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
-        this.id = "0";
+        this.id = idcount.toString();
+        idcount++;
     }
 
     /**
