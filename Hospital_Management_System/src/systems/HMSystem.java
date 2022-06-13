@@ -63,6 +63,17 @@ public class HMSystem
         return null;
     }
 
+
+    public ArrayList<Polyclinic> polycList()
+    {
+        ArrayList<Polyclinic> pList = new ArrayList<>();
+        for (var item : departments) {
+            if(item.getClass() == Polyclinic.class)
+                pList.add((Polyclinic)item);
+        }
+        return pList;
+    }
+
     public void doctorMenu(Doctor doctor){
         Scanner sc = new Scanner(System.in);
         int input;
@@ -97,11 +108,11 @@ public class HMSystem
                 //TODO hastaya recete verip, display patient info'ya girince verilen recete gozukmuyor
                 sc.nextLine();
                 System.out.println("\nEnter Medicine Name for Patient : ");
-                String med = sc.nextLine();
+                String med = sc.next();
                 System.out.println("\nEnter Instructions for Patient : ");
-                String inst = sc.nextLine();
+                String inst = sc.next();
                 System.out.println("\nEnter note for Patient : ");
-                String note = sc.nextLine();
+                String note = sc.next();
                 //TODO Generate prescription id
                 doctor.givePrescription("0",doctor.getAppointment().getPatient().getId(),med,inst,note);
             }
@@ -145,7 +156,16 @@ public class HMSystem
             
             input = sc.nextInt();
             if(input == 1){
-                Patient nPatient = new Patient("x","y",Integer.toString(count),count++);
+                System.out.println("Enter Patient's Name: \n");
+                String name = sc.next();
+                System.out.println("Enter Patient's Surname: \n");
+                String surname = sc.next();
+                System.out.println("Enter Patient's ID: \n");
+                String id = sc.next();
+                System.out.println("Enter Patient's Age: \n");
+                int age = sc.nextInt();
+
+                Patient nPatient = new Patient(name,surname,id,age);
                 patients.add(nPatient);
                 loop2 = true;
                 while(loop2){    
@@ -156,10 +176,11 @@ public class HMSystem
                     if(input == 2){
                         System.out.println("\nEnter Doctor ID: ");
                         sc.nextLine();
-                        String doc = sc.nextLine();     
+                        String doc = sc.next();     
                         Doctor d = (Doctor) returnUser(doc, workers);
                         Appointment apt = new Appointment((Polyclinic)(d).getDepartment(),d, nPatient, new Date(),"ID");
                         adv.addAppointment(d, apt);
+                        appointments.add(apt);
                         loop2 = false;
                     }
                     else if(input == 1){
@@ -172,12 +193,12 @@ public class HMSystem
             }
             else if(input == 2){
                 System.out.println("\nEnter Patient ID: ");
-                sc.nextLine();
-                String pt = sc.nextLine();   
+                String pt = sc.next(); 
+                sc.nextLine();  
                 Patient patient = returnPatient(pt, patients); 
 
                 System.out.println("\nEnter Doctor ID: ");
-                String doc = sc.nextLine();     
+                String doc = sc.next();     
                 Doctor d = (Doctor) returnUser(doc, workers);
 
                 Appointment apt = new Appointment((Polyclinic)(d).getDepartment(),d, patient, new Date(),"ID");
@@ -205,7 +226,7 @@ public class HMSystem
 
         while(loop){
             System.out.println("Enter Patient ID | Enter -1 to Log Out\n");
-            String id = sc.nextLine();
+            String id = sc.next();
             Patient patient = returnPatient(id, patients); 
             if(id.compareTo("-1") == 0){
                 System.out.println("Exiting...");
@@ -237,21 +258,21 @@ public class HMSystem
                         if(input == 1){
                             sc.nextLine();
                             System.out.print("Enter The new Name: ");
-                            String name = sc.nextLine();
+                            String name = sc.next();
                             patient.setName(name);
 
                         }
                         else if(input == 2){
                             sc.nextLine();
                             System.out.print("Enter The new Surname: ");
-                            String surname = sc.nextLine();
+                            String surname = sc.next();
                             patient.setSurname(surname);
                             
                         }
                         else if(input == 3){
                             sc.nextLine();
                             System.out.print("Enter The new ID: ");
-                            String ID = sc.nextLine();
+                            String ID = sc.next();
                             patient.setId(ID);
                             
                         }
@@ -316,7 +337,7 @@ public class HMSystem
                 secreter.prescribePatient();
             }
             else if(input == 2){
-                //TODO sekreterin appointments'e erisimi yok
+                secreter.displayQueue();
             }
             else if(input == 3){        
                 System.out.println("Exiting...");
@@ -328,7 +349,7 @@ public class HMSystem
         }
     }
 
-    public void patientMenu()
+    public void patientMenu() throws InputMismatchException
     {
         Scanner sc = new Scanner(System.in);
         int input;
@@ -344,10 +365,9 @@ public class HMSystem
 
         if(input == 1){
             System.out.println("Enter Patient's Name: \n");
-            String name = sc.nextLine();
-            sc.next();
+            String name = sc.next();
             System.out.println("Enter Patient's Surname: \n");
-            String surname = sc.nextLine();
+            String surname = sc.next();
             System.out.println("Enter Patient's ID: \n");
             String id = sc.next();
             System.out.println("Enter Patient's Age: \n");
@@ -389,15 +409,19 @@ public class HMSystem
             }
             else if(input == 2)
             {
+                System.out.println("\nPolyclinic List \n" + polycList());
                 System.out.println("Choose a Polyclinic: \n");
-                String polID = sc.nextLine();
-                sc.next();
+                String polID = sc.next();
+                //TODO doctorlari bastir.
                 System.out.println("Choose a Doctor: \n");
-                String docID = sc.nextLine();
+                String docID = sc.next();
                 
                 patientID = currPatient.getId();
                 System.out.println("Enter a Date: \n");
                 int date = sc.nextInt();
+                
+                //TODO polyclinic listesi bastir, sectir
+                //TODO polyclinicten doktor listesi bastir  ve sectir
 
                 Appointment appo = new Appointment((Polyclinic)HMSystem.departments.get(0) , (Doctor)HMSystem.workers.get(0), currPatient, new Date(date),"ID");
                 ((Doctor)(HMSystem.workers.get(0))).addAppointment(appo);
