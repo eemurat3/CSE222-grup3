@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -49,8 +50,8 @@ public class Group3Main {
         Technician technician = new Technician("technicianName", "technicianSurname", id, age++," username", password);
         Patient patient = new Patient("patientName", "patientSurname", "0", age++);
         Patient patient1 = new Patient("patientName1", "patientSurname1", "1", age++);
-        Secreter secreter = new Secreter("secreterName", "secreterSurname", id, age++, email, password);
-        Advisor advisor = new Advisor("advisorName", "advisorSurname", id, age++, "username", password);
+        Secreter secreter = new Secreter("secreterName", "secreterSurname", id, age++, "sec@gmail.com", "sec1");
+        Advisor advisor = new Advisor("advisorName", "advisorSurname", id, age++, "adv@gmail.com", "adv1");
         advisor.setDepartment(new Polyclinic("departmentName", 0));
 
         Manager manager = new Manager("managerName", "managerSurname", id, age++, email, password);
@@ -85,6 +86,7 @@ public class Group3Main {
         
         
         secreter.addPrescription(prescription);
+        secreter.setDoctor(doctor);
 
         polyclinic.addDoctor(doctor);
         polyclinic.addNurse(nurse);
@@ -215,7 +217,9 @@ public class Group3Main {
             }
             else if(input == 2)
             {
-                myHospital.patientMenu();
+                try{
+                    myHospital.patientMenu();
+                }catch(InputMismatchException e){System.out.println(e+ "\n Invalid input try again.");}
             }
             else if(input == 3){        
                 System.out.println("Exiting...");
