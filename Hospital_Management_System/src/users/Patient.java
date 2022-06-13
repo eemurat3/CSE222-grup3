@@ -139,7 +139,7 @@ public class Patient extends User
     public void addPrescription(Prescription pres){
         if(pres == null)
             throw new NullPointerException();
-        prescriptions.add(pres);
+        prescriptions.add(new Prescription(pres));
     }
 
     /* DISPLAYS */
