@@ -25,6 +25,14 @@ public class Prescription
         note = newNote;
     }
 
+    public Prescription(Prescription pres){
+        this.prescriptionID = pres.getPrescriptionID();
+        this.patientID = pres.getPatientID();
+        this.medicine = pres.getMed();
+        this.instructions = pres.getInstructions();
+        this.note = pres.getNote();
+    }
+
     //Default Prescription
     public Prescription(){
         
