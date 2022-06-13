@@ -72,9 +72,8 @@ public class HMSystem
                 doctor.displayPatientInfo(doctor.getAppointment().getPatient());
             }
             else if(input == 2){
-                //TODO patient parametresi 
-                doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor, new Patient("name","surname","002",12), new Date()));
-            }   //TODO Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
+                doctor.addAppointment(new Appointment((Polyclinic) doctor.getDepartment(), doctor, doctor.getAppointment().getPatient(), new Date()));
+            }    
             else if(input == 3){        
                 System.out.println(doctor.getAppointment().toString());
             }
@@ -88,7 +87,7 @@ public class HMSystem
                 System.out.println("\nEnter note for Patient : ");
                 String note = sc.nextLine();
                 //TODO Generate prescription id
-                doctor.givePrescription("234","23412",med,inst,note);
+                doctor.givePrescription("234",doctor.getAppointment().getPatient().getId(),med,inst,note);
             }
             else if(input == 5){
                 doctor.dischargePatient(doctor.getAppointment(), "You are healthy!");
