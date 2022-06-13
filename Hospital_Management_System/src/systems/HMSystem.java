@@ -21,7 +21,32 @@ public class HMSystem
     static public List<Worker> workers = new ArrayList<>();
     static public BinarySearchTree<User> users = new BinarySearchTree<>();
     static public Queue<Test> tests = new LinkedList<>();
+    static public HashMap<String,Worker> wMap = new HashMap<>();
+    static public HashMap<String,Patient> pMap = new HashMap<>();
     
+    public void addAlltoWMap()
+    {
+        for (var item : workers) {
+            wMap.put(item.getUsername(), item);
+        }
+    }
+
+    public void addAlltoPMap()
+    {
+        for (var item : patients) {
+            pMap.put(item.getId(),item);
+        }
+    }
+
+    // A generic method that returns an object from a list.
+    public <E> E returnUser(String ID, List<E> list){
+        for(int i = 0; i < list.size(); i++){
+            if(((User) list.get(i)).getId().compareTo(ID) == 0){
+                return list.get(i);
+            }
+        }
+        return null;
+    }
 
     public void doctorMenu(Doctor doctor){
         Scanner sc = new Scanner(System.in);
@@ -288,15 +313,112 @@ public class HMSystem
         }
     }
 
-    // A generic method that returns an object from a list.
-    public <E> E returnUser(String ID, List<E> list){
-        for(int i = 0; i < list.size(); i++){
-            if(((User) list.get(i)).getId().compareTo(ID) == 0){
-                return list.get(i);
+    public void patientMenu()
+    {
+        Scanner sc = new Scanner(System.in);
+        int input;
+        boolean loop = true;
+        Patient currPatient = null;
+        String patientID;
+
+        System.out.println("CHOOSE AN OPTION BETWEEN 1 AND 2\n");
+        System.out.println("1) Sign-Up");
+        System.out.println("2) Sign-In");
+
+        input = sc.nextInt();
+
+        if(input == 1){
+            System.out.println("Enter Patient's Name: \n");
+            String name = sc.nextLine();
+            sc.next();
+            System.out.println("Enter Patient's Surname: \n");
+            String surname = sc.nextLine();
+            System.out.println("Enter Patient's ID: \n");
+            String id = sc.next();
+            System.out.println("Enter Patient's Age: \n");
+            int age = sc.nextInt();
+
+            currPatient = new Patient(name, surname, id, age);
+            HMSystem.patients.add(currPatient);
+            pMap.put(currPatient.getId(), currPatient);
+        }
+        else if(input == 2){
+            
+            System.out.print("Patient ID:");
+            patientID = sc.next();
+            
+            addAlltoPMap();
+            Patient temp = pMap.get(patientID);
+            
+            if(temp == null)
+                System.out.println("Invalid ID.");
+            else
+                currPatient = temp;    
+        }
+
+        System.out.println("\nSIGNED IN AS Patient\n\n");
+        while(loop){
+            System.out.println("CHOOSE AN OPTION BETWEEN 1 AND 8\n");
+            System.out.println("1) Display Patient Info");
+            System.out.println("2) Get an Appointment");
+            System.out.println("3) See Appointments");
+            System.out.println("4) See Medications");
+            System.out.println("5) See Test Results");
+            System.out.println("6) Previous Menu");
+            System.out.println("7) Close");
+
+            input = sc.nextInt();
+
+            if(input == 1){
+                System.out.println("Patient's info: "+currPatient);
+            }
+            else if(input == 2)
+            {
+                System.out.println("Choose a Polyclinic: \n");
+                String polID = sc.nextLine();
+                sc.next();
+                System.out.println("Choose a Doctor: \n");
+                String docID = sc.nextLine();
+                
+                patientID = currPatient.getId();
+                System.out.println("Enter a Date: \n");
+                int date = sc.nextInt();
+
+                Appointment appo = new Appointment((Polyclinic)HMSystem.departments.get(0) , (Doctor)HMSystem.workers.get(0), currPatient, new Date(date));
+                ((Doctor)(HMSystem.workers.get(0))).addAppointment(appo);
+                currPatient.addAppointment(appo);
+                appointments.add(appo);
+            
+            
+            }   //ERROR Date classi sikintili, appointmentin id'si yok(default 0), doctorun polyclinic'ine ulasamiyoruz 
+            else if(input == 3){
+                System.out.println(currPatient.getAppointments());
+            }
+            else if(input == 4){
+                System.out.println(currPatient.getPrescriptions());
+                
+            }
+            else if(input == 5){
+                System.out.println(currPatient.getTests());
+                
+            }
+            else if(input == 6){
+                
+                System.out.println("Going Back...");
+                loop = false;
+            }
+            else if(input == 7){
+               System.exit(0);
+               System.out.println("Goodbye");
+
+            }
+            else{
+                System.out.println("Entered Input is Wrong, Please Try Again");
             }
         }
-        return null;
+        
     }
+    
 
 
 
