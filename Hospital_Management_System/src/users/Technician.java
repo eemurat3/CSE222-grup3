@@ -12,6 +12,7 @@ public class Technician extends Worker {
 
 
     // A constructor for the Technician class.
+
     public Technician(String name, String surname, String id, int age, String username, String password) {
         super(name, surname, id, age, username, password);
     }
@@ -22,8 +23,11 @@ public class Technician extends Worker {
         lab.addWaitingTest(newTest); 
     }
 
-    public void takeTest(){
+    public Test takeTest(){
         Lab lab = (Lab) getDepartment();
+
+        if (lab.getWaitingTests().size() == 0)
+            return null;
 
         //Remove test from waiting tests
         Test t = lab.removeWaitingTest();
@@ -42,15 +46,17 @@ public class Technician extends Worker {
                 break;
             }
         }
+
+        return t;
     }
 
     /**
      * The function `displayTests()` displays all the tests in the lab
      */
-    public void displayAllTests(){
+    public void displayOldTests(){
         Lab lab = (Lab) getDepartment();
 
-        System.out.println(lab.getAllTests().inorder());
+        System.out.println(lab.getOldTests().inorder());
     }
 
     /**
@@ -83,7 +89,7 @@ public class Technician extends Worker {
     public void updateTest(String testID , Test newTest){
         Lab lab = (Lab) getDepartment();
         
-        TreeIterator<Test> it = lab.getAllTests().getIterator();
+        TreeIterator<Test> it = lab.getOldTests().getIterator();
 
         while(it.hasNext()){
             Test current = it.next().getData();
@@ -93,6 +99,22 @@ public class Technician extends Worker {
                 break;
             }
         }
+
+
+        for (Test iTest : lab.getWaitingTests()) {
+            Test current = iTest;
+
+            if (iTest.getTestID().equals(testID)) {
+                updateTest(current, newTest);
+                break;
+            }
+        }        
+    }
+
+    public Test getTest(String testID) {
+        Lab lab = (Lab) getDepartment();
+
+        return lab.getTest(testID);
     }
     
 }
