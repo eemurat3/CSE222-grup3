@@ -94,6 +94,11 @@ public abstract class User implements Comparable<User>
         this.age = age;
     }
 
+    @Override
+    public int compareTo(User o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
     /**
      * If the object is the same object, return true. If the object is null, return false. If the
@@ -120,17 +125,7 @@ public abstract class User implements Comparable<User>
         return true;
     }
 
-    /**
-     * The compareTo() method compares the id of the current object with the id of the object passed as
-     * an argument
-     * 
-     * @param other The other object to compare to.
-     * @return The id of the user.
-     */
-    @Override
-    public int compareTo(User other){
-        return getId().compareTo(other.getId());
-    }
+   
    
     /**
      * The toString() method returns a string representation of the object

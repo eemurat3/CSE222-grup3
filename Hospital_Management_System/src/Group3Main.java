@@ -59,13 +59,15 @@ public class Group3Main {
         Lab lab = new Lab("departmentName", 1);
         Reception reception = new Reception("departmentName", 2);
 
-        Appointment appointment = new Appointment(polyclinic, doctor, patient, date);
-        Appointment appointment1 = new Appointment(polyclinic, doctor, patient1, date);
+        Appointment appointment = new Appointment(polyclinic, doctor, patient, date,"ID");
+        Appointment appointment1 = new Appointment(polyclinic, doctor, patient1, date,"ID");
         Prescription prescription = new Prescription("prescID", patient.getId(), "Med", "Inst", "newNote");
         
         CovidTest covidTest = new CovidTest(patient.getId(), testID);
         BloodTest bloodTest = new BloodTest(patient.getId(), testID + "-1");
         RadiologicalTest radiologicalTest = new RadiologicalTest(patient.getId(), testID + "-2");
+
+        
 
 
         doctor.addAppointment(appointment);

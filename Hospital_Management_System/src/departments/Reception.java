@@ -8,11 +8,14 @@ package departments;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import systems.Appointment;
 import users.Advisor;
 import users.Doctor;
 import users.Patient;
+import util.AVLTree;
+import util.TreeIterator;
 
 /**
  * The Reception class is a subclass of the Department class. 
@@ -26,18 +29,18 @@ public class Reception extends Department{
     /**
 	 * appointment list
 	 */
-    private ArrayList<Appointment> appointments;
+    private AVLTree<Appointment> appointments;
     
     
     // A constructor.
     public Reception(String departmentName,int departmentID){
         super(departmentName,departmentID,2);
         advisors = new ArrayList<Advisor>();
-        appointments = new ArrayList<Appointment>();
+        appointments = new AVLTree<Appointment>();
     }
 
     // A constructor.
-    public Reception(String departmentName,int departmentID,ArrayList<Advisor> advisors,ArrayList<Appointment> appointments){
+    public Reception(String departmentName,int departmentID,ArrayList<Advisor> advisors,AVLTree<Appointment> appointments){
         super(departmentName,departmentID,2);
         this.advisors = advisors;
         this.appointments = appointments;
@@ -81,10 +84,16 @@ public class Reception extends Department{
      * @return a appointment object
      */
     public Appointment getAppointment (String appointmentID){
-        for(Appointment i : appointments){
-            if(i.getId().equals(appointmentID))
-                return i;
+        TreeIterator<Appointment> it = appointments.getIterator();
+        Appointment current;
+
+        while(it.hasNext()){
+            current = it.next().getData();
+
+            if(current.getId().equals(appointmentID))
+                return current;
         }
+
         return null;
     }
 
@@ -101,10 +110,7 @@ public class Reception extends Department{
      * @param appointmentID which is unique code for appointment
      */
     public void removeAppointment(String appointmentID){
-        for(int i = 0; i < appointments.size(); i++){
-            if(appointments.get(i).getId().equals(appointmentID))
-                appointments.remove(i);
-        }
+        appointments.remove(new Appointment(null, null, null, null,appointmentID));
     }
 
     /**
@@ -121,9 +127,7 @@ public class Reception extends Department{
         }
         result.append("\n");
         result.append("Appointments : \n");
-        for(int i=0;i<appointments.size();i++){
-            result.append(i + ")" + appointments.get(i).getId()+"\n");
-        }
+        result.append(appointments.inorder());
         result.append("\n");
 
         return result.toString();
@@ -140,7 +144,7 @@ public class Reception extends Department{
         System.out.print("\n\n\t\t\t RECEPTION UNIT TESTING STARTS \n\n");
 
         ArrayList<Advisor> advisorsT = new ArrayList<>();
-        ArrayList<Appointment> appointmentsT = new ArrayList<>();
+        AVLTree<Appointment> appointmentsT = new AVLTree<>();
 
         /* Fill technicians and tests*/
 

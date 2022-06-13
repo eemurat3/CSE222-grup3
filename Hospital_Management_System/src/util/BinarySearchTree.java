@@ -1,6 +1,6 @@
 package util;
-
 import java.io.Serializable;
+
 
 /**
  * Implementation of a Binary Search Tree
@@ -9,10 +9,10 @@ import java.io.Serializable;
  * @param <E> The type of data in the tree. Must be a Comparable object.
  */
 
+
 public class BinarySearchTree<E extends Comparable<E>> implements Serializable  
 {
 	//Data Fields
-
     protected Node<E> root;
 
 	/**
@@ -24,7 +24,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 	 */
 	protected E deleteReturn;
 
-	
+
 	//Methods
 
 	public BinarySearchTree(){
@@ -307,12 +307,6 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 		return new TreeIterator<E>(root);
 	}
 
-	/**
-	 * Class to encapsulate a tree node
-	 * @author Jacob / Koffman & Wolfgang
-	 *
-	 * @param <E> The type of data stored
-	 */
 	public static class Node<E> implements Serializable {
 		
 		//Data Fields
@@ -339,7 +333,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 			left = null;
 			right = null;
 		}
-
+	
 		public E getData(){
 			return data;
 		}
@@ -352,6 +346,6 @@ public class BinarySearchTree<E extends Comparable<E>> implements Serializable
 		public String toString(){
 			return data.toString();
 		}
-	}    
-
+	}  
+	
 }

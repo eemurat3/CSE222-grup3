@@ -34,13 +34,6 @@ public class Appointment implements Comparable<Appointment>
         this.id = id;
     }
 
-    public Appointment(Polyclinic polyclinic, Doctor doctor, Patient patient, Date date) {
-        this.polyclinic = polyclinic;
-        this.doctor = doctor;
-        this.patient = patient;
-        this.date = date;
-        this.id = "0";
-    }
 
     /**
      * Returns the polyclinic that this doctor works in.
@@ -182,7 +175,7 @@ public class Appointment implements Comparable<Appointment>
         }
         
         final Appointment other = (Appointment) obj;
-        if (date == other.date && doctor.getId() == other.doctor.getId()) {
+        if (id == other.id) {
             return true;
         }
         return true;

@@ -180,10 +180,12 @@ public class Patient extends User
         return list;
     }
 
+    
     @Override
-    public int compareTo(User other) {
-        return super.compareTo(other);
+    public int compareTo(User o) {
+        return 0;
     }
+
 
     @Override
     public String toString() {
@@ -434,6 +436,4 @@ public class Patient extends User
         System.out.print("\n\n\t\t\t PATIENT TESTING ENDS \n\n");
 
     }
-
-    
 }
