@@ -34,7 +34,7 @@ public class HMSystem
             System.out.println("1) Display Patient Info");
             System.out.println("2) Add Appointment for Patient");
             System.out.println("3) See Current Appointment Information");
-            System.out.println("4) Give Prescription to Patient");
+            System.out.println("4) Create Prescription and Give it to Secreter");
             System.out.println("5) Discharge Current Patient");
             System.out.println("6) Request Test From Patient");
             System.out.println("7) See All Appointments");
@@ -253,6 +253,37 @@ public class HMSystem
                         System.out.println("Invalid input, try again!\n");
                     }
                 }
+            }
+        }
+    }
+
+    public void secreterMenu(Secreter secreter){
+        Scanner sc = new Scanner(System.in);
+        int input;
+        boolean loop = true;
+
+        System.out.println("\nSIGNED IN AS A SECRETER\n\n");
+        while(loop){
+            System.out.println("\nCHOOSE AN OPTION BETWEEN 1 AND 8\n");
+            System.out.println("1) Give Prescription to a Patient");
+            System.out.println("2) Display Patient Queue");
+            System.out.println("3) Log out");
+
+            input = sc.nextInt();
+            System.out.println("\n");
+
+            if(input == 1){
+                secreter.prescribePatient();
+            }
+            else if(input == 2){
+                //TODO sekreterin appointments'e erisimi yok
+            }
+            else if(input == 3){        
+                System.out.println("Exiting...");
+                loop = false;
+            }
+            else{
+                System.out.println("Entered Input is Wrong, Please Try Again");
             }
         }
     }
