@@ -26,14 +26,14 @@ public class HMSystem
     
     public void addAlltoWMap()
     {
-        for (var item : workers) {
+        for (Worker item : workers) {
             wMap.put(item.getUsername(), item);
         }
     }
 
     public void addAlltoPMap()
     {
-        for (var item : patients) {
+        for (Patient item : patients) {
             pMap.put(item.getId(),item);
         }
     }
@@ -67,7 +67,7 @@ public class HMSystem
     public ArrayList<Polyclinic> polycList()
     {
         ArrayList<Polyclinic> pList = new ArrayList<>();
-        for (var item : departments) {
+        for (Department item : departments) {
             if(item.getClass() == Polyclinic.class)
                 pList.add((Polyclinic)item);
         }
