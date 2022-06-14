@@ -342,9 +342,10 @@ public class HMSystem
                 
                 for (Patient patient : patients) {
                     if (patient.getId().equals(id)) {
-                        patient.displayPrescriptions();
-                        patient.displayDoctors();
-                        patient.displayRecords();
+                        System.out.println(patient.displayPrescriptions());
+                        System.out.println(patient.displayDoctors());
+                        System.out.println(patient.displayRecords());   
+                        System.out.println(patient);
                     }
                 }
             }
