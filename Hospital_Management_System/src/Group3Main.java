@@ -637,29 +637,9 @@ public class Group3Main {
 
         myHospital.navigationDepartments = graphNav;
         
-    
-        mainMenu(myHospital);
-
-        /*
-        Doctor.main(args);
-        TestAdvisor.main(args);
-        Nurse.main(args);
-        Patient.main(args);
-        TestTechnician.main(args);
-        Secreter.main(args);
-        Manager.main(args);
-
-
-        BloodTest.main(args);
-        CovidTest.main(args);
-        RadiologicalTest.main(args);
-       
-        Appointment.main(args);
+   
         
-        Lab.main(args);
-        Reception.main(args);
-        ut_polyclinic.main(args);*/
-        
+        try{mainMenu(myHospital);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
 
     }
 
@@ -678,7 +658,7 @@ public class Group3Main {
             System.out.println("2) Patient Log-in");
             System.out.println("3) Log out");
 
-            input = sc.nextInt();
+            input = myHospital.getInt(sc);
             System.out.println("\n");
 
             if(input == 1)
@@ -697,22 +677,24 @@ public class Group3Main {
                 else if(temp.getPassword().compareTo(password) == 0)
                 {
                     if(temp.getClass() == Doctor.class)
-                        myHospital.doctorMenu((Doctor)temp);
+                        try{myHospital.doctorMenu((Doctor)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
+                        
                     
                     else if(temp.getClass() == Advisor.class)
-                        myHospital.ADVMenu((Advisor)temp);
+                        try{myHospital.ADVMenu((Advisor)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
                 
                     else if(temp.getClass() == Secreter.class)
-                        myHospital.secreterMenu((Secreter)temp);
+                        try{myHospital.secreterMenu((Secreter)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
                 
                     else if(temp.getClass() == Nurse.class)
-                        myHospital.NurseMenue((Nurse)temp);
+                        try{myHospital.NurseMenue((Nurse)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");} 
                     
                     else if(temp.getClass() == Manager.class)
-                        myHospital.managerMenu((Manager)temp);
+                        try{myHospital.managerMenu((Manager)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
                     
                     else if(temp.getClass() == Technician.class)
-                        myHospital.technicianMenu((Technician)temp);
+                        try{myHospital.technicianMenu((Technician)temp);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
+                        
                     
                     else
                         System.out.println("Invalid Mail or Password ");        
@@ -725,7 +707,7 @@ public class Group3Main {
             {
                 try{
                     myHospital.patientMenu();
-                }catch(InputMismatchException e){System.out.println(e+ "\n Invalid input try again.");}
+                }catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
             }
             else if(input == 3){        
                 System.out.println("Exiting...");
