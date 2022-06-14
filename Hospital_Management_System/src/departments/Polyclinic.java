@@ -33,9 +33,6 @@ public class Polyclinic extends Department {
 	 * polyclinic patient queue
 	 */
 	private Queue<Patient> patients = new PriorityQueue<>();
-
-	private String name;
-
 	
 	/**
 	 * default constructor
@@ -58,24 +55,6 @@ public class Polyclinic extends Department {
 		this.nurses = nurses;
 		this.secreters = secretars;
 		this.patients = patients;
-	}
-
-	/**
-	 * This function returns the name of the person.
-	 * 
-	 * @return The name of the person.
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * This function sets the name of the object to the value of the parameter.
-	 * 
-	 * @param name The name of the parameter.
-	 */
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	/**

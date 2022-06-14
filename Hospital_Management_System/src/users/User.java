@@ -95,9 +95,8 @@ public abstract class User implements Comparable<User>
     }
 
     @Override
-    public int compareTo(User o) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int compareTo(User o) { 
+        return id.compareTo(o.getId());
     }
 
     /**

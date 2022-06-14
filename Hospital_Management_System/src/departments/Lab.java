@@ -26,7 +26,7 @@ public class Lab extends Department {
     private ArrayList<Technician> clinicalTechnicians;
 
     /**
-	 * Waitining Test Queue
+	 * Waiting Test Queue
 	 */
     private Queue<Test> tests;
     
@@ -34,33 +34,33 @@ public class Lab extends Department {
     /**
 	 * All Test BST
 	 */
-    private BinarySearchTree<Test> allTests;
+    private BinarySearchTree<Test> oldTests;
 
     
 
     /**
-     * No parameter Contructor
+     * No parameter Constructor
      */
     public Lab(String departmentName,int departmentID){
         super(departmentName,departmentID,0);
 
         clinicalTechnicians = new ArrayList<Technician>();
         tests = new LinkedList<>();
-        allTests = new BinarySearchTree<>();
+        oldTests = new BinarySearchTree<>();
     }
 
     /**
      * Constructor
      * @param clinicalTechnicians takes a clinical technician list
      * @param tests takes a test queue
-     * @param allTests takes a test list as Binary Search Tree
+     * @param oldTests takes a test list as Binary Search Tree
      */
-    public Lab(String departmentName,int departmentID,ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> allTests){
+    public Lab(String departmentName,int departmentID,ArrayList<Technician> clinicalTechnicians,Queue<Test> tests,BinarySearchTree<Test> oldTests){
         super(departmentName,departmentID,0);
         
         this.clinicalTechnicians = clinicalTechnicians;
         this.tests = tests;
-        this.allTests = allTests;
+        this.oldTests = oldTests;
     }
 
     /**
@@ -86,17 +86,17 @@ public class Lab extends Department {
      * 
      * @return The BinarySearchTree of all tests.
      */
-    public BinarySearchTree<Test> getAllTests() {
-        return allTests;
+    public BinarySearchTree<Test> getOldTests() {
+        return oldTests;
     }
 
     /**
-     * This function sets the value of the allTests variable to the value of the parameter allTests
+     * This function sets the value of the oldTests variable to the value of the parameter oldTests
      * 
-     * @param allTests This is the Binary Search Tree that contains all the tests.
+     * @param oldTests This is the Binary Search Tree that contains all the tests.
      */
-    public void setAllTests(BinarySearchTree<Test> allTests) {
-        this.allTests = allTests;
+    public void setOldTests(BinarySearchTree<Test> oldTests) {
+        this.oldTests = oldTests;
     }
 
     /**
@@ -104,13 +104,21 @@ public class Lab extends Department {
      * @param  testID which is unique code for test
      */
     public Test getTest(String testID){
-        TreeIterator<Test> i = allTests.getIterator();
+        TreeIterator<Test> i = oldTests.getIterator();
 
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
 
             if(currentItem.getTestID().equals(testID))
                 return currentItem;
+        }
+
+        for (Test iTest : tests) {
+            Test currentTest = iTest;
+
+            if (iTest.getTestID().equals(testID)) {
+                return currentTest;
+            }
         }
 
         return null;
@@ -125,7 +133,7 @@ public class Lab extends Department {
     }
 
     public void addOldTest(Test oldTest){
-        allTests.add(oldTest);
+        oldTests.add(oldTest);
     }
 
     /**
@@ -137,7 +145,7 @@ public class Lab extends Department {
     }
 
     public void removeOldTest(Test oldTest){
-        allTests.remove(oldTest);
+        oldTests.remove(oldTest);
     }
 
     public void removeOldTest(String testID){
@@ -207,7 +215,7 @@ public class Lab extends Department {
 
         result.append("Tests : \n");
 
-        TreeIterator<Test> i = allTests.getIterator();
+        TreeIterator<Test> i = oldTests.getIterator();
  
         while(i.hasNext()){
             Test currentItem = ((Test) i.next().getData());
@@ -403,7 +411,7 @@ public class Lab extends Department {
         System.out.println("\n\nTesting the All Tests list \n\n");
         
         //100 item
-        //allTests
+        //oldTests
         BinarySearchTree<Test>  allTests100 = new BinarySearchTree<>();
         
         double sum;
@@ -421,7 +429,7 @@ public class Lab extends Department {
 
 
         //1000 item
-        //allTests
+        //oldTests
 
         String[] ID1000 = new String[1000]; 
 		for(int i = 0; i < 1000; i++){
@@ -446,7 +454,7 @@ public class Lab extends Department {
 
 
         //10000 item
-        //allTests
+        //oldTests
 
         String[] ID10000 = new String[10000]; 
 		for(int i = 0; i < 10000; i++){
