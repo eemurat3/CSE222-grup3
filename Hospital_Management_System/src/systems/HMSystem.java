@@ -354,11 +354,10 @@ public class HMSystem
         while (true) {
             System.out.println("\nChoose Option Below: ");
             System.out.println("1) Add New Test");
-            System.out.println("2) Apply Test");
-            System.out.println("3) Update a Test");
-            System.out.println("4) Display Old Tests");
-            System.out.println("5) Display Waiting Tests");
-            System.out.println("6) EXIT");
+            System.out.println("2) Take Test");
+            System.out.println("3) Display Old Tests");
+            System.out.println("4) Display Waiting Tests");
+            System.out.println("5) EXIT");
             System.out.print("Select: ");
             input = getInt(sc);
 
@@ -369,47 +368,24 @@ public class HMSystem
                     System.out.print("Enter Test Type(0: Blood, 1: Covid, 2: Radiological): ");
                     type = getInt(sc);
                 }
-                    
-                System.out.print("Enter Test ID: ");
-                String testID = sc.nextLine();
 
                 System.out.print("Enter Patient ID: ");
                 String patientID = sc.nextLine();
 
                 if (type == 0)
-                    tech.addTest(new BloodTest(patientID, testID));
+                    tech.addTest(new BloodTest(patientID, "testID"));
                 else if (type == 1)
-                    tech.addTest(new CovidTest(patientID, testID));
+                    tech.addTest(new CovidTest(patientID, "testID"));
                 else
-                    tech.addTest(new RadiologicalTest(patientID, testID));
+                    tech.addTest(new RadiologicalTest(patientID, "testID"));
             }
             else if (input == 2)
                 System.out.println("REMOVED TEST: " + tech.takeTest());
-            else if (input == 3) {
-                System.out.print("Enter The Test ID to Update: ");
-                String temp = sc.nextLine();
-                Test tempTest = tech.getTest(temp);
-
-                System.out.print("Enter New ID to Update: ");
-                String newTestID = sc.nextLine();
-
-                System.out.print("Enter New Patient ID to Update: ");
-                String newPatientID = sc.nextLine();
-
-                if (tempTest.getTestType() == 0)
-                    tech.updateTest(temp, new BloodTest(newPatientID, newTestID));
-                else if (tempTest.getTestType() == 1)
-                    tech.updateTest(temp, new CovidTest(newPatientID, newTestID));
-                else if (tempTest.getTestType() == 2)
-                    tech.updateTest(temp, new RadiologicalTest(newPatientID, newTestID));
-
-            }
-            else if (input == 4) {
+            else if (input == 3)
                 tech.displayOldTests();
-            }
-            else if (input == 5)
+            else if (input == 4)
                 tech.displayWaitingTests();
-            else if (input == 6)
+            else if (input == 5)
                 return;
 
         }
