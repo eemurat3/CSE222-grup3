@@ -69,7 +69,7 @@ public class RadiologicalTest extends Test{
     */
     public String toString(){
         
-        return "\nPatient ID:" + getPatientID() + " Test Type: " + radiologicalTestType + "\tTest Result: " + testResult;
+        return "\nTest ID:" + getTestID() + "Patient ID:" + getPatientID() + " Test Type: " + radiologicalTestType + "\tTest Result: " + testResult;
     }
 
     /**
