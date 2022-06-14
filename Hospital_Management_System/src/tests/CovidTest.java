@@ -47,7 +47,7 @@ public class CovidTest extends Test{
     */
     public String toString(){
         
-        return   "\nPatient ID:" + getPatientID() + ((testResult == true) ? " Covid Test Result: Positive" :
+        return   "\nTest ID:"+ getTestID()+  "Patient ID:" + getPatientID() + ((testResult == true) ? " Covid Test Result: Positive" :
         " Covid Test Result: Negative");
     }
 
