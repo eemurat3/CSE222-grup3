@@ -54,7 +54,7 @@ public class Group3Main {
 
         
 
-        Doctor doctor1 = new Doctor("doctor1", "doctorSurname", "doc1", 33, "doc1@mail.com", "pass");
+        Doctor doctor1 = new Doctor("Ali", "doctorSurname", "doc1", 33, "doc1@mail.com", "pass");
         Doctor doctor2 = new Doctor("doctor2", "doctorSurname", "doc2", 55, "doc2@mail.com", "pass");
         Doctor doctor3 = new Doctor("doctor3", "doctorSurname", "doc3", 45, "doc3@mail.com", "pass");
         Doctor doctor4 = new Doctor("doctor4", "doctorSurname", "doc4", 69, "doc4@mail.com", "pass");
@@ -458,179 +458,179 @@ public class Group3Main {
 
         HMSystem myHospital = new HMSystem();
 
-        myHospital.departments.add(polyclinic1);
-        myHospital.departments.add(polyclinic2);
-        myHospital.departments.add(polyclinic3);
+        myHospital.getdepartments().add(polyclinic1);
+        myHospital.getdepartments().add(polyclinic2);
+        myHospital.getdepartments().add(polyclinic3);
         
-        myHospital.workers.add(doctor1);
-        myHospital.workers.add(doctor2);
-        myHospital.workers.add(doctor3);
-        myHospital.workers.add(doctor4);
-        myHospital.workers.add(doctor5);
-        myHospital.workers.add(doctor6);
-        myHospital.workers.add(doctor7);
-        myHospital.workers.add(doctor8);
-        myHospital.workers.add(doctor9);
-        myHospital.workers.add(doctor10);
+        myHospital.getworkers().add(doctor1);
+        myHospital.getworkers().add(doctor2);
+        myHospital.getworkers().add(doctor3);
+        myHospital.getworkers().add(doctor4);
+        myHospital.getworkers().add(doctor5);
+        myHospital.getworkers().add(doctor6);
+        myHospital.getworkers().add(doctor7);
+        myHospital.getworkers().add(doctor8);
+        myHospital.getworkers().add(doctor9);
+        myHospital.getworkers().add(doctor10);
 
-        myHospital.workers.add(nurse1);
+        myHospital.getworkers().add(nurse1);
 
-        myHospital.workers.add(technician1);
+        myHospital.getworkers().add(technician1);
 
-        myHospital.workers.add(advisor1);
-        myHospital.workers.add(advisor2);
-        myHospital.workers.add(advisor3);
+        myHospital.getworkers().add(advisor1);
+        myHospital.getworkers().add(advisor2);
+        myHospital.getworkers().add(advisor3);
 
-        myHospital.workers.add(secreter1);
-        myHospital.workers.add(secreter2);
-        myHospital.workers.add(secreter3);
-        myHospital.workers.add(secreter4);
-        myHospital.workers.add(secreter5);
-        myHospital.workers.add(secreter6);
-        myHospital.workers.add(secreter7);
-        myHospital.workers.add(secreter8);
-        myHospital.workers.add(secreter9);
-        myHospital.workers.add(secreter10);
+        myHospital.getworkers().add(secreter1);
+        myHospital.getworkers().add(secreter2);
+        myHospital.getworkers().add(secreter3);
+        myHospital.getworkers().add(secreter4);
+        myHospital.getworkers().add(secreter5);
+        myHospital.getworkers().add(secreter6);
+        myHospital.getworkers().add(secreter7);
+        myHospital.getworkers().add(secreter8);
+        myHospital.getworkers().add(secreter9);
+        myHospital.getworkers().add(secreter10);
 
-        myHospital.workers.add(manager);
+        myHospital.getworkers().add(manager);
 
-        myHospital.users.add(doctor1);
-        myHospital.users.add(doctor2);
-        myHospital.users.add(doctor3);
-        myHospital.users.add(doctor4);
-        myHospital.users.add(doctor5);
-        myHospital.users.add(doctor6);
-        myHospital.users.add(doctor7);
-        myHospital.users.add(doctor8);
-        myHospital.users.add(doctor9);
-        myHospital.users.add(doctor10);
+        myHospital.getusers().add(doctor1);
+        myHospital.getusers().add(doctor2);
+        myHospital.getusers().add(doctor3);
+        myHospital.getusers().add(doctor4);
+        myHospital.getusers().add(doctor5);
+        myHospital.getusers().add(doctor6);
+        myHospital.getusers().add(doctor7);
+        myHospital.getusers().add(doctor8);
+        myHospital.getusers().add(doctor9);
+        myHospital.getusers().add(doctor10);
 
-        myHospital.users.add(nurse1);
+        myHospital.getusers().add(nurse1);
 
-        myHospital.users.add(technician1);
+        myHospital.getusers().add(technician1);
 
-        myHospital.users.add(advisor1);
-        myHospital.users.add(advisor2);
-        myHospital.users.add(advisor3);
+        myHospital.getusers().add(advisor1);
+        myHospital.getusers().add(advisor2);
+        myHospital.getusers().add(advisor3);
 
-        myHospital.users.add(secreter1);
-        myHospital.users.add(secreter2);
-        myHospital.users.add(secreter3);
-        myHospital.users.add(secreter4);
-        myHospital.users.add(secreter5);
-        myHospital.users.add(secreter6);
-        myHospital.users.add(secreter7);
-        myHospital.users.add(secreter8);
-        myHospital.users.add(secreter9);
-        myHospital.users.add(secreter10);
+        myHospital.getusers().add(secreter1);
+        myHospital.getusers().add(secreter2);
+        myHospital.getusers().add(secreter3);
+        myHospital.getusers().add(secreter4);
+        myHospital.getusers().add(secreter5);
+        myHospital.getusers().add(secreter6);
+        myHospital.getusers().add(secreter7);
+        myHospital.getusers().add(secreter8);
+        myHospital.getusers().add(secreter9);
+        myHospital.getusers().add(secreter10);
 
-        myHospital.users.add(manager);
-
-
-        myHospital.users.add(patient1);
-        myHospital.users.add(patient2);
-        myHospital.users.add(patient3);
-        myHospital.users.add(patient4);
-        myHospital.users.add(patient5);
-        myHospital.users.add(patient6);
-        myHospital.users.add(patient7);
-        myHospital.users.add(patient8);
-        myHospital.users.add(patient9);
-
-        myHospital.users.add(patient10);
-        myHospital.users.add(patient11);
-        myHospital.users.add(patient12);
-        myHospital.users.add(patient13);
-        myHospital.users.add(patient14);
-        myHospital.users.add(patient15);
-        myHospital.users.add(patient16);
-        myHospital.users.add(patient17);
-        myHospital.users.add(patient18);
-        myHospital.users.add(patient19);
-
-        myHospital.users.add(patient20);
-        myHospital.users.add(patient21);
-        myHospital.users.add(patient22);
-        myHospital.users.add(patient23);
-        myHospital.users.add(patient24);
-        myHospital.users.add(patient25);
-        myHospital.users.add(patient26);
-        myHospital.users.add(patient27);
-        myHospital.users.add(patient28);
-        myHospital.users.add(patient29);
-        myHospital.users.add(patient30);
+        myHospital.getusers().add(manager);
 
 
-        myHospital.patients.add(patient1);
-        myHospital.patients.add(patient2);
-        myHospital.patients.add(patient3);
-        myHospital.patients.add(patient4);
-        myHospital.patients.add(patient5);
-        myHospital.patients.add(patient6);
-        myHospital.patients.add(patient7);
-        myHospital.patients.add(patient8);
-        myHospital.patients.add(patient9);
+        myHospital.getusers().add(patient1);
+        myHospital.getusers().add(patient2);
+        myHospital.getusers().add(patient3);
+        myHospital.getusers().add(patient4);
+        myHospital.getusers().add(patient5);
+        myHospital.getusers().add(patient6);
+        myHospital.getusers().add(patient7);
+        myHospital.getusers().add(patient8);
+        myHospital.getusers().add(patient9);
 
-        myHospital.patients.add(patient10);
-        myHospital.patients.add(patient11);
-        myHospital.patients.add(patient12);
-        myHospital.patients.add(patient13);
-        myHospital.patients.add(patient14);
-        myHospital.patients.add(patient15);
-        myHospital.patients.add(patient16);
-        myHospital.patients.add(patient17);
-        myHospital.patients.add(patient18);
-        myHospital.patients.add(patient19);
+        myHospital.getusers().add(patient10);
+        myHospital.getusers().add(patient11);
+        myHospital.getusers().add(patient12);
+        myHospital.getusers().add(patient13);
+        myHospital.getusers().add(patient14);
+        myHospital.getusers().add(patient15);
+        myHospital.getusers().add(patient16);
+        myHospital.getusers().add(patient17);
+        myHospital.getusers().add(patient18);
+        myHospital.getusers().add(patient19);
 
-        myHospital.patients.add(patient20);
-        myHospital.patients.add(patient21);
-        myHospital.patients.add(patient22);
-        myHospital.patients.add(patient23);
-        myHospital.patients.add(patient24);
-        myHospital.patients.add(patient25);
-        myHospital.patients.add(patient26);
-        myHospital.patients.add(patient27);
-        myHospital.patients.add(patient28);
-        myHospital.patients.add(patient29);
-        myHospital.patients.add(patient30);
+        myHospital.getusers().add(patient20);
+        myHospital.getusers().add(patient21);
+        myHospital.getusers().add(patient22);
+        myHospital.getusers().add(patient23);
+        myHospital.getusers().add(patient24);
+        myHospital.getusers().add(patient25);
+        myHospital.getusers().add(patient26);
+        myHospital.getusers().add(patient27);
+        myHospital.getusers().add(patient28);
+        myHospital.getusers().add(patient29);
+        myHospital.getusers().add(patient30);
 
 
-        myHospital.appointments.add(appointment1);
-        myHospital.appointments.add(appointment2);
-        myHospital.appointments.add(appointment3);
-        myHospital.appointments.add(appointment4);
-        myHospital.appointments.add(appointment5);
-        myHospital.appointments.add(appointment6);
-        myHospital.appointments.add(appointment7);
-        myHospital.appointments.add(appointment8);
-        myHospital.appointments.add(appointment9);
+        myHospital.getpatients().add(patient1);
+        myHospital.getpatients().add(patient2);
+        myHospital.getpatients().add(patient3);
+        myHospital.getpatients().add(patient4);
+        myHospital.getpatients().add(patient5);
+        myHospital.getpatients().add(patient6);
+        myHospital.getpatients().add(patient7);
+        myHospital.getpatients().add(patient8);
+        myHospital.getpatients().add(patient9);
 
-        myHospital.appointments.add(appointment10);
-        myHospital.appointments.add(appointment11);
-        myHospital.appointments.add(appointment12);
-        myHospital.appointments.add(appointment13);
-        myHospital.appointments.add(appointment14);
-        myHospital.appointments.add(appointment15);
-        myHospital.appointments.add(appointment16);
-        myHospital.appointments.add(appointment17);
-        myHospital.appointments.add(appointment18);
-        myHospital.appointments.add(appointment19);
+        myHospital.getpatients().add(patient10);
+        myHospital.getpatients().add(patient11);
+        myHospital.getpatients().add(patient12);
+        myHospital.getpatients().add(patient13);
+        myHospital.getpatients().add(patient14);
+        myHospital.getpatients().add(patient15);
+        myHospital.getpatients().add(patient16);
+        myHospital.getpatients().add(patient17);
+        myHospital.getpatients().add(patient18);
+        myHospital.getpatients().add(patient19);
 
-        myHospital.appointments.add(appointment20);
-        myHospital.appointments.add(appointment21);
-        myHospital.appointments.add(appointment22);
-        myHospital.appointments.add(appointment23);
-        myHospital.appointments.add(appointment24);
-        myHospital.appointments.add(appointment25);
-        myHospital.appointments.add(appointment26);
-        myHospital.appointments.add(appointment27);
-        myHospital.appointments.add(appointment28);
-        myHospital.appointments.add(appointment29);
-        myHospital.appointments.add(appointment30);
+        myHospital.getpatients().add(patient20);
+        myHospital.getpatients().add(patient21);
+        myHospital.getpatients().add(patient22);
+        myHospital.getpatients().add(patient23);
+        myHospital.getpatients().add(patient24);
+        myHospital.getpatients().add(patient25);
+        myHospital.getpatients().add(patient26);
+        myHospital.getpatients().add(patient27);
+        myHospital.getpatients().add(patient28);
+        myHospital.getpatients().add(patient29);
+        myHospital.getpatients().add(patient30);
 
-        myHospital.tests.add(covidTest);
-        myHospital.tests.add(bloodTest);
-        myHospital.tests.add(radiologicalTest);
+
+        myHospital.getappointments().add(appointment1);
+        myHospital.getappointments().add(appointment2);
+        myHospital.getappointments().add(appointment3);
+        myHospital.getappointments().add(appointment4);
+        myHospital.getappointments().add(appointment5);
+        myHospital.getappointments().add(appointment6);
+        myHospital.getappointments().add(appointment7);
+        myHospital.getappointments().add(appointment8);
+        myHospital.getappointments().add(appointment9);
+
+        myHospital.getappointments().add(appointment10);
+        myHospital.getappointments().add(appointment11);
+        myHospital.getappointments().add(appointment12);
+        myHospital.getappointments().add(appointment13);
+        myHospital.getappointments().add(appointment14);
+        myHospital.getappointments().add(appointment15);
+        myHospital.getappointments().add(appointment16);
+        myHospital.getappointments().add(appointment17);
+        myHospital.getappointments().add(appointment18);
+        myHospital.getappointments().add(appointment19);
+
+        myHospital.getappointments().add(appointment20);
+        myHospital.getappointments().add(appointment21);
+        myHospital.getappointments().add(appointment22);
+        myHospital.getappointments().add(appointment23);
+        myHospital.getappointments().add(appointment24);
+        myHospital.getappointments().add(appointment25);
+        myHospital.getappointments().add(appointment26);
+        myHospital.getappointments().add(appointment27);
+        myHospital.getappointments().add(appointment28);
+        myHospital.getappointments().add(appointment29);
+        myHospital.getappointments().add(appointment30);
+
+        myHospital.gettests().add(covidTest);
+        myHospital.gettests().add(bloodTest);
+        myHospital.gettests().add(radiologicalTest);
 
         myHospital.addAlltoPMap();
         myHospital.addAlltoWMap();
@@ -638,9 +638,18 @@ public class Group3Main {
         myHospital.navigationDepartments = graphNav;
         
    
-        
-        try{mainMenu(myHospital);}catch(Exception e){System.out.println(e+ "\n Invalid input try again.");}
-
+        boolean flag = true;
+        while(flag)
+        {
+            try{
+                mainMenu(myHospital);
+                flag = false;
+            }catch(Exception e)
+            {
+                System.out.println(e+ "\n Invalid input try again.");
+            }
+    
+        }
     }
 
     public static void mainMenu(HMSystem myHospital)
@@ -658,7 +667,7 @@ public class Group3Main {
             System.out.println("2) Patient Log-in");
             System.out.println("3) Log out");
 
-            input = myHospital.getInt(sc);
+            input = sc.nextInt();
             System.out.println("\n");
 
             if(input == 1)
@@ -670,7 +679,7 @@ public class Group3Main {
                 password = sc.next();
                 
                 myHospital.addAlltoWMap();
-                Worker temp = HMSystem.wMap.get(mail);
+                Worker temp = myHospital.getwmap().get(mail);
 
                 if(temp == null)
                     System.out.println("Invalid mail.");

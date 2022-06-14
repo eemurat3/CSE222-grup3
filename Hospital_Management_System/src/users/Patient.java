@@ -173,9 +173,9 @@ public class Patient extends User
      */
     public ArrayList<Doctor> displayDoctors(){
         ArrayList<Doctor> list = new ArrayList<>();
-        for(int i = 0 ; i < HMSystem.workers.size() ; i++){
-            if(HMSystem.workers.get(i) instanceof Doctor)
-                list.add((Doctor)HMSystem.workers.get(i));
+        for(int i = 0 ; i < HMSystem.getworkers().size() ; i++){
+            if(HMSystem.getworkers().get(i) instanceof Doctor)
+                list.add((Doctor)HMSystem.getworkers().get(i));
         }
         return list;
     }
@@ -381,7 +381,7 @@ public class Patient extends User
 
             System.out.println("\nDoctor added");
 
-            HMSystem.workers.add(new Doctor("doc_n1", "doc_sn", "doc_id", 999, "doc_m", "doc_p"));
+            HMSystem.getworkers().add(new Doctor("doc_n1", "doc_sn", "doc_id", 999, "doc_m", "doc_p"));
 
             docs = pat1.displayDoctors();
 
@@ -392,7 +392,7 @@ public class Patient extends User
 
             System.out.println("\nDoctor added");
 
-            HMSystem.workers.add(new Doctor("doc_n2", "doc_sn", "doc_id", 999, "doc_m", "doc_p"));
+            HMSystem.getworkers().add(new Doctor("doc_n2", "doc_sn", "doc_id", 999, "doc_m", "doc_p"));
 
             docs = pat1.displayDoctors();
 
@@ -403,7 +403,7 @@ public class Patient extends User
 
             System.out.println("\nDoctor removed");
 
-            HMSystem.workers.remove(0);
+            HMSystem.getworkers().remove(0);
 
             docs = pat1.displayDoctors();
 

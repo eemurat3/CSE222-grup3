@@ -134,7 +134,7 @@ public class Doctor extends Worker
      */
     public void requestTest(String technicianID ,Test test)
     {
-        for(Worker t : HMSystem.workers){
+        for(Worker t : HMSystem.getworkers()){
             if(t.getId().equals(technicianID)){
                 requestTest((Technician) t, test);
                 break;

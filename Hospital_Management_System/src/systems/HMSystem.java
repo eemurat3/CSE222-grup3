@@ -15,16 +15,26 @@ import java.time.*;
  */
 public class HMSystem 
 {
-    static public List<Appointment> appointments = new ArrayList<>();
-    static public List<Department> departments = new ArrayList<>();
-    static public SkipList<Patient> patients = new SkipList<Patient>();
-    static public List<Worker> workers = new ArrayList<>();
-    static public BinarySearchTree<User> users = new BinarySearchTree<>();
-    static public Queue<Test> tests = new LinkedList<>();
-    static public HashMap<String,Worker> wMap = new HashMap<>();
-    static public HashMap<String,Patient> pMap = new HashMap<>();
+    static private List<Appointment> appointments = new ArrayList<>();
+    static private List<Department> departments = new ArrayList<>();
+    static private SkipList<Patient> patients = new SkipList<Patient>();
+    static private List<Worker> workers = new ArrayList<>();
+    static private BinarySearchTree<User> users = new BinarySearchTree<>();
+    static private Queue<Test> tests = new LinkedList<>();
+    static private HashMap<String,Worker> wMap = new HashMap<>();
+    static private HashMap<String,Patient> pMap = new HashMap<>();
     static public ListGraph navigationDepartments = new ListGraph(false);
-    
+
+    public static HashMap<String,Worker> getwmap(){return wMap;}
+    public static Queue<Test> gettests(){return tests;}
+    public static BinarySearchTree<User> getusers(){return users;}
+    public static List<Worker> getworkers(){return workers;}
+    public static SkipList<Patient> getpatients(){return patients;}
+    public static List<Department> getdepartments(){return departments;}
+    public static List<Appointment> getappointments(){return appointments;}
+    public static ListGraph getnavigationDepartments(){return navigationDepartments;}
+
+
     public void addAlltoWMap()
     {
         for (Worker item : workers) {

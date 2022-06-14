@@ -45,7 +45,7 @@ public class Nurse extends Worker{
      */
     public void updatePatientInfo(String patientID, String appointmentID, String note) 
     {  
-        TreeIterator<User> it = HMSystem.users.getIterator();
+        TreeIterator<User> it = HMSystem.getusers().getIterator();
 
         while(it.hasNext()){
             User current = it.next().getData();

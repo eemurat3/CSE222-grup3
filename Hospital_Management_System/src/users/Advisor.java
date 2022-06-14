@@ -25,7 +25,7 @@ public class Advisor extends Worker {
      */
 
     public boolean addPatient(String name,String surname,String id,int age) {
-        HMSystem.users.add(new Patient(name, surname, id, age));
+        HMSystem.getusers().add(new Patient(name, surname, id, age));
         return true;
     }
     
@@ -38,7 +38,7 @@ public class Advisor extends Worker {
         appointment.getPatient().addAppointment(appointment);
 
         //Add to HMSystem appointments
-        HMSystem.appointments.add(appointment);
+        HMSystem.getappointments().add(appointment);
 
         //Add to Reception class appointments
         Reception reception = new Reception(getDepartment().getName(), getDepartment().getId());
@@ -55,7 +55,7 @@ public class Advisor extends Worker {
     public List<Doctor> displayDoctorList() {
         ArrayList<Doctor> doctors = new ArrayList<>();
 
-        for(Worker w :HMSystem.workers){
+        for(Worker w :HMSystem.getworkers()){
             if(w instanceof Doctor){
                 doctors.add((Doctor) w);
             }

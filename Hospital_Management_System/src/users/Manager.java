@@ -27,7 +27,7 @@ public class Manager extends Worker{
     }
 
     public void removeDepartment(Department department){
-        HMSystem.departments.remove(department);
+        HMSystem.getdepartments().remove(department);
     }
 
     // Department copy constructor gerekebilir 
@@ -35,13 +35,18 @@ public class Manager extends Worker{
         switch(departmentType){
             //Lab
             case 0:
-                HMSystem.departments.add(new Lab(departmentName,departmentID));
+                HMSystem.getdepartments().add(new Lab(departmentName,departmentID));
+                break;
             //Polyclinic
             case 1:
-                HMSystem.departments.add(new Polyclinic(departmentName,departmentID));
+                HMSystem.getdepartments().add(new Polyclinic(departmentName,departmentID));
+                break;
             //Reception
             case 2:
-                HMSystem.departments.add(new Reception(departmentName,departmentID));
+                HMSystem.getdepartments().add(new Reception(departmentName,departmentID));
+                break;
+            default:
+                System.out.print("Invalid Department Type");
         }
     }
 
@@ -50,7 +55,7 @@ public class Manager extends Worker{
      * @param worker The worker to be added to the system.
      */
     public void addStaff(Worker worker){
-        HMSystem.workers.add(worker);
+        HMSystem.getworkers().add(worker);
     }
 
     /**
@@ -58,7 +63,7 @@ public class Manager extends Worker{
      * @param worker The worker to be removed from the system.
      */
     public void removeStaff(Worker worker){
-        HMSystem.workers.remove(worker);
+        HMSystem.getworkers().remove(worker);
     }
 
     /**

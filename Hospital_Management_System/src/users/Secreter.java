@@ -37,7 +37,7 @@ public class Secreter extends Worker{
 
             if(nextPrescribe != null){
                 nextPrescriptionPatientID = nextPrescribe.getPatientID();
-                for(Patient i : HMSystem.patients){
+                for(Patient i : HMSystem.getpatients()){
                     if(i.getId().equals(nextPrescriptionPatientID)){
                         for(Prescription p : prescriptions){
                             i.addPrescription(p);

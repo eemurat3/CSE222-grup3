@@ -37,7 +37,7 @@ public class Technician extends Worker {
         lab.addOldTest(t);
 
         //Add test to patient's tests
-        TreeIterator<User> it = HMSystem.users.getIterator();
+        TreeIterator<User> it = HMSystem.getusers().getIterator();
 
         while(it.hasNext()){
             User current = it.next().getData();
