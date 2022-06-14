@@ -82,3 +82,15 @@ Hospital_Management_System/src/bin/util/Edge.class
 Hospital_Management_System/src/bin/util/Graph.class
 Hospital_Management_System/src/bin/util/ListGraph.class
 Hospital_Management_System/src/bin/util/QuickSort.class
+Hospital_Management_System/src/bin/util/SkipList$SLNode.class
+Hospital_Management_System/src/bin/util/SkipList$DescendingSkipListIterator.class
+Hospital_Management_System/src/bin/util/SkipList.class
+Hospital_Management_System/src/bin/util/ListGraph.class
+Hospital_Management_System/src/bin/util/Graph.class
+Hospital_Management_System/src/bin/util/BinarySearchTreeWithRotate.class
+Hospital_Management_System/src/bin/util/Edge.class
+Hospital_Management_System/src/bin/util/AVLTree$AVLNode.class
+Hospital_Management_System/src/bin/util/AVLTree.class
+Hospital_Management_System/src/bin/util/AbstractGraph.class
+Hospital_Management_System/src/bin/users/Manager.class
+Hospital_Management_System/src/bin/systems/HMSystem$1.class
