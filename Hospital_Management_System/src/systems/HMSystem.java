@@ -774,9 +774,16 @@ public class HMSystem
                 int polID = sc.nextInt();
                 Polyclinic tempPolyclinic = polycList().get(polID);
 
-                for (int i = 0; i < tempPolyclinic.getDoctors().size(); i++) {
+                Collections.sort(tempPolyclinic.getDoctors(),new Comparator<Doctor>() {
+                    @Override
+                    public int compare(Doctor o1, Doctor o2) {
+                        
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+
+                for (int i = 0; i < tempPolyclinic.getDoctors().size(); i++) 
                     System.out.println(i + " - " + tempPolyclinic.getDoctors().get(i).toString());
-                }
                 
                 System.out.println("Choose a Doctor: \n");
                 int docID = sc.nextInt();

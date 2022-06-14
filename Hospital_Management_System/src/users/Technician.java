@@ -15,6 +15,7 @@ public class Technician extends Worker {
 
     public Technician(String name, String surname, String id, int age, String username, String password) {
         super(name, surname, id, age, username, password);
+        setDepartment(new Lab("lab", 0));
     }
 
     public void addTest(Test newTest) {
@@ -41,9 +42,11 @@ public class Technician extends Worker {
         while(it.hasNext()){
             User current = it.next().getData();
 
-            if(current.getId().equals(t.getPatientID())){
-                ((Patient) current).addTest(t);
-                break;
+            if (current.getClass() == Patient.class) {
+                if(current.getId().equals(t.getPatientID())){
+                    ((Patient) current).addTest(t);
+                    break;
+                }                
             }
         }
 
