@@ -513,7 +513,7 @@ public class HMSystem
                         loop2 = false;
                     }
                     else if(input == 1){
-                        System.out.println(adv.displayDoctorList());
+                        adv.displayDoctorList().forEach(System.out::println);
                     }
                     else{
                         System.out.println("Invalid input, try again!\n");
@@ -534,7 +534,7 @@ public class HMSystem
                 adv.addAppointment(d, apt);
             }
             else if(input == 3){
-                System.out.println(adv.displayDoctorList());
+                adv.displayDoctorList().forEach(System.out::println);
             }
             else if(input == 4){
                 System.out.println("\nExiting...");
