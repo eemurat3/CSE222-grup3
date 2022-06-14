@@ -3,7 +3,7 @@ package users;
 import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.ArrayList;
-
+import java.util.Comparator;
 
 import departments.Polyclinic;
 import systems.Appointment;
@@ -27,7 +27,11 @@ public class Doctor extends Worker
     public Doctor(String name, String surname, String id, int age,String email , String password) 
     {
         super(name, surname, id, age, email ,  password);
-        appointments = new PriorityQueue<>();
+        appointments = new PriorityQueue<Appointment>(new Comparator<Appointment>() {
+            public int compare(Appointment o1, Appointment o2) {
+                return ((Integer)(o1.getPatient().getAge())).compareTo(o2.getPatient().getAge());
+            };
+        });
     }
 
     /**
