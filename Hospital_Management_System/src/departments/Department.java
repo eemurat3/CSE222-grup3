@@ -17,7 +17,8 @@ public abstract class Department {
 
 	private int departmentType;
 
-	//TODO department id otomatize etmemiz lazım ama 0 dan başlayıp 1 ,2 , 3 diye gitmesi gerek.
+	private static Integer idCount = 0;
+
 	//Manager menüsünde eklerken ayarlayabiliriz
 	/**
 	 * Constructor
@@ -25,9 +26,10 @@ public abstract class Department {
 	 * @param id   : department id
 	 */
 	public Department(String _name, int _id,int departmentType) {
-		id = _id;
+		id = idCount;
 		name = _name;
 		this.departmentType = departmentType;
+		idCount++;
 	}
 	/**
 	 * Set the department id
