@@ -161,7 +161,7 @@ public class BloodTest extends Test{
 	@Override
 	public String toString()
 	{
-		return  "\n\nPatient's ID: " + getPatientID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
+		return  "\n\nTest ID:" + getTestID() + " Patient's ID: " + getPatientID() + "\nBlood Type : " + bloodType + " rH : " + rH + "BLOOD TEST RESULTS :\n"
 			+ "\nVitamin-A : " + String.valueOf(vitaminA) + "ug/L" + "\nVitamin-D : " + String.valueOf(vitaminD) + "ug/L"
 			+ "\nVitamin-E : " + String.valueOf(vitaminE) + "ug/L" + "\nHemoglobin : " + String.valueOf(hemoglobin) + "gr/dL"
 			+ "\nPotassium : " + String.valueOf(potassium) + " mmol/l" + "\nCalcium : " + String.valueOf(calcium) + "mg/dL";
