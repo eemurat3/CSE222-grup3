@@ -699,10 +699,10 @@ public class Group3Main {
                         myHospital.NurseMenue((Nurse)temp);
                     
                     else if(temp.getClass() == Manager.class)
-                        myHospital.NurseMenue((Nurse)temp);//TODO manager menu eklenecek
+                        myHospital.managerMenu((Manager)temp);
                     
                     else if(temp.getClass() == Technician.class)
-                        myHospital.NurseMenue((Nurse)temp);//TODO technician menu eklenecek
+                        myHospital.technicianMenu((Technician)temp);
                     
                     else
                         System.out.println("Invalid Mail or Password ");        
