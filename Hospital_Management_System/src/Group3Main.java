@@ -24,6 +24,8 @@ import users.Patient;
 import users.Secreter;
 import users.Technician;
 import users.Worker;
+import util.Edge;
+import util.ListGraph;
 
 /**
  * Main Class for running the Group 3's CSE222-Project implementation of Hospital Management System. 
@@ -46,6 +48,11 @@ public class Group3Main {
         Polyclinic polyclinic3 = new Polyclinic("polyclinic3", 3);
 
 
+        ListGraph graphNav = new ListGraph(false);
+        graphNav.insert(new Edge(polyclinic1, polyclinic2,15));
+        graphNav.insert(new Edge(polyclinic2, polyclinic3,25));
+
+        
 
         Doctor doctor1 = new Doctor("doctor1", "doctorSurname", "doc1", 33, "doc1@mail.com", "pass");
         Doctor doctor2 = new Doctor("doctor2", "doctorSurname", "doc2", 55, "doc2@mail.com", "pass");
@@ -628,6 +635,9 @@ public class Group3Main {
         myHospital.addAlltoPMap();
         myHospital.addAlltoWMap();
 
+        myHospital.navigationDepartments = graphNav;
+        
+    
         mainMenu(myHospital);
 
         /*
