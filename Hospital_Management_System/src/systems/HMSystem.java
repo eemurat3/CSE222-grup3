@@ -781,14 +781,25 @@ public class HMSystem
             
             }   
             else if(input == 3){
-                System.out.println(currPatient.getAppointments());
+                
+                if(currPatient.getAppointments().isEmpty())
+                    System.out.println("There is no any appointment");
+                else
+                    System.out.println(currPatient.getAppointments());
             }
             else if(input == 4){
-                System.out.println(currPatient.getPrescriptions());
+                
+                if(currPatient.getPrescriptions().isEmpty())
+                    System.out.println("There is no any prescriptions");
+                else
+                    System.out.println(currPatient.getPrescriptions());
                 
             }
             else if(input == 5){
-                System.out.println(currPatient.getTests());
+                if(currPatient.getTests().isEmpty())
+                    System.out.println("There is no any test");
+                else
+                    System.out.println(currPatient.getTests());
                 
             }
             else if(input == 6){
