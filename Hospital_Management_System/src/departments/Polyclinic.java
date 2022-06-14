@@ -8,6 +8,7 @@ import users.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 //import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ public class Polyclinic extends Department {
 	/**
 	 * polyclinic doctor list
 	 */
-	private ArrayList<Doctor> doctors = new ArrayList<>();
+	private List<Doctor> doctors = new LinkedList<>();
 	/**
 	 * polyclinic nurse list
 	 */
@@ -89,7 +90,7 @@ public class Polyclinic extends Department {
 	 * get the doctors list of the polyclinic 
 	 * @return : doctors list
 	 */
-	public ArrayList<Doctor> getDoctors() {
+	public List<Doctor> getDoctors() {
 		return doctors;
 	}
 	/**
