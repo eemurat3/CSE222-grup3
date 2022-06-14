@@ -53,10 +53,10 @@ public class Group3Main {
         Doctor doctor4 = new Doctor("doctor4", "doctorSurname", "doc4", 69, "doc4@mail.com", "pass");
         Doctor doctor5 = new Doctor("doctor5", "doctorSurname", "doc5", 34, "doc5@mail.com", "pass");
         Doctor doctor6 = new Doctor("doctor6", "doctorSurname", "doc6", 37, "doc6@mail.com", "pass");
-        Doctor doctor7 = new Doctor("doctor7", "doctorSurname", "doc7", 47, "doc7@mail.com", "pass");
-        Doctor doctor8 = new Doctor("doctor8", "doctorSurname", "doc8", 55, "doc8@mail.com", "pass");
-        Doctor doctor9 = new Doctor("doctor9", "doctorSurname", "doc9", 52, "doc9@mail.com", "pass");
-        Doctor doctor10 = new Doctor("doctor10", "doctorSurname", "doc10", 31, "doc10@mail.com", "pass");
+        Doctor doctor7 = new Doctor("Zeynep", "doctorSurname", "doc7", 47, "doc7@mail.com", "pass");
+        Doctor doctor8 = new Doctor("Ahmet", "doctorSurname", "doc8", 55, "doc8@mail.com", "pass");
+        Doctor doctor9 = new Doctor("Zuhtu", "doctorSurname", "doc9", 52, "doc9@mail.com", "pass");
+        Doctor doctor10 = new Doctor("Abdullah", "doctorSurname", "doc10", 31, "doc10@mail.com", "pass");
 
 
         Secreter secreter1 = new Secreter("secreter1", "secreterSurname", "sec1", 25, "sec1@mail.com", "pass");
