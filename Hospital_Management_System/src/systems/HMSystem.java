@@ -352,6 +352,7 @@ public class HMSystem
                 System.out.println("REMOVED TEST: " + tech.takeTest());
             else if (input == 3) {
                 System.out.print("Enter The Test ID to Update: ");
+                sc.nextLine();
                 String temp = sc.nextLine();
                 Test tempTest = tech.getTest(temp);
 
