@@ -23,6 +23,7 @@ public class HMSystem
     static public Queue<Test> tests = new LinkedList<>();
     static public HashMap<String,Worker> wMap = new HashMap<>();
     static public HashMap<String,Patient> pMap = new HashMap<>();
+    static public ListGraph navigationDepartments = new ListGraph(false);
     
     public void addAlltoWMap()
     {

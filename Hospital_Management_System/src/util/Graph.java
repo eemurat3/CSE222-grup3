@@ -1,6 +1,8 @@
 package util;
 import java.util.*;
 
+import departments.Department;
+
 
 /** Interface to specify a Graph ADT. A graph is a set
 *   of vertices and a set of edges. Vertices are
@@ -35,7 +37,7 @@ public interface Graph {
       @param dest The destination vertex
       @return true if there is an edge from source to dest
    */
-  boolean isEdge(int source, int dest);
+  boolean isEdge(Department source, Department dest);
 
   /** Get the edge between two vertices.
       @param source The source vertex
@@ -44,7 +46,7 @@ public interface Graph {
               or an Edge with a weight of
               Double.POSITIVE_INFINITY if there is no edge
    */
-  Edge getEdge(int source, int dest);
+  Edge getEdge(Department source, Department dest);
 
   /** Return an iterator to the edges connected
       to a given vertex.
@@ -52,6 +54,6 @@ public interface Graph {
       @return An Iterator<Edge> to the vertices
               connected to source
    */
-  Iterator < Edge > edgeIterator(int source);
+  Iterator < Edge > edgeIterator(Department source);
 
 }

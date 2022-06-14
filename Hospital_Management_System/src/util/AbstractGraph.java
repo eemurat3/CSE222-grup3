@@ -39,6 +39,10 @@ public abstract class AbstractGraph
     return numV;
   }
 
+  public void increaseNumV(){
+    numV += 1;
+  }
+
   /** Return whether this is a directed graph.
       @return true if this is a directed graph
    */
@@ -81,7 +85,7 @@ public abstract class AbstractGraph
     int numV = Integer.parseInt(line);
     AbstractGraph returnValue = null;
     if(type.equalsIgnoreCase("List"))
-      returnValue = new ListGraph(numV, isDirected);
+      returnValue = new ListGraph(isDirected);
     else
       throw new IllegalArgumentException();
     returnValue.loadEdgesFromFile(bR);

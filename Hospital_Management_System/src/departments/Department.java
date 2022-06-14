@@ -17,16 +17,8 @@ public abstract class Department {
 
 	private int departmentType;
 
-	
-	
-	/**
-	 * Default constructor
-	 */
-	public Department() {
-		id = -1;
-		name = "none";
-		departmentType = 0;
-	}
+	//TODO department id otomatize etmemiz lazım ama 0 dan başlayıp 1 ,2 , 3 diye gitmesi gerek.
+	//Manager menüsünde eklerken ayarlayabiliriz
 	/**
 	 * Constructor
 	 * @param name : department name
