@@ -440,11 +440,11 @@ public class HMSystem
             else if(input == 4){
                 sc.nextLine();
                 System.out.println("\nEnter Medicine Name for Patient : ");
-                String med = sc.next();
+                String med = sc.nextLine();
                 System.out.println("\nEnter Instructions for Patient : ");
-                String inst = sc.next();
+                String inst = sc.nextLine();
                 System.out.println("\nEnter note for Patient : ");
-                String note = sc.next();
+                String note = sc.nextLine();
                 doctor.givePrescription("0",doctor.getAppointment().getPatient().getId(),med,inst,note);
             }
             else if(input == 5){
