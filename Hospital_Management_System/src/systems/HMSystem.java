@@ -424,7 +424,8 @@ public class HMSystem
             System.out.println("5) Discharge Current Patient");
             System.out.println("6) Request Test From Patient");
             System.out.println("7) See All Appointments");
-            System.out.println("8) Log out");
+            System.out.println("8) Display Secreter Info");
+            System.out.println("9) Log out");
 
             input = sc.nextInt();
             System.out.println("\n");
@@ -459,6 +460,12 @@ public class HMSystem
                 doctor.waitingPatients();
             }
             else if(input == 8){
+                System.out.println("\t\t\tSecreter's Informations");
+                System.out.println("Name : " + doctor.getSecreter().getName()); 
+                System.out.println("Surname : " + doctor.getSecreter().getSurname());
+                System.out.println("E-Mail : " + doctor.getSecreter().getUsername());
+            }
+            else if(input == 9){
                 System.out.println("Exiting...");
                 loop = false;
             }
@@ -466,7 +473,6 @@ public class HMSystem
                 System.out.println("Entered Input is Wrong, Please Try Again");
             }
         }
-        
     }
 
     public void ADVMenu(Advisor adv){
@@ -778,7 +784,6 @@ public class HMSystem
                 ((Doctor)(HMSystem.workers.get(0))).addAppointment(appo);
                 currPatient.addAppointment(appo);
                 appointments.add(appo);
-            
             
             }   
             else if(input == 3){
