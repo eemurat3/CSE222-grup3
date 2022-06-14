@@ -1,18 +1,20 @@
 package util;
 
+import departments.Department;
+
 /** An Edge represents a relationship between two
  *  vertices.
  *  @author Koffman and Wolfgang
 */
 
 public class Edge {
-  /**** BEGIN EXERCISE ****/
+ 
   // Data Fields
   /** The source vertix */
-  private int source;
+  private Department source;
 
   /** The destination vertix */
-  private int dest;
+  private Department dest;
 
   /** The weight */
   private double weight;
@@ -24,7 +26,7 @@ public class Edge {
       @param from - The source vertix
       @param to - The destination vertix
    */
-  public Edge(int source, int dest) {
+  public Edge(Department source, Department dest) {
     this.source = source;
     this.dest = dest;
     weight = 1.0;
@@ -37,7 +39,7 @@ public class Edge {
       @param to - The destination vertix
       @param w - The weight
    */
-  public Edge(int source, int dest, double w) {
+  public Edge(Department source, Department dest, double w) {
     this.source = source;
     this.dest = dest;
     weight = w;
@@ -47,14 +49,14 @@ public class Edge {
   /** Get the source
       @return The value of source
    */
-  public int getSource() {
+  public Department getSource() {
     return source;
   }
 
   /** Get the destination
       @return The value of dest
    */
-  public int getDest() {
+  public Department getDest() {
     return dest;
   }
 
@@ -70,9 +72,9 @@ public class Edge {
    */
   public String toString() {
     StringBuffer sb = new StringBuffer("[(");
-    sb.append(Integer.toString(source));
+    sb.append(source);
     sb.append(", ");
-    sb.append(Integer.toString(dest));
+    sb.append(dest);
     sb.append("): ");
     sb.append(Double.toString(weight));
     sb.append("]");
@@ -103,8 +105,7 @@ public class Edge {
       @return a hash code for an edge
    */
   public int hashCode() {
-    return (source << 16) ^ dest;
+    return (source.hashCode() << 16) ^ dest.hashCode();
   }
 
-  /**** END EXERCISE ****/
 }
