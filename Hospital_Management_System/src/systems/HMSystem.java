@@ -101,7 +101,9 @@ public class HMSystem
             System.out.println("5) Display a Patient's Info");
             System.out.println("6) Edit a Staff");
             System.out.println("7) Display All Staff");
-            System.out.println("8) Exit");
+            System.out.println("8) Add a New Road Between Departments");
+            System.out.println("9) Display All Roads");
+            System.out.println("10) Exit");
             System.out.print("Select: ");
             input = getInt(sc);
 
@@ -305,7 +307,40 @@ public class HMSystem
                     if (it.getClass() == Advisor.class)
                         System.out.println("\t" + it);
             }
-            else if (input == 8)
+
+            else if(input == 8){
+                Department source = null;
+                Department destination = null;
+
+                System.out.println("\nDepartments:");
+
+                for(Department dp : departments){
+                    System.out.println(dp.getName());
+                }
+                
+                System.out.println("\nSource Department Name : ");
+                String sourceName = sc.nextLine();
+
+                System.out.println("Destination Department Name : ");
+                String destinationName = sc.nextLine();
+
+                System.out.println("Meter (Weight) : ");
+                Double weight = sc.nextDouble();
+
+                for(Department dp : departments){
+                    if(dp.getName().equals(sourceName))
+                        source = dp;
+                    if(dp.getName().equals(destinationName))
+                        destination = dp;
+                }
+                
+                if(destination != null && source != null)
+                    navigationDepartments.insert(new Edge(source, destination,weight));
+            }
+            else if(input == 9){
+                    System.out.println(navigationDepartments);
+            }
+            else if (input == 10)
                 return;
         }
     }
@@ -714,14 +749,15 @@ public class HMSystem
 
         System.out.println("\nSIGNED IN AS Patient\n\n");
         while(loop){
-            System.out.println("CHOOSE AN OPTION BETWEEN 1 AND 8\n");
+            System.out.println("\nCHOOSE AN OPTION BETWEEN 1 AND 8\n");
             System.out.println("1) Display Patient Info");
             System.out.println("2) Get an Appointment");
             System.out.println("3) See Appointments");
             System.out.println("4) See Medications");
             System.out.println("5) See Test Results");
-            System.out.println("6) Previous Menu");
-            System.out.println("7) Close");
+            System.out.println("6) Navigation");
+            System.out.println("7) Previous Page");
+            System.out.println("8) Close");
 
             input = sc.nextInt();
 
@@ -789,14 +825,49 @@ public class HMSystem
                 
             }
             else if(input == 6){
+                Department source = null;
+                Department destination = null;
+
+                System.out.println("\nDepartments:");
+
+                for(Department dp : departments){
+                    System.out.println(dp.getName());
+                }
+
+                sc.nextLine();
+
+                System.out.println("\nSource Department Name : ");
+                String sourceName = sc.nextLine();
+
+                System.out.println("Destination Department Name : ");
+                String destinationName = sc.nextLine();
+
+                for(Department dp : departments){
+                    if(dp.getName().equals(sourceName))
+                        source = dp;
+                    if(dp.getName().equals(destinationName))
+                        destination = dp;
+                }
                 
-                System.out.println("Going Back...");
-                loop = false;
+                System.out.println("Source Name : " + sourceName);
+                System.out.println("Destination Name : " + destinationName);
+
+                if(destination != null && source != null)
+                    System.out.println("Distance : " + navigationDepartments.dijkstra(source, destination));
+                else{
+                    System.out.println("There is no road between this departments");
+                }
+                
+                
             }
             else if(input == 7){
+                System.out.println("Going Back...");
+                loop = false;
+
+            }
+            else if(input == 8){
                System.exit(0);
                System.out.println("Goodbye");
-
             }
             else{
                 System.out.println("Entered Input is Wrong, Please Try Again");
@@ -805,8 +876,5 @@ public class HMSystem
         
     }
     
-
-
-
 
 }

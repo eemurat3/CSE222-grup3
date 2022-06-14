@@ -73,14 +73,14 @@ public class ListGraph extends AbstractGraph {
     if (!isDirected()) {
       for(int i = 0; i < getNumV(); i++){
         if(edges.get(i).get(0).getSource().equals(edge.getDest())){
-          edges.get(i).add(new Edge(edge.getDest(), edge.getSource()));
+          edges.get(i).add(new Edge(edge.getDest(), edge.getSource(),edge.getWeight()));
           isAddedReverse = true;
         }
       }
 
       if(!isAddedReverse){
         LinkedList<Edge> a = new LinkedList<>();
-        a.add(new Edge(edge.getDest(), edge.getSource()));
+        a.add(new Edge(edge.getDest(), edge.getSource(),edge.getWeight()));
         
         edges.add(a);
 
@@ -175,7 +175,25 @@ public class ListGraph extends AbstractGraph {
         }
  
         return dist.get(dest.getId());
+  }
+
+  @Override
+  public String toString() {
+    Iterator<Edge> it;
+    Edge current;
+    StringBuilder sb = new StringBuilder();
+
+    for(int i = 0; i < getNumV(); i++){
+      it = edges.get(i).iterator();
+      
+      while(it.hasNext()){
+        current = it.next();
+          sb.append(edges.get(i).getFirst().getSource().getName() + " -> " + current.getDest().getName() + "\n");
+      }
     }
+
+    return sb.toString();
+  }
 
   /** Load the edges of a graph from the data in an input file.
         The file should contain a series of lines, each line
