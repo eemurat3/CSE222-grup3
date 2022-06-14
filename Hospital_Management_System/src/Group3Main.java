@@ -652,6 +652,11 @@ public class Group3Main {
         }
     }
 
+    /**
+     * It's a menu that allows the user to choose between logging in as a patient or a worker
+     * 
+     * @param myHospital is the object of the class HMSystem
+     */
     public static void mainMenu(HMSystem myHospital)
     {
         System.out.println("\n\t\tHospital Management System");

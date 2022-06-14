@@ -25,16 +25,67 @@ public class HMSystem
     static private HashMap<String,Patient> pMap = new HashMap<>();
     static public ListGraph navigationDepartments = new ListGraph(false);
 
+    /**
+     * It returns the HashMap wMap.
+     * 
+     * @return A HashMap of type String and Worker.
+     */
     public static HashMap<String,Worker> getwmap(){return wMap;}
+
+    /**
+     * Return the tests.
+     * 
+     * @return The queue of tests.
+     */
     public static Queue<Test> gettests(){return tests;}
+
+    /**
+     * This function returns the users BinarySearchTree.
+     * 
+     * @return The users binary search tree.
+     */
     public static BinarySearchTree<User> getusers(){return users;}
+
+    /**
+     * This function returns a list of workers.
+     * 
+     * @return A list of workers.
+     */
     public static List<Worker> getworkers(){return workers;}
+
+    /**
+     * This function returns the patients SkipList.
+     * 
+     * @return The patients SkipList.
+     */
     public static SkipList<Patient> getpatients(){return patients;}
+
+    /**
+     * This function returns a list of departments.
+     * 
+     * @return A list of departments.
+     */
     public static List<Department> getdepartments(){return departments;}
+
+   /**
+    * This function returns a list of all the appointments in the database
+    * 
+    * @return The list of appointments.
+    */
     public static List<Appointment> getappointments(){return appointments;}
+
+    /**
+     * This function returns the navigationDepartments list
+     * 
+     * @return The list of departments.
+     */
     public static ListGraph getnavigationDepartments(){return navigationDepartments;}
+    
 
 
+    /**
+     * This function adds all the workers in the workers arraylist to the wMap hashmap
+     */
     public void addAlltoWMap()
     {
         for (Worker item : workers) {
@@ -42,6 +93,9 @@ public class HMSystem
         }
     }
 
+   /**
+    * This function adds all the patients in the patients arraylist to the pMap hashmap
+    */
     public void addAlltoPMap()
     {
         for (Patient item : patients) {
@@ -50,6 +104,14 @@ public class HMSystem
     }
 
     // A generic method that returns an object from a list.
+    /**
+     * This function takes in a String ID and a List of type E, and returns an object of type E that
+     * has the same ID as the String ID
+     * 
+     * @param ID The ID of the user you want to return
+     * @param list The list of users
+     * @return A generic object.
+     */
     public <E> E returnUser(String ID, List<E> list){
         for(int i = 0; i < list.size(); i++){
             if(((User) list.get(i)).getId().compareTo(ID) == 0){
@@ -59,6 +121,14 @@ public class HMSystem
         return null;
     }
 
+   /**
+    * This function takes in a string ID and a skiplist of patients. It iterates through the skiplist
+    * and returns the patient with the matching ID
+    * 
+    * @param ID The ID of the patient to be returned
+    * @param skiplist the skiplist that contains the patient
+    * @return The patient with the ID that is passed in.
+    */
     public Patient returnPatient(String ID, SkipList<Patient> skiplist){
         Iterator<Patient> it = skiplist.iterator();
         Patient current;
@@ -75,6 +145,11 @@ public class HMSystem
     }
 
 
+    /**
+     * It returns an ArrayList of Polyclinic objects from the departments ArrayList
+     * 
+     * @return ArrayList<Polyclinic>
+     */
     public ArrayList<Polyclinic> polycList()
     {
         ArrayList<Polyclinic> pList = new ArrayList<>();
@@ -85,6 +160,12 @@ public class HMSystem
         return pList;
     }
     
+    /**
+     * It takes a Scanner object as input, and returns an integer
+     * 
+     * @param input Scanner object
+     * @return The method is returning an integer.
+     */
     public int getInt(Scanner input) {
         int retval = 0;
         try {
@@ -96,7 +177,13 @@ public class HMSystem
         return retval;
     }     
     
-    public void managerMenu(Manager manager) {
+    /**
+     * It's a menu for the manager.
+     * </code>
+     * 
+     * @param manager The manager who is logged in
+     */
+    public void managerMenu(Manager manager)throws Exception {
         
         Scanner sc = new Scanner(System.in);
         int input = 0;
@@ -355,7 +442,14 @@ public class HMSystem
         }
     }
     
-    public void technicianMenu(Technician tech) {
+    /**
+     * This function is a menu for a technician to add tests, take tests, display old tests, display
+     * waiting tests, or exit.
+     * </code>
+     * 
+     * @param tech Technician object
+     */
+    public void technicianMenu(Technician tech)throws Exception {
         
         Scanner sc = new Scanner(System.in);
         int input = 0;
@@ -401,7 +495,13 @@ public class HMSystem
         }
     }    
 
-    public void doctorMenu(Doctor doctor){
+    /**
+     * This function is used to display the menu for the doctor and it takes the doctor object as a
+     * parameter
+     * 
+     * @param doctor Doctor object
+     */
+    public void doctorMenu(Doctor doctor)throws Exception{
         Scanner sc = new Scanner(System.in);
         int input;
         boolean loop = true;
@@ -468,7 +568,12 @@ public class HMSystem
         }
     }
 
-    public void ADVMenu(Advisor adv){
+    /**
+     * It's a menu for an advisory staff
+     * 
+     * @param adv Advisor
+     */
+    public void ADVMenu(Advisor adv)throws Exception{
         Scanner sc = new Scanner(System.in);
         int count = 15;
         int input;
@@ -546,7 +651,13 @@ public class HMSystem
         }
     }
 
-    public void NurseMenue(Nurse nurse){
+    /**
+     * The function takes a nurse object as a parameter and displays a menu for the nurse to choose
+     * from
+     * 
+     * @param nurse the nurse object that is logged in
+     */
+    public void NurseMenue(Nurse nurse)throws Exception{
         Scanner sc = new Scanner(System.in);
         int input;
         boolean loop = true;
@@ -647,7 +758,12 @@ public class HMSystem
         }
     }
 
-    public void secreterMenu(Secreter secreter){
+    /**
+     * It's a menu for a secreter to choose from a list of options
+     * 
+     * @param secreter Secreter object
+     */
+    public void secreterMenu(Secreter secreter)throws Exception{
         Scanner sc = new Scanner(System.in);
         int input;
         boolean loop = true;
@@ -678,7 +794,10 @@ public class HMSystem
         }
     }
 
-    public void patientMenu() throws InputMismatchException
+    /**
+     * It's a menu for patients
+     */
+    public void patientMenu() throws Exception
     {   
 
         Scanner sc = new Scanner(System.in);
