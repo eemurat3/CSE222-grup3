@@ -31,6 +31,15 @@ public class Worker extends User
     public Department getDepartment() {
         return department;
     }
+    
+    public void setAll(String name, String surname, String id, int age,String username , String password) {
+        setName(name);
+        setSurname(surname);
+        setId(id);
+        setAge(age);
+        setUsername(username);
+        setPassword(password);
+    }    
 
     /**
      * This function sets the department of the employee.

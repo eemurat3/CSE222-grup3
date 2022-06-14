@@ -144,9 +144,6 @@ public class HMSystem
     
                     System.out.print("Enter a Surname For The New Staff: ");
                     String surname = sc.nextLine();
-    
-                    System.out.print("Enter an ID For The New Staff: ");
-                    String id = sc.nextLine();
                     
                     System.out.print("Enter an Age For The New Staff: ");
                     int age = getInt(sc);
@@ -158,32 +155,32 @@ public class HMSystem
                     String password = sc.nextLine();
     
                     if (type == 0) {
-                        Doctor d = new Doctor(name, surname, id, age, username, password);
+                        Doctor d = new Doctor(name, surname, "0", age, username, password);
                         Polyclinic poly = (Polyclinic) departments.get(index);
                         poly.addDoctor(d);
                         workers.add(d);                        
 
                     }
                     else if (type == 1) {
-                        Nurse n = new Nurse(name, surname, id, age, username, password);
+                        Nurse n = new Nurse(name, surname, "0", age, username, password);
                         Polyclinic poly = (Polyclinic) departments.get(index);
                         poly.addNurse(n);
                         workers.add(n);
                     }
                     else if (type == 2) {
-                        Secreter s = new Secreter(name, surname, id, age, username, password);
+                        Secreter s = new Secreter(name, surname, "0", age, username, password);
                         Polyclinic poly = (Polyclinic) departments.get(index);
                         poly.addSecreter(s);
                         workers.add(s);
                     }
                     else if (type == 3) {
-                        Advisor a = new Advisor(name, surname, id, age, username, password);
+                        Advisor a = new Advisor(name, surname, "0", age, username, password);
                         Reception recept = (Reception) departments.get(index);
                         recept.addAdvisorStaff(a);
                         workers.add(a);
                     }
                     else if (type == 4) {
-                        Technician t = new Technician(name, surname, id, age, username, password);
+                        Technician t = new Technician(name, surname, "0", age, username, password);
                         Lab lab = (Lab) departments.get(index);
                         lab.addClinicalTechnician(t);
                         workers.add(t);
@@ -269,9 +266,6 @@ public class HMSystem
     
                     System.out.print("Enter a Surname For The New Staff: ");
                     String surname = sc.nextLine();
-    
-                    System.out.print("Enter an ID For The New Staff: ");
-                    String newId = sc.nextLine();
                     
                     System.out.print("Enter an Age For The New Staff: ");
                     int age = getInt(sc);
@@ -282,31 +276,7 @@ public class HMSystem
                     System.out.print("Enter a Password For The New Staff: ");
                     String password = sc.nextLine();
                     
-                    if (workers.get(index).getClass() == Doctor.class) {
-                        Doctor d = new Doctor(name, surname, newId, age, username, password);
-                        d.setDepartment(workers.get(index).getDepartment());
-                        workers.set(index, d);
-                    }
-                    if (workers.get(index).getClass() == Nurse.class) {
-                        Nurse n = new Nurse(name, surname, newId, age, username, password);
-                        n.setDepartment(workers.get(index).getDepartment());
-                        workers.set(index, n);
-                    }
-                    if (workers.get(index).getClass() == Secreter.class) {
-                        Secreter s = new Secreter(name, surname, newId, age, username, password);
-                        s.setDepartment(workers.get(index).getDepartment());
-                        workers.set(index, s);
-                    }
-                    if (workers.get(index).getClass() == Technician.class) {
-                        Technician t = new Technician(name, surname, newId, age, username, password);
-                        t.setDepartment(workers.get(index).getDepartment());
-                        workers.set(index, t);
-                    }
-                    if (workers.get(index).getClass() == Advisor.class) {
-                        Advisor a = new Advisor(name, surname, newId, age, username, password);
-                        a.setDepartment(workers.get(index).getDepartment());
-                        workers.set(index, a);
-                    }                                                                                
+                    workers.get(index).setAll(name, surname, id, age, username, password);
                 }
             }
             else if (input == 7) {
@@ -315,12 +285,12 @@ public class HMSystem
                     if (it.getClass() == Doctor.class)
                         System.out.println("\t" + it);
                 
-                        System.out.println("\nNurses:");
+                System.out.println("\nNurses:");
                 for (Worker it : workers)
                     if (it.getClass() == Nurse.class)
                         System.out.println("\t" + it);
                 
-                        System.out.println("\nSecretaries:");
+                System.out.println("\nSecretaries:");
                 for (Worker it : workers)
                     if (it.getClass() == Secreter.class)
                         System.out.println("\t" + it);
@@ -335,6 +305,8 @@ public class HMSystem
                     if (it.getClass() == Advisor.class)
                         System.out.println("\t" + it);
             }
+            else if (input == 8)
+                return;
         }
     }
     
